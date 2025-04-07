@@ -1,1 +1,1 @@
-console.log("setup part 1")
+console.log("setup done")
