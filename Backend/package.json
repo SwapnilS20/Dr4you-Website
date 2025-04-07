@@ -1,0 +1,18 @@
+{
+  "name": "dr4you-backend",
+  "version": "1.0.0",
+  "description": "dr4you website with CMS ",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "author": "Swapnil Shinde",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "prettier": "^3.5.3"
+  }
+}
