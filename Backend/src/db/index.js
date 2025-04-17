@@ -1,0 +1,20 @@
+import mysql from 'mysql2';
+import dotenv from 'dotenv';
+import { DB_NAME } from '../constants.js';
+
+dotenv.config();
+// Create a connection pool to the MySQL database
+const db = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: DB_NAME,
+    port: process.env.DB_PORT,
+    connectionLimit: 10,
+    waitForConnections: true,
+    queueLimit: 0,
+}).promise();
+
+
+export default db;
+
