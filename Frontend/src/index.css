@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --my-gradient: linear-gradient(to bottom right, #f2faff, #ffffff);
+  --btn-gradient: linear-gradient(to bottom right, #a7e2ff, #0095DE);
+}
+
+@font-face {
+    font-family: 'General Sans';
+    src: url('./assets/Fonts/GeneralSans/GeneralSans-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'General Sans';
+    src: url('./assets/Fonts/GeneralSans/GeneralSans-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'General Sans';
+    src: url('./assets/Fonts/GeneralSans/GeneralSans-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Manrope';
+    src: url('./assets/Fonts/Manrope/Manrope-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Manrope';
+    src: url('./assets/Fonts/Manrope/Manrope-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Manrope';
+    src: url('./assets/Fonts/Manrope/Manrope-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Manrope';
+    src: url('./assets/Fonts/Manrope/Manrope-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  
