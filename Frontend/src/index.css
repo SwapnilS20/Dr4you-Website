@@ -5,6 +5,12 @@
 :root {
   --my-gradient: linear-gradient(to bottom right, #f2faff, #ffffff);
   --btn-gradient: linear-gradient(to bottom right, #a7e2ff, #0095DE);
+  --bg-gradient: linear-gradient(to bottom , #E6F6FE, #ffffff);
+  --text-gradient: linear-gradient(to bottom right , #0179B4, #88D8FF);
+  --border-gradient: linear-gradient(to bottom right , #1376F8, #25B4F8);
+
+  --ImgBack-gradient: linear-gradient(to bottom , #00A4F4, #C2EBFF);
+
 }
 
 @font-face {
@@ -62,3 +68,17 @@
     font-display: swap;
   }
   
+  .btn-hover-effect {
+    @apply hover:bg-gradient-to-r hover:from-[#a7e2ff] hover:to-[#0095DE] hover:text-white;
+  }
+  
+  .text-gradient-btn {
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .border-gradient-btn {
+    background: var(--border-gradient);
+    border-width: 0.1px;
+  }

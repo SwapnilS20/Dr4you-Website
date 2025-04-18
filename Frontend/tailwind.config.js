@@ -33,6 +33,11 @@ export default {
       backgroundImage: {
         'custom-gradient': 'var(--my-gradient)', // this makes it usable like `bg-custom-gradient`
         'btn-gradient': 'var( --btn-gradient)',
+        'bg-gradient': 'var( --bg-gradient)',
+        'text-gradient': 'var( --text-gradient)',
+        'border-gradient': 'var( --border-gradient)',
+        'ImgBack-gradient': 'var( --ImgBack-gradient)',
+
     },
     fontFamily: {
       'general-sans': ['"General Sans"', 'sans-serif'],
