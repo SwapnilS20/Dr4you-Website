@@ -12,6 +12,9 @@
   --ImgBack-gradient: linear-gradient(to bottom , #00A4F4, #C2EBFF);
 
 }
+/* *{
+  border: red solid 1px;
+} */
 
 @font-face {
     font-family: 'General Sans';
