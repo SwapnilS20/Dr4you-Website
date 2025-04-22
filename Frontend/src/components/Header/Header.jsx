@@ -3,7 +3,7 @@ import Button from '../Button';
 import '../../index.css';
 
 const Header = () => {
-    return (
+    return ( 
         <div>
             <div className=' flex justify-between items-center p-8 pl-12 pr-12 '>
                 <div className='text-xl font-general-sans font-bold'>Drs-4You</div>
