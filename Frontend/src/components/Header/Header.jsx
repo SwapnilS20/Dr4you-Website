@@ -13,7 +13,7 @@ const Header = () => {
                     <a href="#" className='text-lg'>Find Doctors</a>
                     <a href="#" className='text-lg'>About Us</a>
                     <a href="#" className='text-lg'>Blog</a>
-                    <a href="#" className='text-lg'>Contact Us</a>
+                    <a href="#" className='text-lg'>Contact Us</a>  
 
                 </nav>
                 <div className=' flex  justify-center md:hidden items-center rounded-xl h-[50px] w-[48px] bg-Primary-Blue-600'>
