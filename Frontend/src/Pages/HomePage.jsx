@@ -8,7 +8,7 @@ import Hero from '../components/HeroSection/Hero.jsx';
 const HomePage = () => {
  
     return (
-        <div className=' text-4xl bg-custom-gradient min-h-screen'>
+        <div className=' text-4xl  bg-custom-gradient min-h-screen'>
             <Header />
             <Hero />
         </div>
