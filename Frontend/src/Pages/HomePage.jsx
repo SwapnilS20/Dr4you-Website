@@ -9,7 +9,7 @@ const HomePage = () => {
  
     return (
         <div className=' text-4xl  bg-custom-gradient min-h-screen'>
-            <Header />
+            <Header/>
             <Hero />
         </div>
     );
