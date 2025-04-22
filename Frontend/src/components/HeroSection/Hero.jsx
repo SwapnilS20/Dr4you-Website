@@ -22,28 +22,28 @@ const Hero = () => {
 
   return (
     // Main Container
-    <div className=" flex flex-col sm:flex-row  h-full ">
+    <div className=" flex flex-col md:flex-row  h-full p-4 sm:p-10 ">
 
 
       {/* left side    */}
-      <div className="flex flex-col gap-10  sm:w-[50%] md:pl-[77px]  smmt-[120px]">
+      <div className="flex flex-col gap-6 mt-4 sm:gap-10 md:w-[50%] md:pl-[77px]  md:mt-[120px]">
         {/* Tagline */}
-        <div className=" font-manrope font-bold">
+        <div className=" font-manrope font-bold  text-[32px] sm:text-[46px] ">
           Connecting You to Experts. <br />{" "}
           <span className="text-gradient-btn font-extrabold">
             Anytime, Anywhere.
           </span>
         </div>
         {/* Description */}
-        <div className=" font-manrope text-base">
+        <div className=" font-manrope text-base text-justify">
           From Consultation to Clarity—We're With You. Get personalized care
           from home with Drs-4You. Whether you need a second opinion or a new
           consultation, connect with certified doctors across specialties. From
           expert advice to prescriptions and appointments—healthcare made easy.
         </div>
         {/* Button and contact */}
-        <div className="flex flex-row gap-10">
-            <Button styles={' h-[56px] , w-[227px] , text-base , sm:text-[14px] '} children={"Book an Appointment"}/>
+        <div className="flex flex-row justify-between sm:justify-normal gap-4">
+            <Button styles={' sm:h-[56px] h-[52px] sm:w-[227px] w-[172px] sm:text-[16px] text-[14px] '} children={"Book an Appointment"}/>
 
             <div className=" flex gap-4 items-center">
                 <div className="border-gradient-btn h-[55px] w-[55px] rounded-[20%]  p-[1px] ">
@@ -53,12 +53,12 @@ const Hero = () => {
                 </div>
                 <div className=" flex flex-col text-base font-general-sans  ">
                     <span className=" text-[#1376F8] font-semibold">Emergency</span>
-                    <a href="tel:8655910652" className=" font-normal">+91 8655910652</a>
+                    <a href="tel:8655910652" className=" font-normal text-[12px] sm:text-base">+91 8655910652</a>
                 </div>
             </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 place-items-center sm:w-[25vw]">
+        <div className="grid grid-cols-2 gap-4 sm:gap-8 place-items-center md:w-[25vw]">
             {/* Info 1 */}
             <div className="flex flex-col items-center text-Neutral-900">
               <div className="font-manrope font-bold text-5xl">
@@ -76,7 +76,7 @@ const Hero = () => {
             </div>
 
             {/* Info 3 (Centered Below) */}
-            <div className="flex flex-col items-center text-Neutral-900 sm:col-span-2">
+            <div className="flex flex-col items-center text-Neutral-900 col-span-2 ">
               <div className="font-manrope font-bold text-5xl">
                 22<span className="text-Primary-Blue-500">+</span>
               </div>
@@ -87,7 +87,7 @@ const Hero = () => {
 
 
       {/* right side */}
-      <div className=" flex flex-col justify-center items-center  sm:w-[50%]">
+      <div className=" flex flex-col justify-center items-center   md:w-[50%] mt-4 sm:mt-0  ">
         {/* Background Circle and Image */}
           <div className="absolute sm:w-[396px] sm:h-[402px] w-[310px] h-[378px] bg-ImgBack-gradient rounded-t-[300px]">
           </div>
