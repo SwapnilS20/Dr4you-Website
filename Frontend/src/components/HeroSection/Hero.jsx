@@ -8,96 +8,110 @@ import commentImg2 from "../../assets/Images/commentImg2.jpg";
 import commentImg3 from "../../assets/Images/commentImg3.jpg";
 import commentImg4 from "../../assets/Images/commentImg4.jpg";
 
-import { FaStar , FaStarHalf } from "react-icons/fa";
+import { FaStar, FaStarHalf } from "react-icons/fa";
 import { BsQuote } from "react-icons/bs";
 
-
 const Hero = () => {
-  const commentImages = [
-    commentImg1,
-    commentImg2,
-    commentImg3,
-    commentImg4,
-  ];
+  const commentImages = [commentImg1, commentImg2, commentImg3, commentImg4];
 
   return (
     // Main Container
-    <div className=" flex flex-col md:flex-row  h-full p-4 sm:p-10 ">
-
-
+    <div className=" flex flex-col lg:flex-row  h-full p-4 sm:p-10 md:p-5 lg:p-0 ">
       {/* left side    */}
-      <div className="flex flex-col gap-6 mt-4 sm:gap-10 md:w-[50%] md:pl-[77px]  md:mt-[120px]">
+      <div className="flex flex-col gap-6 mt-4 sm:gap-10 lg:w-[50%] md:pl-[0px] lg:pl-[50px]  lg:mt-[120px] xl:mt-[120px]">
         {/* Tagline */}
         <div className=" font-manrope font-bold  text-[32px] sm:text-[46px] ">
           Connecting You to Experts. <br />{" "}
-          <span className="text-gradient-btn font-extrabold">
+          <span className="text-gradient-btn font-extrabold text-justify">
             Anytime, Anywhere.
           </span>
         </div>
         {/* Description */}
         <div className=" font-manrope text-base text-justify">
-          From Consultation to Clarity—We're With You. Get personalized care
-          from home with Drs-4You. Whether you need a second opinion or a new
-          consultation, connect with certified doctors across specialties. From
-          expert advice to prescriptions and appointments—healthcare made easy.
+          From Consultation to Clarity—We’re With You.Get personalized care from
+          home with Drs-4You. Whether it’s your first consultation or a
+          follow-up, connect with certified doctors across specialties. From
+          expert medical advice to prescriptions and appointments—healthcare
+          made simple, secure, and supportive.
         </div>
         {/* Button and contact */}
-        <div className="flex flex-row justify-between sm:justify-normal gap-4">
-            <Button styles={' sm:h-[56px] h-[52px] sm:w-[227px] w-[172px] sm:text-[16px] text-[14px] '} children={"Book an Appointment"}/>
+        <div className="flex flex-row justify-evenly sm:justify-center lg:justify-start gap-4 md:gap-16 lg:gap-4">
+          <Button
+            styles={
+              " sm:h-[56px] h-[52px] sm:w-[227px] w-[172px] sm:text-[16px] text-[14px] "
+            }
+            children={"Book an Appointment"}
+          />
 
-            <div className=" flex gap-4 items-center">
-                <div className="border-gradient-btn h-[55px] w-[55px] rounded-[20%]  p-[1px] ">
-                    <div className=" flex justify-center items-center bg-white h-full w-full rounded-[20%] p-[4px] ">
-                       <span className=" flex items-center justify-center bg-bg-gradient h-full w-full rounded-[15%] "> <BiSolidPhoneCall className=" text-[#1376F8] text-2xl "  /> </span>
-                    </div>
-                </div>
-                <div className=" flex flex-col text-base font-general-sans  ">
-                    <span className=" text-[#1376F8] font-semibold">Emergency</span>
-                    <a href="tel:8655910652" className=" font-normal text-[12px] sm:text-base">+91 8655910652</a>
-                </div>
+          <div className=" flex gap-4 items-center">
+            <div className="border-gradient-btn h-[55px] w-[55px] rounded-[20%]  p-[1px] ">
+              <div className=" flex justify-center items-center bg-white h-full w-full rounded-[20%] p-[4px] ">
+                <span className=" flex items-center justify-center bg-bg-gradient h-full w-full rounded-[15%] ">
+                  {" "}
+                  <BiSolidPhoneCall className=" text-[#1376F8] text-2xl " />{" "}
+                </span>
+              </div>
             </div>
+            <div className=" flex flex-col text-base font-general-sans  ">
+              <span className=" text-[#1376F8] font-semibold">Emergency</span>
+              <a
+                href="tel:8655910652"
+                className=" font-normal text-[12px] sm:text-base"
+              >
+                +91 8655910652
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 sm:gap-8 place-items-center md:w-[25vw]">
-            {/* Info 1 */}
-            <div className="flex flex-col items-center text-Neutral-900">
-              <div className="font-manrope font-bold text-5xl">
-                60<span className="text-Primary-Blue-500">+</span>
-              </div>
-              <div className="font-manrope font-semibold text-base">Expert Specialists</div>
+        <div className="grid grid-cols-2 gap-4 sm:gap-8 place-items-center lg:w-[25vw]">
+          {/* Info 1 */}
+          <div className="flex flex-col items-center text-Neutral-900">
+            <div className="font-manrope font-bold text-5xl">
+              60<span className="text-Primary-Blue-500">+</span>
             </div>
+            <div className="font-manrope font-semibold text-base">
+              Expert Specialists
+            </div>
+          </div>
 
-            {/* Info 2 */}
-            <div className="flex flex-col items-center text-Neutral-900">
-              <div className="font-manrope font-bold text-5xl">
-                500<span className="text-Primary-Blue-500">+</span>
-              </div>
-              <div className="font-manrope font-semibold text-base">Patients Served</div>
+          {/* Info 2 */}
+          <div className="flex flex-col items-center text-Neutral-900">
+            <div className="font-manrope font-bold text-5xl">
+              500<span className="text-Primary-Blue-500">+</span>
             </div>
+            <div className="font-manrope font-semibold text-base">
+              Patients Served
+            </div>
+          </div>
 
-            {/* Info 3 (Centered Below) */}
-            <div className="flex flex-col items-center text-Neutral-900 col-span-2 ">
-              <div className="font-manrope font-bold text-5xl">
-                22<span className="text-Primary-Blue-500">+</span>
-              </div>
-              <div className="font-manrope font-semibold text-base">Medical Services</div>
+          {/* Info 3 (Centered Below) */}
+          <div className="flex flex-col items-center text-Neutral-900 col-span-2 ">
+            <div className="font-manrope font-bold text-5xl">
+              22<span className="text-Primary-Blue-500">+</span>
             </div>
+            <div className="font-manrope font-semibold text-base">
+              Medical Services
+            </div>
+          </div>
         </div>
       </div>
 
-
       {/* right side */}
-      <div className=" flex flex-col justify-center items-center   md:w-[50%] mt-4 sm:mt-0  ">
+      <div className=" flex flex-col justify-center sm:justify-start lg:justify-center items-center   lg:w-[50%] mt-4 sm:mt-4 md:mt-2 lg:mt-0  ">
         {/* Background Circle and Image */}
-          <div className="absolute sm:w-[396px] sm:h-[402px] w-[310px] h-[378px] bg-ImgBack-gradient rounded-t-[300px]">
-          </div>
+        <div className="absolute lg:w-[396px] lg:h-[402px] w-[310px] h-[378px] bg-ImgBack-gradient rounded-t-[300px] md:mt-6 lg:mt-0   "></div>
 
-          <div >
-            <img src={HeroImg} alt=""  className=" relative  sm:w-[482px] sm:h-[476px] w-[382px] h-[376px] left-4 sm:top-[123px]  " />
-          </div>
+        <div>
+          <img
+            src={HeroImg}
+            alt=""
+            className=" relative lg:w-[482px] lg:h-[476px] w-[382px] h-[376px] left-4 lg:top-[123px] sm:top-6    "
+          />
+        </div>
 
         {/* Comment Section */}
-       <div className=" hidden relative w-[241px] h-[128px] bg-white border-2 border-[#95DDFF] rounded-xl shadow-md p-4  sm:flex flex-col justify-between left-44 bottom-44 ">
+        <div className=" hidden relative w-[241px] h-[128px] bg-white border-2 border-[#95DDFF] rounded-xl shadow-md p-4   sm:flex flex-col justify-between left-44 lg:left-32 xl:left-44 lg:bottom-44 bottom-48 sm:bottom-54 ">
           {/* Top: Images + Number */}
           <div className="flex items-center justify-between">
             {/* Images */}
@@ -131,26 +145,32 @@ const Hero = () => {
               <FaStar className="text-yellow-400 text-base" />
               <FaStar className="text-yellow-400 text-base" />
               <FaStarHalf className="text-yellow-400 text-base" />
-
-
             </div>
             <span className="text-gray-500 text-sm ml-1">(4.7 Stars)</span>
           </div>
         </div>
 
         {/* comment two */}
-        <div className=" hidden relative sm:flex justify-center items-center gap-2 w-[296px] h-[44px] rounded-[10px] bg-white shadow-md bottom-44 right-40">
-              <div className=" flex justify-center items-center w-[28px] h-[28px] bg-Primary-Blue-50"> <FaStar className="text-Primary-Blue-700 text-base  "/> </div>
-              <div className=" font-manrope font-bold text-base">Easy Appointment Booking</div>
+        <div className=" hidden relative sm:flex justify-center items-center gap-2 w-[296px] h-[44px] rounded-[10px] bg-white shadow-md lg:bottom-44 bottom-52 right-40">
+          <div className=" flex justify-center items-center w-[28px] h-[28px] bg-Primary-Blue-50">
+            {" "}
+            <FaStar className="text-Primary-Blue-700 text-base  " />{" "}
+          </div>
+          <div className=" font-manrope font-bold text-base">
+            Easy Appointment Booking
+          </div>
         </div>
 
         {/* comment Three */}
-              <span className=" hidden sm:flex relative bottom-28 text-Primary-Blue-500 text-6xl right-2 z-10  "><BsQuote/></span>
-        <div className=" relative hidden sm:flex justify-center items-center gap-2 w-[300px] h-[88px] rounded-[10px] bg-white border-2 border-[#95DDFF] shadow-md left-28 bottom-36">
-              <div className=" text-center  text-base ">Lorem ipsum dolor sit amet, ligula ego. consectetuer adipiscing elit doloras. </div>
+        <span className=" hidden sm:flex relative lg:bottom-28 bottom-52 text-Primary-Blue-500 text-6xl right-2 z-10  ">
+          <BsQuote />
+        </span>
+        <div className=" relative hidden sm:flex justify-center items-center gap-2 w-[300px] h-[88px] rounded-[10px] bg-white border-2 border-[#95DDFF] lg:shadow-md left-24 xl:left-28 lg:bottom-36 bottom-60 ">
+          <div className=" text-center  text-base ">
+            Lorem ipsum dolor sit amet, ligula ego. consectetuer adipiscing elit
+            doloras.{" "}
+          </div>
         </div>
-
-
       </div>
     </div>
   );
