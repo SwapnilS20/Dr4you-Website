@@ -9,10 +9,14 @@ import WelcomeBanner from '../components/Welcome Banner/WelcomeBanner.jsx';
 const HomePage = () => {
  
     return (
-        <div className=' text-4xl  bg-custom-gradient min-h-screen'>
-            <Header />
-            <Hero />
-            <WelcomeBanner />
+        <div className=' text-4xl min-h-screen'>
+            {/* Header ands Hero secrtion */}
+           <section className=' bg-custom-gradient'>            
+                    <Header />
+                    <Hero />
+            </section> 
+            {/* Welcome Banner Section */}
+        <WelcomeBanner />
         </div>
     );
 }
