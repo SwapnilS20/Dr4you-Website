@@ -14,7 +14,7 @@ function WelcomeBanner() {
           <div className="   bg-Primary-Blue-400  rounded-[3%]">
             <div className=" relative top-7 right-7 ">
               <img src={img} alt="" />
-            </div>
+            </div> 
           </div>
         </div>
         {/* Right */}
