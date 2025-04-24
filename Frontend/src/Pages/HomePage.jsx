@@ -10,13 +10,15 @@ const HomePage = () => {
  
     return (
         <div className=' text-4xl min-h-screen'>
+            
             {/* Header ands Hero secrtion */}
            <section className=' bg-custom-gradient'>            
                     <Header />
                     <Hero />
             </section> 
+
             {/* Welcome Banner Section */}
-        <WelcomeBanner />
+            <WelcomeBanner />
         </div>
     );
 }

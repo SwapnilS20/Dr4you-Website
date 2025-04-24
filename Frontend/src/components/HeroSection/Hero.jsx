@@ -42,7 +42,7 @@ const Hero = () => {
             }
             children={"Book an Appointment"}
           />
-
+          {/* contact */}
           <div className=" flex gap-4 items-center">
             <div className="border-gradient-btn h-[55px] w-[55px] rounded-[20%]  p-[1px] ">
               <div className=" flex justify-center items-center bg-white h-full w-full rounded-[20%] p-[4px] ">
@@ -52,7 +52,7 @@ const Hero = () => {
                 </span>
               </div>
             </div>
-            <div className=" flex flex-col text-base font-general-sans  ">
+            <div  className=" flex flex-col text-base font-general-sans  ">
               <span className=" text-[#1376F8] font-semibold">Emergency</span>
               <a
                 href="tel:8655910652"
@@ -111,6 +111,7 @@ const Hero = () => {
         </div>
 
         {/* Comment Section */}
+        {/* comment one */}
         <div className=" hidden relative w-[241px] h-[128px] bg-white border-2 border-[#95DDFF] rounded-xl shadow-md p-4   sm:flex flex-col justify-between left-44 lg:left-32 xl:left-44 lg:bottom-44 bottom-48 sm:bottom-54 ">
           {/* Top: Images + Number */}
           <div className="flex items-center justify-between">
