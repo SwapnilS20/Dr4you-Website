@@ -6,20 +6,20 @@ function WelcomeBanner() {
   return (
     <section
       aria-labelledby="WelcomeBanner"
-      className="p-2 md:p-10  pt-0 min-h-[500px]"
+      className="p-2 md:p-10 mt-6 lg:mt-0  pt-0 min-h-[500px]"
     >
       <div className=" bg-Primary-Blue-100 flex flex-col-reverse justify-center items-center gap-4 lg:flex-row min-h-[450px] rounded-xl p-4 md:p-10">
         {/* Left */}
-        <div className="lg:w-[50%] flex justify-start ml-5 items-center">
-          <div className="   bg-Primary-Blue-400  rounded-[3%]">
-            <div className=" relative top-7 right-7 ">
+        <div className="lg:w-[50%] flex justify-start sm:ml-5 items-center">
+          <div className="   sm:bg-Primary-Blue-400  rounded-[3%]">
+            <div className=" sm:relative top-7 right-7 ">
               <img src={img} alt="" />
             </div> 
           </div>
         </div>
         {/* Right */}
-        <div className="lg:w-[50%] flex justify-center items-start flex-col gap-8 md:p-8 font-general-sans ">
-          <div className="text-[36px] sm:text-[42px]  font-semibold text-[#011632] ">
+        <div className="lg:w-[50%] flex justify-center items-start flex-col gap-8 pt-8  md:p-8 font-general-sans ">
+          <div className="text-[30px] sm:text-[42px]  font-semibold text-[#011632] ">
             Start Your Health Journey with Drs-4You.com
           </div>
           <div className=" text-[18px]  leading-8  text-justify ">

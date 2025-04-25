@@ -112,7 +112,7 @@ const Hero = () => {
 
         {/* Comment Section */}
         {/* comment one */}
-        <div className=" hidden relative w-[241px] h-[128px] bg-white border-2 border-[#95DDFF] rounded-xl shadow-md p-4   sm:flex flex-col justify-between left-44 lg:left-32 xl:left-44 lg:bottom-44 bottom-48 sm:bottom-54 ">
+        <div className=" hidden relative w-[241px] h-[128px] bg-white border-2 border-[#95DDFF] rounded-xl shadow-md p-4   lg:flex flex-col justify-between left-44 lg:left-32 xl:left-44 lg:bottom-44 bottom-48 sm:bottom-54 ">
           {/* Top: Images + Number */}
           <div className="flex items-center justify-between">
             {/* Images */}
@@ -152,7 +152,7 @@ const Hero = () => {
         </div>
 
         {/* comment two */}
-        <div className=" hidden relative sm:flex justify-center items-center gap-2 w-[296px] h-[44px] rounded-[10px] bg-white shadow-md lg:bottom-44 bottom-52 right-40">
+        <div className=" hidden relative lg:flex justify-center items-center gap-2 w-[296px] h-[44px] rounded-[10px] bg-white shadow-md lg:bottom-44 bottom-52 right-40">
           <div className=" flex justify-center items-center w-[28px] h-[28px] bg-Primary-Blue-50">
             {" "}
             <FaStar className="text-Primary-Blue-700 text-base  " />{" "}
@@ -166,7 +166,7 @@ const Hero = () => {
         <span className=" hidden sm:flex relative lg:bottom-28 bottom-52 text-Primary-Blue-500 text-6xl right-2 z-10  ">
           <BsQuote />
         </span>
-        <div className=" relative hidden sm:flex justify-center items-center gap-2 w-[300px] h-[88px] rounded-[10px] bg-white border-2 border-[#95DDFF] lg:shadow-md left-24 xl:left-28 lg:bottom-36 bottom-60 ">
+        <div className=" relative hidden lg:flex justify-center items-center gap-2 w-[300px] h-[88px] rounded-[10px] bg-white border-2 border-[#95DDFF] lg:shadow-md left-24 xl:left-28 lg:bottom-36 bottom-60 ">
           <div className=" text-center  text-base ">
             Lorem ipsum dolor sit amet, ligula ego. consectetuer adipiscing elit
             doloras.{" "}
