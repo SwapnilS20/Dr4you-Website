@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../../assets/Images/WelcomeBannerimg.png";
+import img from "../../assets/Images/WelcomeBannerImg.png";
 import { BsTelephone } from "react-icons/bs";
 
 function WelcomeBanner() {
