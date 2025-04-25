@@ -17,7 +17,7 @@ function WelcomeBanner() {
             </div> 
           </div>
         </div>
-        {/* Right */}
+        {/* Right */} 
         <div className="lg:w-[50%] flex justify-center items-start flex-col gap-8 md:p-8 font-general-sans ">
           <div className="text-[36px] sm:text-[42px]  font-semibold text-[#011632] ">
             Start Your Health Journey with Drs-4You.com
