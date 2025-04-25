@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../../assets/Images/WelcomeBannerimg.png";
+import img from "../../assets/Images/WelcomeBannerImg.png";
 import { BsTelephone } from "react-icons/bs";
 
 function WelcomeBanner() {
@@ -14,7 +14,7 @@ function WelcomeBanner() {
           <div className="   bg-Primary-Blue-400  rounded-[3%]">
             <div className=" relative top-7 right-7 ">
               <img src={img} alt="" />
-            </div>
+            </div> 
           </div>
         </div>
         {/* Right */}
