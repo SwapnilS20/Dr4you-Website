@@ -27,7 +27,7 @@ export default function Story() {
               With a network of certified practitioners and cutting-edge
               technology, we make healthcare simpler, faster, and more
               accessible—because your well-being is our priority.
-            </p>
+            </p> 
             <Button styles={"bg-[#00A4F4] text-white text-2xl font-manrope font-bold rounded-lg px-6 py-2 mt-4 hover:bg-opacity-80 transition duration-300 ease-in-out"}>
                 Learn more about us
             </Button>
