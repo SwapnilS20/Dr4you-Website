@@ -5,6 +5,7 @@ import Button from '../components/Button';
 import Header from '../components/Header/Header.jsx';
 import Hero from '../components/HeroSection/Hero.jsx';
 import WelcomeBanner from '../components/Welcome Banner/WelcomeBanner.jsx';
+import Specialities from '../components/Specialities/specialities.jsx';
 
 const HomePage = () => {
  
@@ -19,6 +20,9 @@ const HomePage = () => {
 
             {/* Welcome Banner Section */}
             <WelcomeBanner />
+
+            <Specialities />  
+
         </div>
     );
 }
