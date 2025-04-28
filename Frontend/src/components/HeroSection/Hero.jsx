@@ -38,7 +38,7 @@ const Hero = () => {
         <div className="flex flex-row justify-evenly sm:justify-center lg:justify-start gap-4 md:gap-16 lg:gap-4">
           <Button
             styles={
-              " sm:h-[56px] h-[52px] sm:w-[227px] w-[172px] sm:text-[16px] text-[14px] "
+              " sm:h-[56px] h-[52px] sm:w-[227px] w-[172px] sm:text-[16px] text-[14px] bg-btn-gradient btn-hover-effect  "
             }
             children={"Book an Appointment"}
           />

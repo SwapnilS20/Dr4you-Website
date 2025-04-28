@@ -25,7 +25,7 @@ const Header = () => {
 
                     </div>
                 </div>
-                <Button styles={' h-[56px] w-[174px] text-[20px] hidden lg:flex text-[20px] justify-center items-center'} children={" Patient Login"}/>
+                <Button styles={' h-[56px] w-[174px] text-[20px] hidden lg:flex text-[20px] justify-center items-center bg-btn-gradient btn-hover-effect  '} children={" Patient Login"}/>
             </div>
         </div>
         
