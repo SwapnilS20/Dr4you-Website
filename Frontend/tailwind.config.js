@@ -37,7 +37,9 @@ export default {
         'text-gradient': 'var( --text-gradient)',
         'border-gradient': 'var( --border-gradient)',
         'ImgBack-gradient': 'var( --ImgBack-gradient)',
-        'story-bg-gradient': 'var( --story-bg-gradient)',
+        'story-bg-gradient': 'var( --story-bg-gradient)',     
+        'story-border-gradient': 'var( --story-border-gradient)',
+
 
     },
     fontFamily: {

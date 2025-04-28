@@ -9,7 +9,15 @@
   --text-gradient: linear-gradient(to bottom right , #0179B4, #88D8FF);
   --border-gradient: linear-gradient(to bottom right , #1376F8, #25B4F8);
 
-  --story-bg-gradient: linear-gradient(to bottom right , #C5ECFF, #99DDFF);
+  --story-border-gradient: linear-gradient(to bottom right, #C5ECFF 0%, #99DDFF 100%);
+
+  --story-bg-gradient: radial-gradient(
+  circle,
+  #FFFFFF 0%,
+  #E0F7FF 50%,
+  rgba(197, 236, 255, 0.3) 100%
+);
+
   --ImgBack-gradient: linear-gradient(to bottom , #00A4F4, #C2EBFF);
 
 }

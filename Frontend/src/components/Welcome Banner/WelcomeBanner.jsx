@@ -19,14 +19,14 @@ function WelcomeBanner() {
         </div> 
         {/* Right */}
         <div className="lg:w-[50%] flex justify-center items-start flex-col gap-8 md:p-8 font-general-sans ">
-          <div className="text-[36px] sm:text-[42px]  font-semibold text-[#011632] ">
+          <h2 className="text-[36px] sm:text-[42px]  font-semibold text-[#011632] ">
             Start Your Health Journey with Drs-4you.com
-          </div>
-          <div className=" text-[18px]  leading-8  text-justify ">
+          </h2>
+          <p className=" text-[18px]  leading-8  text-justify ">
             Whether it’s your first visit or a follow-up, we’re here to
             help.Drs-4You makes scheduling your consultation quick and easy.
             Let’s guide you on the path to better health.
-          </div>
+          </p>
           <div className=" flex flex-row justify-center  ">
             <div className="flex items-center  h-[55px] border border-[#cecece] bg-white rounded-l-md px-3">
               <BsTelephone className="text-gray-500 mr-3 text-xl" />

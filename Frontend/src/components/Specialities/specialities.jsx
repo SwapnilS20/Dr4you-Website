@@ -8,9 +8,9 @@ const Specialities = () => {
       {/* Heading and arrow buttons */}
       <div className=" flex">
         <div className=" w-[100vw] flex justify-center">
-          <div className=" text-4xl md:text-6xl font-manrope font-bold">
-            Our <span className="text-gradient-btn ">specialities</span>{" "}
-          </div>
+          <h2 className=" text-4xl md:text-6xl font-manrope font-bold">
+            Our <span className="text-gradient-btn ">Specialities</span>{" "}
+          </h2>
         </div>
 
         <div className=" hidden md:flex gap-4 justify-center items-center mr-12 ">

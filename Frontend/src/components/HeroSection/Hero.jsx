@@ -20,20 +20,20 @@ const Hero = () => {
       {/* left side    */}
       <div className="flex flex-col gap-6 mt-4 sm:gap-10 lg:w-[50%] md:pl-[0px] lg:pl-[50px]  lg:mt-[120px] xl:mt-[120px]">
         {/* Tagline */}
-        <div className=" font-manrope font-bold  text-[32px] sm:text-[46px] ">
+        <h1 className=" font-manrope font-bold  text-[32px] sm:text-[46px] ">
           Connecting You to Experts. <br />{" "}
           <span className="text-gradient-btn font-extrabold text-justify">
             Anytime, Anywhere.
           </span>
-        </div>
+        </h1>
         {/* Description */}
-        <div className=" font-manrope text-base text-justify">
+        <p className=" font-manrope text-base text-justify">
           From Consultation to Clarity—We’re With You.Get personalized care from
           home with Drs-4You. Whether it’s your first consultation or a
           follow-up, connect with certified doctors across specialties. From
           expert medical advice to prescriptions and appointments—healthcare
           made simple, secure, and supportive.
-        </div>
+        </p>
         {/* Button and contact */}
         <div className="flex flex-row justify-evenly sm:justify-center lg:justify-start gap-4 md:gap-16 lg:gap-4">
           <Button
