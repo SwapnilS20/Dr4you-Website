@@ -20,7 +20,7 @@ function WelcomeBanner() {
         {/* Right */}
         <div className="lg:w-[50%] flex justify-center items-start flex-col gap-8 md:p-8 font-general-sans ">
           <div className="text-[36px] sm:text-[42px]  font-semibold text-[#011632] ">
-            Start Your Health Journey with Drs-4You.com
+            Start Your Health Journey with Drs-4you.com
           </div>
           <div className=" text-[18px]  leading-8  text-justify ">
             Whether it’s your first visit or a follow-up, we’re here to
@@ -39,6 +39,7 @@ function WelcomeBanner() {
               <div className=" flex justify-center items-center  w-[117px] h-[55] bg-[#1376F8] rounded-r-md text-semibold text-white text-base">
                 Submit
               </div>
+              
           </div>
         </div>
       </div>
