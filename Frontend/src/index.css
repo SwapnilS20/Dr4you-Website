@@ -9,6 +9,7 @@
   --text-gradient: linear-gradient(to bottom right , #0179B4, #88D8FF);
   --border-gradient: linear-gradient(to bottom right , #1376F8, #25B4F8);
 
+  --story-bg-gradient: linear-gradient(to bottom right , #C5ECFF, #99DDFF);
   --ImgBack-gradient: linear-gradient(to bottom , #00A4F4, #C2EBFF);
 
 }
