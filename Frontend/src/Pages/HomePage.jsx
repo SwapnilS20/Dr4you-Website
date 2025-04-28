@@ -7,6 +7,7 @@ import Hero from '../components/HeroSection/Hero.jsx';
 import WelcomeBanner from '../components/Welcome Banner/WelcomeBanner.jsx';
 import Specialities from '../components/Specialities/specialities.jsx';
 import Story from '../components/Story/Story.jsx';
+import Promise from '../components/Our Promise/Promise.jsx';
 
 const HomePage = () => {
  
@@ -24,6 +25,7 @@ const HomePage = () => {
 
             <Specialities />  
             <Story />
+            <Promise />
 
         </div>
     );
