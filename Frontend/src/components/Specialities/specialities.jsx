@@ -2,7 +2,7 @@ import React from "react";
 import SpecialitiesCard from "./SpecialitiesCard";
 import { BsArrowLeft } from "react-icons/bs";
 
-const Specialist = () => {
+const Specialities = () => {
   return (
     <section className=" flex flex-col gap-4 mt-12 ">
       {/* Heading and arrow buttons */}
@@ -34,4 +34,4 @@ const Specialist = () => {
   );
 };
 
-export default Specialist;
+export default Specialities;
