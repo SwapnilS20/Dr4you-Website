@@ -5,7 +5,7 @@ export default function Story() {
   return (
     <section className="min-h-[770px] py-20 px-4 md:px-14 flex justify-center items-center">
       <div className="min-h-[588px] max-w-[1280px] bg-story-bg-gradient rounded-xl border-2 border-[#99DDFF] flex flex-col gap-16 ">
-        <h2 className="text-center  text-Neutral-900 text-[32px] font-manrope font-bold mt-12">
+        <h2 className="text-center  text-Neutral-900 text-[32px] font-manrope font-bold mt-12 flex md:block  flex-col">
           <span className="text-gradient-btn">Drs-4you's Story:</span>Get to
           know us
         </h2>
