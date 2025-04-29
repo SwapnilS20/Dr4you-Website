@@ -17,6 +17,12 @@
   #E0F7FF 50%,
   rgba(197, 236, 255, 0.3) 100%
 );
+--story-bg-left-gradient: radial-gradient(
+  circle at top left,
+  #FFFFFF 20%,
+  #E0F7FF 50%,
+  rgba(197, 236, 255, 0.3) 100%
+);
 
   --ImgBack-gradient: linear-gradient(to bottom , #00A4F4, #C2EBFF);
 

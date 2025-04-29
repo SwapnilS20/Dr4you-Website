@@ -39,7 +39,7 @@ export default {
         'ImgBack-gradient': 'var( --ImgBack-gradient)',
         'story-bg-gradient': 'var( --story-bg-gradient)',     
         'story-border-gradient': 'var( --story-border-gradient)',
-
+        'story-bg-left-gradient': 'var( --story-bg-left-gradient)',
 
     },
     fontFamily: {
