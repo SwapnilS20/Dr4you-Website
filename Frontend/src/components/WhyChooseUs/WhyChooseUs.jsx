@@ -19,7 +19,7 @@ function WhyChooseUs() {
             <span className="text-gradient-btn">Your Healthcare</span>
           </h2>
           <div className="grid grid-cols-2">
-            <WhyChooseUsCard/>
+            <WhyChooseUsCard />
             <WhyChooseUsCard/>
             <WhyChooseUsCard/>
             <WhyChooseUsCard/>

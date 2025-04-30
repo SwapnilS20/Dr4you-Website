@@ -1,8 +1,12 @@
 import React from 'react'
-
-function WhyChooseUsCard() {
+import { FaUserDoctor } from "react-icons/fa6";
+function WhyChooseUsCard({ChooseUsData}) {
   return (
-    <div>WhyChooseUsCard</div>
+    <div className=''>
+      <FaUserDoctor className=''/>
+      <h3>More Experience</h3>
+      <p></p>
+    </div>
   )
 }
 
