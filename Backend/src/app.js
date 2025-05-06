@@ -5,8 +5,4 @@ const app = express()
 
 
 
-
-const [rows] =await db.query('SELECT * FROM employee')
-console.log(rows);
-
 export default app
