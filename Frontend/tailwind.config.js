@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+       
+        'xs': {'max': '375px'},
+      },
       colors: {
         'Primary-Blue-50':'#EFF9FF',
         'Primary-Blue-100':'#DEF1FF',
