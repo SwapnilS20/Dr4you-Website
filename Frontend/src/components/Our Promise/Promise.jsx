@@ -10,7 +10,7 @@ const Promise = () => {
         </h2>
         <h3 className=" font-manrope font-bold text-gradient-btn text-center">What Makes us unique </h3>
 
-        <div className=" grid md:grid-cols-2 lg:grid-cols-3 md:gap-16 gap-12 lg:gap-28 p-6">
+        <div className=" grid md:grid-cols-2 lg:grid-cols-3 md:gap-16 gap-12 lg:gap-12 xl:gap-28 p-6">
           <PromiseCard />
           <PromiseCard />
           <PromiseCard />
