@@ -33,7 +33,6 @@ const Testimonials = () => {
       feedback:
         "Professional, caring, and efficient. I loved how personalized the treatment suggestions were. Drs-4You helped me find the right doctor without stepping out of my house!",
     },
-    
   ];
 
   const [currentPage, setCurrentPage] = useState(0);
@@ -109,6 +108,8 @@ const Testimonials = () => {
           previousClassName="bg-Primary-Blue-950 px-4 py-2 "
           nextClassName="bg-Primary-Blue-950 px-4 py-2 "
           activeClassName=" w-5 h-5 flex justify-center items-center text-sm rounded-full bg-Primary-Blue-950 text-white"
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={1}
         />
       </div>
     </section>
