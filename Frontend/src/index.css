@@ -8,6 +8,8 @@
   --bg-gradient: linear-gradient(to bottom , #E6F6FE, #ffffff);
   --text-gradient: linear-gradient(to bottom right , #0179B4, #88D8FF);
   --border-gradient: linear-gradient(to bottom right , #1376F8, #25B4F8);
+  --doctor-gradient: linear-gradient(to  right , #A3CBE3,   #c7b2ad 150%);
+
 
   --story-border-gradient: linear-gradient(to bottom right, #C5ECFF 0%, #99DDFF 100%);
 
@@ -17,7 +19,7 @@
   #E0F7FF 50%,
   rgba(197, 236, 255, 0.3) 100%
 );
---story-bg-left-gradient: radial-gradient(
+--story-bg-left-gradient: radial-gradient(  
   circle at top left,
   #FFFFFF 20%,
   #E0F7FF 50%,

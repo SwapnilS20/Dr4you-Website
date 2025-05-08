@@ -8,9 +8,9 @@ function WelcomeBanner() {
       aria-labelledby="WelcomeBanner"
       className="p-2 md:p-10 mt-6 lg:mt-0  pt-0 min-h-[500px]"
     >
-      <div className=" bg-Primary-Blue-100 flex flex-col-reverse justify-center items-center gap-4 lg:flex-row min-h-[450px] rounded-xl p-4 md:p-10">
+      <div className=" bg-Primary-Blue-100 flex flex-col-reverse justify-center items-center gap-4 lg:flex-row min-h-[450px] rounded-xl p-4 md:p-10 4xl:px-64">
         {/* Left */}
-        <div className="lg:w-[50%] flex justify-start sm:ml-5 items-center">
+        <div className="lg:w-[50%] flex justify-start 2xl:justify-center sm:ml-5 items-center">
           <div className="   sm:bg-Primary-Blue-400  rounded-[3%]">
             <div className=" sm:relative top-7 right-7 ">
               <img src={img} alt="" />

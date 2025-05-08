@@ -9,6 +9,8 @@ export default {
       screens: {
        
         'xs': {'max': '375px'},
+        '4xl': {'min': '2560px'},
+
       },
       colors: {
         'Primary-Blue-50':'#EFF9FF',
@@ -44,6 +46,8 @@ export default {
         'story-bg-gradient': 'var( --story-bg-gradient)',     
         'story-border-gradient': 'var( --story-border-gradient)',
         'story-bg-left-gradient': 'var( --story-bg-left-gradient)',
+        'doctor-bg-gradient': 'var( --doctor-gradient)',
+
 
     },
     fontFamily: {

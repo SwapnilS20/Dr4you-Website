@@ -11,6 +11,7 @@ import Promise from '../components/Our Promise/Promise.jsx';
 import WhyChooseUs from '../components/WhyChooseUs/WhyChooseUs.jsx';
 import PlatformWorking from '../components/PlatformWorking/PlatformWorking.jsx';
 import Testimonials from '../components/Testimonials/testimonials.jsx';
+import Specialist from '../components/Specialist/Specialist.jsx';
 
 const HomePage = () => {
  
@@ -31,6 +32,7 @@ const HomePage = () => {
             <PlatformWorking />
             <WhyChooseUs/>
             <Testimonials/>
+            <Specialist/>
         </div>
     );
 }

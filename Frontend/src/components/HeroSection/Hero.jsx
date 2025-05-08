@@ -16,7 +16,7 @@ const Hero = () => {
 
   return (
     // Main Container
-    <div className=" flex flex-col lg:flex-row  h-full p-4 sm:p-10 md:p-5 lg:p-0 ">
+    <div className=" flex flex-col lg:flex-row  h-full p-4 sm:p-10 md:p-5 lg:p-0 4xl:px-64 ">
       {/* left side    */}
       <div className="flex flex-col gap-6 mt-4 sm:gap-10 lg:w-[50%] md:pl-[0px] lg:pl-[50px]  lg:mt-[120px] xl:mt-[120px]">
         {/* Tagline */}
