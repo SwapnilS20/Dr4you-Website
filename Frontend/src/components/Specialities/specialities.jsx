@@ -118,12 +118,12 @@ const Specialities = () => {
 
   return (
     <section className="flex flex-col gap-4 mt-12 justify-center items-center">
-      <div className="flex items-center justify-between px-4 md:px-12">
+      <div className="flex items-center  px-4 md:px-12 w-[80%]">
         <h2 className="text-4xl md:text-6xl font-manrope font-bold w-full text-center">
           Our <span className="text-gradient-btn">Specialities</span>
         </h2>
         {/* Arrows for Desktop */}
-        <div className="hidden justify-center items-end lg:flex ml-12 ">
+        <div className="hidden  lg:flex   ">
           <ReactPaginate
             previousLabel={
               <div className="w-12 h-12 rounded-full border border-Primary-Blue-700 flex items-center justify-center">

@@ -10,7 +10,7 @@ import Story from '../components/Story/Story.jsx';
 import Promise from '../components/Our Promise/Promise.jsx';
 import WhyChooseUs from '../components/WhyChooseUs/WhyChooseUs.jsx';
 import PlatformWorking from '../components/PlatformWorking/PlatformWorking.jsx';
-import Testimonials from '../components/Testimonials/testimonials.jsx';
+import Testimonials from '../components/Testimonials/Testimonials.jsx';
 import Specialist from '../components/Specialist/Specialist.jsx';
 
 const HomePage = () => {
