@@ -87,7 +87,7 @@ const Specialist = () => {
 
   return (
     <section className="  w-full ">
-      <div className="flex flex-col justify-center items-center gap-4 md:mt-8 bg-Primary-Blue-50 max-h-[850px] p-8">
+      <div className="flex flex-col pt-8 items-center gap-4 lg:mt-8 bg-Primary-Blue-50 min-h-[850px] p-2">
         <h2 className="font-manrope font-bold text-[42px] text-center text-[#011632]">
           Meet our specialists
         </h2>
