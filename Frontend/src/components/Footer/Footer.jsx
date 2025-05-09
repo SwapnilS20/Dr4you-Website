@@ -4,6 +4,7 @@ import { FaFacebook } from "react-icons/fa";
 import { SiLinkedin } from "react-icons/si";
 import { FaInstagram } from "react-icons/fa";
 import { BsYoutube } from "react-icons/bs";
+import SocialMediaIcons from "../SocialMediaIcons";
 
 const Footer = () => {
   return (
@@ -89,22 +90,8 @@ const Footer = () => {
       {/* Social Media Links and Copyright */}
       <div className=" flex flex-col md:flex-row gap-4  justify-between items-center py-4 px-4">
         <div className=" flex gap-6 text-4xl">
-          <a href="">
-            {" "}
-            <FaFacebook className=" text-Primary-Blue-400" />{" "}
-          </a>
-          <a href="">
-            {" "}
-            <FaInstagram className=" text-Primary-Blue-400" />{" "}
-          </a>
-          <a href="">
-            {" "}
-            <SiLinkedin className=" text-Primary-Blue-400" />{" "}
-          </a>
-          <a href="">
-            {" "}
-            <BsYoutube className=" text-Primary-Blue-400" />{" "}
-          </a>
+         
+          <SocialMediaIcons />
         </div>
         <p className=" font-manrope text-base text-Neutral-900">
           © 2025 Drs-4You. All rights reserved.

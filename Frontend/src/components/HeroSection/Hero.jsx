@@ -10,9 +10,29 @@ import commentImg4 from "../../assets/Images/commentImg4.jpg";
 
 import { FaStar, FaStarHalf } from "react-icons/fa";
 import { BsQuote } from "react-icons/bs";
+import NumberAnimation from "./NumberAnimation";
 
 const Hero = () => {
   const commentImages = [commentImg1, commentImg2, commentImg3, commentImg4];
+
+  const InfoData= [
+    {
+      id: 1,
+      number: 60,
+      text: "Expert Specialists",
+    },
+    {
+      id: 2,
+      number: 500,
+      text: "Patients Served",
+    },
+    {
+      id: 3,
+      number: 22,
+      text: "Medical Services",
+      span:true
+    },
+  ];
 
   return (
     // Main Container
@@ -20,11 +40,11 @@ const Hero = () => {
       {/* left side    */}
       <div className="flex flex-col gap-6 mt-4 sm:gap-10 lg:w-[50%] md:pl-[0px] lg:pl-[50px]  lg:mt-[120px] xl:mt-[120px]">
         {/* Tagline */}
-        <h1 className=" font-manrope font-bold  text-[32px] sm:text-[46px] ">
+        <h1 className=" font-manrope font-bold  text-[32px] sm:text-[46px]  ">
           Connecting You to Experts. <br />{" "}
-          <span className="text-gradient-btn font-extrabold text-justify">
+          <h4 className=" py-2 text-gradient-btn font-extrabold text-justify animate-typing overflow-hidden whitespace-nowrap delay-200 ">
             Anytime, Anywhere.
-          </span>
+          </h4>
         </h1>
         {/* Description */}
         <p className=" font-manrope text-base text-justify">
@@ -65,35 +85,15 @@ const Hero = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-4 sm:gap-8 place-items-center lg:w-[25vw]">
-          {/* Info 1 */}
-          <div className="flex flex-col items-center text-Neutral-900">
-            <div className="font-manrope font-bold text-5xl">
-              60<span className="text-Primary-Blue-500">+</span>
-            </div>
-            <div className="font-manrope font-semibold text-base">
-              Expert Specialists
-            </div>
-          </div>
-
-          {/* Info 2 */}
-          <div className="flex flex-col items-center text-Neutral-900">
-            <div className="font-manrope font-bold text-5xl">
-              500<span className="text-Primary-Blue-500">+</span>
-            </div>
-            <div className="font-manrope font-semibold text-base">
-              Patients Served
-            </div>
-          </div>
-
-          {/* Info 3 (Centered Below) */}
-          <div className="flex flex-col items-center text-Neutral-900 col-span-2 ">
-            <div className="font-manrope font-bold text-5xl">
-              22<span className="text-Primary-Blue-500">+</span>
-            </div>
-            <div className="font-manrope font-semibold text-base">
-              Medical Services
-            </div>
-          </div>
+          {
+            InfoData.map((data) => (  
+              < NumberAnimation 
+                key={data.id}
+                number={data.number}
+                text={data.text}
+                span={data.span}
+                />))
+          }
         </div>
       </div>
 
