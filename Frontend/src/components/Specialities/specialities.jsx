@@ -98,7 +98,7 @@ const Specialities = () => {
           setItemsPerPage(4);
           break;
         default: // small screens
-          setItemsPerPage(1);
+          setItemsPerPage(2);
           break;
       }
     };
@@ -149,7 +149,7 @@ const Specialities = () => {
       </div>
 
       {/* Cards */}
-      <div className="grid px-4 lg:px-10 xl:px-48  gap-12 2xl:gap-24 mt-4  lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+      <div className="grid grid-rows-2 lg-grid-rows-1 px-4 lg:px-10 xl:px-48  gap-12 2xl:gap-24 mt-4  lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         {currentItems.map((data) => (
           <SpecialitiesCard
             key={data.id}

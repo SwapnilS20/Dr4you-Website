@@ -60,8 +60,11 @@ const Specialist = () => {
       const width = window.innerWidth;
 
       switch (true) {
-        case width >= 1024: // large screens
+        case width >= 1440: // large screens
           setItemsPerPage(4);
+          break;
+          case width >= 1024: // large screens
+          setItemsPerPage(3);
           break;
         case width >= 768: // medium screens
           setItemsPerPage(2);
@@ -87,7 +90,7 @@ const Specialist = () => {
 
   return (
     <section className="  w-full ">
-      <div className="flex flex-col pt-8 items-center gap-4 lg:mt-8 bg-Primary-Blue-50 min-h-[850px] p-2">
+      <div className="flex flex-col pt-8 items-center gap-4 lg:mt-8 bg-Primary-Blue-50 lg:min-h-[850px] p-4">
         <h2 className="font-manrope font-bold text-[42px] text-center text-[#011632]">
           Meet our specialists
         </h2>
@@ -97,7 +100,7 @@ const Specialist = () => {
         </p>
 
         {/* specialist Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-x-10 lg:py-20 px-20 p-2 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 lg:py-20 px-20 p-2 ">
           {currentItems.map((data) => (
             <SpecialistCard
               key={data.id}

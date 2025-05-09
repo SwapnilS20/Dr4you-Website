@@ -18,17 +18,17 @@ function WelcomeBanner() {
           </div>
         </div> 
         {/* Right */}
-        <div className="lg:w-[50%] flex justify-center items-start flex-col gap-8 md:p-8 font-general-sans ">
-          <h2 className="text-[36px] sm:text-[42px]  font-semibold text-[#011632] ">
+        <div className="lg:w-[50%] flex justify-center items-start flex-col gap-8 md:p-8 font-general-sans  ">
+          <h2 className="text-[36px] sm:text-[42px] xs:text-[30px]  font-semibold text-[#011632]  ">
             Start Your Health Journey with Drs-4you.com
           </h2>
-          <p className=" text-[18px]  leading-8  text-justify ">
+          <p className=" text-[18px]  leading-8  text-justify  ">
             Whether it’s your first visit or a follow-up, we’re here to
             help.Drs-4You makes scheduling your consultation quick and easy.
             Let’s guide you on the path to better health.
           </p>
-          <div className=" flex flex-row justify-center  ">
-            <div className="flex items-center  h-[55px] border border-[#cecece] bg-white rounded-l-md px-3">
+          <div className=" flex flex-row justify-center ">
+            <div className="flex items-center xs:w-[210px]  h-[55px] border border-[#cecece] bg-white rounded-l-md px-3 xs:px-1">
               <BsTelephone className="text-gray-500 mr-3 text-xl" />
               <input
                   type="text"
@@ -36,7 +36,7 @@ function WelcomeBanner() {
                   placeholder="Enter Your Phone Number"
               />
             </div>
-              <div className=" flex justify-center items-center  w-[117px] h-[55] bg-[#1376F8] rounded-r-md text-semibold text-white text-base">
+              <div className=" flex justify-center items-center xs:w-[75px]  w-[117px] h-[55] bg-[#1376F8] rounded-r-md text-semibold text-white text-base">
                 Submit
               </div>
               

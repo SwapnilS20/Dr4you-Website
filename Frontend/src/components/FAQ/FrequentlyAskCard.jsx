@@ -6,7 +6,7 @@ import { FiPlusCircle } from "react-icons/fi";
 const FrequentlyAskCard = ({ question, answer }) => {
     const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <div className={` flex flex-col max-w-[600px]  p-4 rounded-lg fontgeneral-sans ${isOpen ? " bg-[#1376F8]" : " bg-white"}`}>
+    <div className={` flex flex-col max-w-[600px]  p-4 rounded-lg fontgeneral-sans ${isOpen ? " bg-Primary-Blue-950" : " bg-white"}`}>
       <div className=" flex gap-2  justify-between items-center border-b-2 ">
         <div className=" flex justify-center items-center gap-2 p-2">
           <span>
@@ -19,7 +19,7 @@ const FrequentlyAskCard = ({ question, answer }) => {
         </span>
       </div>
       <div className={` flex flex-col gap-2 p-4 min-h-[100px] ${isOpen ? "block" : "hidden"}`}>
-        <p className={`text-base text-justify  ${isOpen ? " text-white" : " text-[#011632]"}`}>{answer}</p>
+        <p className={`text-base text-justify  text-white`}>{answer}</p>
       </div>
     </div>
   );
