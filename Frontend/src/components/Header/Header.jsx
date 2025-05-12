@@ -78,7 +78,7 @@ const Header = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="lg:hidden fixed top-0 right-0 h-screen w-[80vw] md:w-[50vw] z-50 bg-white shadow-lg rounded-l-2xl flex flex-col"
+              className="lg:hidden fixed top-0 right-0   w-[80vw] md:w-[50vw] z-50 bg-white shadow-lg rounded-l-2xl flex flex-col"
             >
               {/* Header */}
               <div className="flex justify-between items-center px-4 py-4 border-b">
