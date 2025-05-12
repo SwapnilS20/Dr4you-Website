@@ -17,17 +17,17 @@ const icons = [
   { name: 'instagram', class: 'ri-instagram-line' }, 
 ];
 
-const SocialMediaIcons = () => {
+const SocialMediaIcons = ({setgap}) => {
   return (
     <div className="flex justify-center items-center">
-      <ul className="flex gap-4">
+      <ul className={`flex  ${setgap ? 'gap-2' :'gap-4'} `}>
         {icons.map((icon, idx) => (
           <li key={idx} className="list-none">
             <a
               href="#"
               className={`
                 group relative w-10 h-10 flex items-center justify-center 
-                bg-white border-4 border-white rounded-full overflow-hidden
+                bg-white  ${setgap ? 'bg-amber-50' :''}  rounded-full overflow-hidden
               `}
             >
               {/* Gradient background on hover */}

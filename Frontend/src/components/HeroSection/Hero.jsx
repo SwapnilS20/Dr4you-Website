@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import "../../index.css";
 import Button from "../Button";
 import HeroImg from "../../assets/Images/HeroSectionMainImg.png";
@@ -172,7 +173,7 @@ const Hero = () => {
             doloras.{" "}
           </div>
         </div>
-      </div>
+      </div>  
     </div>
   );
 };

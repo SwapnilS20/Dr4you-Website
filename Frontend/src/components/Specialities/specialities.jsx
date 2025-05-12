@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SpecialitiesCard from "./SpecialitiesCard";
 import { BsArrowLeft } from "react-icons/bs";
 import ReactPaginate from "react-paginate";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Specialities = () => {
   const specialitiesData = [
@@ -116,6 +117,35 @@ const Specialities = () => {
     setCurrentPage(selected);
   };
 
+  // Animation variants
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const card = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+      rotateX: -10,
+      scale: 0.95,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      rotateX: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <section className="flex flex-col gap-4 mt-12 justify-center items-center">
       <div className="flex items-center  px-4 md:px-12 w-[80%]">
@@ -143,22 +173,31 @@ const Specialities = () => {
             activeClassName=" w-5 h-5 flex justify-center items-center text-sm rounded-full bg-Primary-Blue-400 text-white"
             disabledClassName="opacity-50 pointer-events-none"
             marginPagesDisplayed={2}
-            pageRangeDisplayed={1}  
+            pageRangeDisplayed={1}
           />
-        </div>  
+        </div>
       </div>
 
-      {/* Cards */}
-      <div className="grid grid-rows-2 lg-grid-rows-1 px-4 lg:px-10 xl:px-48  gap-12 2xl:gap-24 mt-4  lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-        {currentItems.map((data) => (
-          <SpecialitiesCard
-            key={data.id}
-            category={data.category}
-            description={data.description}
-            doctors={data.doctors}
-          />
-        ))}
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentPage}
+          className="grid grid-rows-2 lg-grid-rows-1 px-4 lg:px-10 xl:px-48 gap-12 2xl:gap-24 mt-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1"
+          variants={container}
+          initial="hidden"
+          animate="show"
+          exit="hidden"
+        >
+          {currentItems.map((data) => (
+            <motion.div key={data.id} variants={card}>
+              <SpecialitiesCard
+                category={data.category}
+                description={data.description}
+                doctors={data.doctors}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+      </AnimatePresence>
 
       {/* Pagination Buttons for mobile */}
       <div className="flex justify-center lg:hidden">

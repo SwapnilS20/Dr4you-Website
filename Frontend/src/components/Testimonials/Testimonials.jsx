@@ -44,7 +44,7 @@ const Testimonials = () => {
       const width = window.innerWidth;
 
       switch (true) {
-        case width >= 1024: // large screens
+        case width >= 1440: // large screens
           setItemsPerPage(3);
           break;
         case width >= 768: // medium screens
