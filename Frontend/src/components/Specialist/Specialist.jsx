@@ -154,10 +154,10 @@ const card = {
         {/* Pagination */}
         <ReactPaginate
           previousLabel={
-            <LuMoveLeft className="rotate-0 text-primary-Blue-950 text-[20px]" />
+            <LuMoveLeft className="rotate-0 text-primary-Blue-950 text-[28px]" />
           }
           nextLabel={
-            <LuMoveLeft className="rotate-180 text-primary-Blue-950 text-[20px]" />
+            <LuMoveLeft className="rotate-180 text-primary-Blue-950 text-[28px]" />
           }
           pageCount={pageCount}
           onPageChange={handlePageClick}
