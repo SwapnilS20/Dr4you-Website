@@ -1,12 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
 
-const WorkingCard = ( { id , title , content }) => {
+const WorkingCard = ({ id, title, content }) => {
   const contentRef = useRef(null);
   const [lineHeight, setLineHeight] = useState(0);
 
   useEffect(() => {
     if (contentRef.current) {
-      setLineHeight(contentRef.current.offsetHeight - 60 ); 
+      setLineHeight(contentRef.current.offsetHeight - 60);
     }
   }, []);
 
@@ -19,7 +19,7 @@ const WorkingCard = ( { id , title , content }) => {
         </div>
         {/*  line  */}
         <div
-          className="w-px border-l-2 border-dashed border-[#D0D5DD] mt-1 xs:mt-2"
+          className="w-px border-l-2 border-dashed border-[#D0D5DD] mt-1 xs:mt-2 md:text-3xl text-2xl"
           style={{ height: `${lineHeight}px` }}
         ></div>
       </div>

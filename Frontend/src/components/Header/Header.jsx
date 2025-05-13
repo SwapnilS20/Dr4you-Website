@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button";
 import "../../index.css";
 import logo from "../../assets/Images/Logo.png";
+import { useNavigate , NavLink } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaHome, FaPhoneSquareAlt } from "react-icons/fa";
@@ -13,6 +14,7 @@ import SocialMediaIcons from "../SocialMediaIcons";
 
 const Header = () => {
   const [DrawerOpen, setDrawerOpen] = useState(false);
+  const navigate = useNavigate();
   return (
     <div>
       <div className=" flex justify-between items-center pl-6 pr-6  pt-6 sm:pl-12 sm:pr-12 ">
@@ -21,12 +23,12 @@ const Header = () => {
           <img src={logo} alt="" /> Drs-4You
         </h1>
         <nav className=" hidden lg:flex gap-6 text-Neutral-900  font-manrope font-semibold text-[16px] ">
-          <a href="#" className="text-lg">
+          <NavLink className="text-lg" to="/">
             Home
-          </a>
-          <a href="#" className="text-lg">
+          </NavLink>
+          <NavLink className="text-lg" to="/services">
             Services
-          </a>
+          </NavLink>
           <a href="#" className="text-lg">
             Find Doctors
           </a>

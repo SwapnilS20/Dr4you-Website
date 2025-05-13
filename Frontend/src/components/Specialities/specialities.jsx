@@ -148,7 +148,7 @@ const Specialities = () => {
 
   return (
     <section className="flex flex-col gap-4 mt-12 justify-center items-center">
-      <div className="flex items-center  px-4 md:px-12 w-[80%]">
+      <div className="flex items-center  px-4 md:px-12 w-[80%] 4xl:w-[60%] ">
         <h2 className="text-4xl md:text-6xl font-manrope font-bold w-full text-center">
           Our <span className="text-gradient-btn">Specialities</span>
         </h2>
