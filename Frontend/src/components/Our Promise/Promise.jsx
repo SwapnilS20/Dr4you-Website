@@ -3,7 +3,7 @@ import PromiseCard from "./PromiseCard";
 import promise1 from "../../assets/Images/promise1.png";
 import promise2 from "../../assets/Images/promise.png";
 import promise3 from "../../assets/Images/promise3.png";  
-import promise4 from "../../assets/Images/promise4.png";
+import promise4 from "../../assets/Images/Promise4.png";
 import promise5 from "../../assets/Images/promise5.png";
 import promise6 from "../../assets/Images/promise6.png";
 
