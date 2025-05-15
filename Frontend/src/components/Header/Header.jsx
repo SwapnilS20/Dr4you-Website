@@ -96,14 +96,14 @@ const Header = () => {
               {/* Scrollable Menu */}
               <div className="flex-1 overflow-y-auto px-4 py-6">
                 <nav className="flex flex-col gap-6 text-Neutral-900 font-manrope font-semibold text-lg">
-                  <a href="#" className="flex items-center gap-3">
+                  <NavLink className="flex items-center gap-3" to="/">
                     <FaHome className="text-xl" />
                     Home
-                  </a>
-                  <a href="#" className="flex items-center gap-3">
+                  </NavLink>
+                  <NavLink className="flex items-center gap-3" to="/services">
                     <FaBriefcaseMedical className="text-xl" />
                     Services
-                  </a>
+                  </NavLink>
                   <a href="#" className="flex items-center gap-3">
                     <FaUserDoctor className="text-xl" />
                     Find Doctors

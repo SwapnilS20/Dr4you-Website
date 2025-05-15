@@ -5,6 +5,7 @@ import App from './App.jsx';
 import './index.css';
 import HomePage from './Pages/HomePages/HomePage.jsx';
 import SpecialtiesPage from './Pages/SpecialtiesPages/SpecialtiesPage.jsx';
+import SpecialtiesInnerPage from './Pages/SpecialtiesPages/SpecialtiesInnerPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
         path: "/services",
         element: <SpecialtiesPage />
       },
+      {
+        path: "/Category/:category",
+        element: <SpecialtiesInnerPage />
+      }
     ]
   }
 ]);
