@@ -219,9 +219,7 @@ const SpecialtiesPage = () => {
                 {currentItems.map((data) => (
                   <motion.div key={data.id} variants={card} >
                     <SpecialitiesCard
-                      category={data.category}
-                      description={data.description}
-                      doctors={data.doctors}
+                      data ={data}
                     />
                   </motion.div>
                 ))}
@@ -257,12 +255,13 @@ const SpecialtiesPage = () => {
         <AppointmentForm />
         {/* Doctors info  */}
         <MyEditor />
-      
-        <Specialist />
+
+        <Specialist show={true} />
         {/* FAQ */}
         <FrequentlyAskedQuestion />
         {/* footer */}
         <Footer />
+
       </section>
     </>
   );

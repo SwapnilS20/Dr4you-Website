@@ -29,9 +29,9 @@ const Header = () => {
           <NavLink className="text-lg" to="/services">
             Services
           </NavLink>
-          <a href="#" className="text-lg">
+          <NavLink className="text-lg" to="/specialist">
             Find Doctors
-          </a>
+          </NavLink>
           <a href="#" className="text-lg">
             About Us
           </a>

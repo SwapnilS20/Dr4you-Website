@@ -33,7 +33,7 @@ const HomePage = () => {
             <PlatformWorking />
             <WhyChooseUs/>
             <Testimonials/>
-            <Specialist/>
+            <Specialist show={true}/>
             <FrequentlyAskedQuestion/>
             <Footer/>
         </div>
