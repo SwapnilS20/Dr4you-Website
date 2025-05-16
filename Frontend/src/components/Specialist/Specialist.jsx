@@ -164,20 +164,14 @@ const Specialist = ({ category, show }) => {
               ? currentItems.map((data) => (
                   <motion.div key={data.id} variants={card}>
                     <SpecialistCard
-                      img={data.img}
-                      name={data.name}
-                      category={data.category}
-                      linkedinUrl={data.linkedinUrl}
+                     data={data}
                     />
                   </motion.div>
                 ))
               : filteredData.map((data) => (
                   <motion.div key={data.id} variants={card}>
                     <SpecialistCard
-                      img={data.img}
-                      name={data.name}
-                      category={data.category}
-                      linkedinUrl={data.linkedinUrl}
+                     data={data}
                     />
                   </motion.div>
                 ))}

@@ -1,13 +1,16 @@
 import { useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet , ScrollRestoration } from 'react-router-dom'
 import './index.css'
+
 
 
 function App() {
 
   return (
     <>
+     
       <Outlet/>
+      <ScrollRestoration/>  
     </> 
   )
 }
