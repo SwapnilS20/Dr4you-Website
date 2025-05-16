@@ -3,7 +3,7 @@ import Header from "../../components/Header/Header";
 import { useParams } from "react-router-dom";
 import Specialist from "../../components/Specialist/Specialist";
 import HealthCarePath from "../../components/HealthCarePath/HealthCarePath";
-import AppointmentForm from "../../components/AppointmentForm/AppointmentForm.JSX";
+import AppointmentForm from "../../components/AppointmentForm/AppointmentForm.jsx";
 import FrequentlyAskedQuestion from "../../components/FAQ/FrequentlyAskedQuestion";
 import Footer from "../../components/Footer/Footer";
 

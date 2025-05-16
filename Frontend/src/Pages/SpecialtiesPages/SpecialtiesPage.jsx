@@ -4,7 +4,7 @@ import SpecialitiesCard from "../../components/Specialities/SpecialitiesCard.jsx
 import { BsArrowLeft } from "react-icons/bs";
 import ReactPaginate from "react-paginate";
 import { motion, AnimatePresence } from "framer-motion";
-import AppointmentForm from "../../components/AppointmentForm/AppointmentForm.JSX";
+import AppointmentForm from "../../components/AppointmentForm/AppointmentForm.jsx";
 import Specialist from "../../components/Specialist/Specialist.jsx";
 import FrequentlyAskedQuestion from "../../components/FAQ/FrequentlyAskedQuestion.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
