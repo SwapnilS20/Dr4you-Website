@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import ReactPaginate from "react-paginate";
 import { motion, AnimatePresence } from "framer-motion";
 import { LuMoveLeft } from "react-icons/lu";
 import HeroImg from "../../assets/Images/HeroSectionMainImg.png";
 import SpecialistCard from "./SpecialistCard";
 
-const Specialist = () => {
+const Specialist = ({ category, show }) => {
   const FeedbackData = [
     {
       id: 1,
@@ -79,54 +79,76 @@ const Specialist = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Logic for filtering data based on category or show prop
+  const [filteredData, setFilteredData] = useState([]);
+
+  useEffect(() => {
+    if (show || category) {
+      const newData = show
+        ? FeedbackData
+        : FeedbackData.filter((data) => data.category === category);
+      setFilteredData(newData);
+      setCurrentPage(0); // reset to first page on category/show change
+    }
+  }, [category, show]);
+
+  // Logic for pagination
   const offset = currentPage * itemsPerPage;
-  const currentItems = FeedbackData.slice(offset, offset + itemsPerPage);
-  const pageCount = Math.ceil(FeedbackData.length / itemsPerPage);
+  const currentItems = (show ? FeedbackData : filteredData).slice(
+    offset,
+    offset + itemsPerPage
+  );
+  const pageCount = Math.ceil(
+    (show ? FeedbackData : filteredData).length / itemsPerPage
+  );
 
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
   };
 
- // Animation variants
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.2,
+  // Animation variants
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.2,
+      },
     },
-  },
-};
+  };
 
-const card = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-    rotateX: -10,
-    scale: 0.95,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    rotateX: 0,
-    scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
+  const card = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+      rotateX: -10,
+      scale: 0.95,
     },
-  },
-};
-
+    show: {
+      opacity: 1,
+      y: 0,
+      rotateX: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
 
   return (
     <section className="w-full">
       <div className="flex flex-col pt-8 items-center gap-4 lg:mt-8 bg-Primary-Blue-50 lg:min-h-[850px] p-4">
         <h2 className="font-manrope font-bold text-[42px] text-center text-[#011632]">
-          Meet our specialists
+          {show
+            ? "Meet our specialists"
+            : `Our well-known ${category} Specialists`}
         </h2>
-        <p className="font-manrope text-base max-w-[470px] text-center text-[#3C4959]">
-          Meet our trusted medical experts, dedicated to delivering
-          compassionate care and advanced treatment tailored to your needs.
-        </p>
+        {show ? (
+          <p className="font-manrope text-base max-w-[470px] text-center text-[#3C4959]">
+            Meet our trusted medical experts, dedicated to delivering
+            compassionate care and advanced treatment tailored to your needs.
+          </p>
+        ) : null}
 
         {/* Animated Grid with Staggered Card Animation */}
         <AnimatePresence mode="wait">
@@ -138,16 +160,27 @@ const card = {
             exit="hidden"
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-10 lg:py-20 px-20 p-2"
           >
-            {currentItems.map((data) => (
-              <motion.div key={data.id} variants={card}>
-                <SpecialistCard
-                  img={data.img}
-                  name={data.name}
-                  category={data.category}
-                  linkedinUrl={data.linkedinUrl}
-                />
-              </motion.div>
-            ))}
+            {show
+              ? currentItems.map((data) => (
+                  <motion.div key={data.id} variants={card}>
+                    <SpecialistCard
+                      img={data.img}
+                      name={data.name}
+                      category={data.category}
+                      linkedinUrl={data.linkedinUrl}
+                    />
+                  </motion.div>
+                ))
+              : filteredData.map((data) => (
+                  <motion.div key={data.id} variants={card}>
+                    <SpecialistCard
+                      img={data.img}
+                      name={data.name}
+                      category={data.category}
+                      linkedinUrl={data.linkedinUrl}
+                    />
+                  </motion.div>
+                ))}
           </motion.div>
         </AnimatePresence>
 

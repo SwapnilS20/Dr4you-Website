@@ -4,12 +4,11 @@ import SpecialitiesCard from "../../components/Specialities/SpecialitiesCard.jsx
 import { BsArrowLeft } from "react-icons/bs";
 import ReactPaginate from "react-paginate";
 import { motion, AnimatePresence } from "framer-motion";
-import AppointmentForm from "../../components/AppointmentForm/AppointmentForm.jsx";
+import AppointmentForm from "../../components/AppointmentForm/AppointmentForm.JSX";
 import Specialist from "../../components/Specialist/Specialist.jsx";
 import FrequentlyAskedQuestion from "../../components/FAQ/FrequentlyAskedQuestion.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 import MyEditor from "../../components/MyEditor.jsx";
-
 
 
 const SpecialtiesPage = () => {
@@ -218,7 +217,7 @@ const SpecialtiesPage = () => {
                 exit="hidden"
               >
                 {currentItems.map((data) => (
-                  <motion.div key={data.id} variants={card}>
+                  <motion.div key={data.id} variants={card} >
                     <SpecialitiesCard
                       category={data.category}
                       description={data.description}
