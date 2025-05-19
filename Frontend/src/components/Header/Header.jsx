@@ -18,12 +18,13 @@ const Header = () => {
 
   useEffect(() => {
     const fetchHeaderData = async () => {
-      try {
         const res = await viewHeader();
-        console.log("Header response:", res);
-      } catch (error) {
-        console.error("Failed to fetch header data:", error);
-      }
+        if (res.status === 200) {
+          console.log("Header response:", res);
+          // Handle the header data as needed
+        } else {
+          console.error("Error fetching header data");
+        }
     };
 
     fetchHeaderData();
