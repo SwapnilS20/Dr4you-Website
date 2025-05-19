@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../Button";
 import "../../index.css";
 import logo from "../../assets/Images/Logo.png";
-import { useNavigate , NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaHome, FaPhoneSquareAlt } from "react-icons/fa";
@@ -11,10 +11,24 @@ import { TbInfoOctagonFilled } from "react-icons/tb";
 import { FaUserDoctor } from "react-icons/fa6";
 import { PiVideoBold } from "react-icons/pi";
 import SocialMediaIcons from "../SocialMediaIcons";
-
+import { viewHeader } from "../../Api/Header";
 const Header = () => {
   const [DrawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchHeaderData = async () => {
+      try {
+        const res = await viewHeader();
+        console.log("Header response:", res);
+      } catch (error) {
+        console.error("Failed to fetch header data:", error);
+      }
+    };
+
+    fetchHeaderData();
+  }, []);
+
   return (
     <div>
       <div className=" flex justify-between items-center pl-6 pr-6  pt-6 sm:pl-12 sm:pr-12 ">
