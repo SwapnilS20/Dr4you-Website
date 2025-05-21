@@ -5,6 +5,8 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 
 import headerRouter from "./routes/header.routes.js";
+import heroSectionRouter from "./routes/heroSection.routes.js";
+
 
 // Emulate CommonJS __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -23,4 +25,5 @@ app.use(cookieParser());
 app.set("trust proxy", 1);
 
 app.use("/api/header", headerRouter);
+app.use("/api/heroSection", heroSectionRouter);
 export default app;
