@@ -13,7 +13,7 @@ import AboutUs from './Pages/AboutUs/AboutUs.jsx';
 const router = createBrowserRouter([
   {
     path: "/", 
-    element: <App/>,
+    element: <App/>, 
     children: [
       {
         path: "/",
