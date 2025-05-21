@@ -48,7 +48,7 @@ const Header = () => {
     {
       id: 4,
       name: HeaderData?.page4 || "About us",
-      slug: "/about-us",
+      slug: "/about",
       icon: <TbInfoOctagonFilled />,
     },
     { id: 5, name: HeaderData?.page5 || "Blogs", slug: "/blogs", icon: <PiVideoBold /> },

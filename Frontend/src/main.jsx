@@ -8,6 +8,7 @@ import SpecialtiesPage from './Pages/SpecialtiesPages/SpecialtiesPage.jsx';
 import SpecialtiesInnerPage from './Pages/SpecialtiesPages/SpecialtiesInnerPage.jsx';
 import SpecialistPage from './Pages/SpecialistPages/SpecialistPage.jsx';
 import SpecialistInnerPage from './Pages/SpecialistPages/SpecialistInnerPage.jsx';
+import AboutUs from './Pages/AboutUs/AboutUs.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,9 +32,13 @@ const router = createBrowserRouter([
         element: <SpecialistPage />
       },
       {
-        path: "/doctor/:id  ",
+        path: "/doctor/:id",
         element: <SpecialistInnerPage />
-      }
+      },
+      {
+        path: "/about",
+        element: <AboutUs/>
+      },
     ]
   }
 ]);
