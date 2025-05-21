@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Button from "../Button";
 import "../../index.css";
-import logo from '../../assets/Images/Logo.png'
+import logo from "../../assets/Images/Logo.png";
 import { useNavigate, NavLink } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
@@ -21,7 +21,7 @@ const Header = () => {
     const fetchHeaderData = async () => {
       const res = await viewHeader();
       if (res.status === 200) {
-        setHeaderData(res.data.data);        // Handle the header data as needed
+        setHeaderData(res.data.data); // Handle the header data as needed
       } else {
         console.error("Error fetching header data");
       }
@@ -32,7 +32,7 @@ const Header = () => {
   // if (!HeaderData) return null;
 
   const Navitems = [
-    { id: 1, name: HeaderData?.page1 || "Home", slug: "/", icon: <FaHome /> },
+    { id:   1, name: HeaderData?.page1 || "Home", slug: "/", icon: <FaHome /> },
     {
       id: 2,
       name: HeaderData?.page2 || "Services",
@@ -51,7 +51,12 @@ const Header = () => {
       slug: "/about",
       icon: <TbInfoOctagonFilled />,
     },
-    { id: 5, name: HeaderData?.page5 || "Blogs", slug: "/blogs", icon: <PiVideoBold /> },
+    {
+      id: 5,
+      name: HeaderData?.page5 || "Blogs",
+      slug: "/blogs",
+      icon: <PiVideoBold />,
+    },
     {
       id: 6,
       name: HeaderData?.page6 || "Contact us",
@@ -68,8 +73,7 @@ const Header = () => {
             <img src={`${headerImageUrl}${HeaderData.logo}`} alt="logo" />
             
           )} */}
-            <img src={logo} alt="logo" />
-
+          <img src={logo} alt="logo" />
           Drs-4You
         </h1>
         <nav className=" hidden lg:flex gap-6 text-Neutral-900  font-manrope font-semibold text-[16px] ">

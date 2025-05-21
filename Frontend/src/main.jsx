@@ -9,6 +9,7 @@ import SpecialtiesInnerPage from './Pages/SpecialtiesPages/SpecialtiesInnerPage.
 import SpecialistPage from './Pages/SpecialistPages/SpecialistPage.jsx';
 import SpecialistInnerPage from './Pages/SpecialistPages/SpecialistInnerPage.jsx';
 import AboutUs from './Pages/AboutUs/AboutUs.jsx';
+import BlogPage from './Pages/BlogPages/BlogPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <AboutUs/>
+      },
+      {
+        path: "/blogs",
+        element: <BlogPage/>
       },
     ]
   }
