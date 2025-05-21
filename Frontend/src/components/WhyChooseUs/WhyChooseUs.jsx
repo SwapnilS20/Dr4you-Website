@@ -42,7 +42,7 @@ function WhyChooseUs() {
         <div className="flex  flex-col-reverse lg:flex-row gap-8 ">
           {/* left div */}
         <div className="lg:w-[50%]  flex flex-col  gap-4 ">
-          <h2 className="text-Neutral-900 text-[40px]/[48px] font-manrope font-bold flex flex-col text-center ">
+          <h2 className="text-Neutral-900 text-[40px]/[48px] font-manrope font-bold flex flex-col  ">
             Why Pick Us for{" "}
             <span className="text-gradient-btn">Your Healthcare</span>
           </h2>
