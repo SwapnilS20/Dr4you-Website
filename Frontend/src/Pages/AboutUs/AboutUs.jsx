@@ -53,7 +53,7 @@ const AboutUs = () => {
       <Promise />
 
       <div className=" flex justify-center items-center font-general-sans mt-28">
-        <div className=" max-w-7xl flex gap-12 bg-Primary-Blue-50 p-6 rounded-xl">
+        <div className=" max-w-7xl flex flex-col-reverse lg:flex-row gap-12 bg-Primary-Blue-50 p-6 rounded-xl">
           <div
             className="text-lg text-gray-800 leading-relaxed text-justify bg-white p-4 rounded-xl"
             dangerouslySetInnerHTML={{
@@ -61,8 +61,8 @@ const AboutUs = () => {
                 aboutData?.vision || "<p>Our mission content is loading...</p>",
             }}
           />
-          <div className=" w-3/4">
-            <h2 className=" text-6xl font-semibold text-Primary-Blue-900">Our Vision</h2>
+          <div className=" lg:w-3/4 ">
+            <h2 className=" text-6xl font-semibold text-Primary-Blue-900 lg:text-center ">Our Vision</h2>
           </div>
         </div>
       </div>
