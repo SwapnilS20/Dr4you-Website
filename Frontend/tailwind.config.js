@@ -47,6 +47,7 @@ export default {
         'story-border-gradient': 'var( --story-border-gradient)',
         'story-bg-left-gradient': 'var( --story-bg-left-gradient)',
         'doctor-bg-gradient': 'var( --doctor-gradient)',
+        'rounded-gradient':'var(--rounded-gradient)'
 
 
     },
