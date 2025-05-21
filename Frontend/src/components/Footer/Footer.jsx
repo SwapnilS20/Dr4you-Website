@@ -67,7 +67,7 @@ const Footer = () => {
           </div>
           {/* Legal  */}
           <div>
-            <span className=" text-Primary-Blue-400 text-base font-bold">Services</span>
+            <span className=" text-Primary-Blue-400 text-base font-bold">Legal</span>
             <div>
               <ul className=" flex flex-col gap-2 mt-4 text-base">
                 <li className=" font-manrope text-base text-Neutral-900">

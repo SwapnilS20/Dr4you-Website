@@ -43,9 +43,9 @@ const Hero = () => {
         {/* Tagline */}
         <h1 className=" font-manrope font-bold  text-[32px] sm:text-[46px]  ">
           Connecting You to Experts. <br />{" "}
-          <h4 className=" py-2 text-gradient-btn font-extrabold text-justify animate-typing overflow-hidden whitespace-nowrap delay-200 ">
+          <p className=" py-2 text-gradient-btn font-extrabold text-justify animate-typing overflow-hidden whitespace-nowrap delay-200 ">
             Anytime, Anywhere.
-          </h4>
+          </p>
         </h1>
         {/* Description */}
         <p className=" font-manrope text-base text-justify">

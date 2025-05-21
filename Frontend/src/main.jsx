@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         element: <SpecialistPage />
       },
       {
-        path: "/doctor/:name",
+        path: "/doctor/:id  ",
         element: <SpecialistInnerPage />
       }
     ]

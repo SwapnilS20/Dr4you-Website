@@ -12,6 +12,8 @@
 
 
   --story-border-gradient: linear-gradient(to bottom right, #C5ECFF 0%, #99DDFF 100%);
+  --rounded-gradient: linear-gradient(to bottom right, #7BCAFF 0%, #2F8EFF 100%);
+
 
   --story-bg-gradient: radial-gradient(
   circle at top,
