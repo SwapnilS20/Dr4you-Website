@@ -3,9 +3,12 @@ import path from "path";
 import { fileURLToPath } from "url";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+
 import welcomeBannerSectionRouter from "./routes/welcomeBannerSection.routes.js";
 import headerRouter from "./routes/header.routes.js";
 import heroSectionRouter from "./routes/heroSection.routes.js";
+import drs4YouStoryRouter from "./routes/drs4-youStory.routes.js";
+
 import { errorHandler } from "./middlewares/errorHandling.middlewares.js";
 
 
@@ -28,6 +31,7 @@ app.set("trust proxy", 1);
 app.use("/api/header", headerRouter);
 app.use("/api/heroSection", heroSectionRouter);
 app.use("/api/welcomeBanner", welcomeBannerSectionRouter);
+app.use("/api/drs4-youStory", drs4YouStoryRouter);
 
 app.use(errorHandler);
 export default app;
