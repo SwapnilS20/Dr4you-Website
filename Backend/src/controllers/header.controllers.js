@@ -68,7 +68,9 @@ const updateHeader = asyncHandler(async (req, res, next) => {
 });
 
 const viewHeader = asyncHandler(async (req, res, next) => {
-  const [header] = await db.execute("SELECT * FROM header WHERE id = 1");
+  const { id } = req.params;
+  if (!id) return next(new ApiError(400, "ID is required for view."));
+  const [header] = await db.execute("SELECT * FROM header WHERE id = ?", [id]);
   if (header.length === 0) {
     return next(new ApiError(404, "Header not found."));
   }
