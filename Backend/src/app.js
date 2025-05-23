@@ -8,6 +8,8 @@ import welcomeBannerSectionRouter from "./routes/welcomeBannerSection.routes.js"
 import headerRouter from "./routes/header.routes.js";
 import heroSectionRouter from "./routes/heroSection.routes.js";
 import drs4YouStoryRouter from "./routes/drs4-youStory.routes.js";
+import promiseSectionHeadingRouter from "./routes/promiseSectionHeading.routes.js";
+import promiseSectionItemsRouter from "./routes/promiseSectionItems.routes.js";
 
 import { errorHandler } from "./middlewares/errorHandling.middlewares.js";
 
@@ -32,6 +34,8 @@ app.use("/api/header", headerRouter);
 app.use("/api/heroSection", heroSectionRouter);
 app.use("/api/welcomeBanner", welcomeBannerSectionRouter);
 app.use("/api/drs4-youStory", drs4YouStoryRouter);
+app.use("/api/promiseSectionHeading", promiseSectionHeadingRouter);
+app.use("/api/promiseSection", promiseSectionItemsRouter);
 
 app.use(errorHandler);
 export default app;
