@@ -44,8 +44,8 @@ const createPromiseSection = asyncHandler(async (req, res, next) => {
   }
 
   // Success response
-  return res.status(201).json(
-    new ApiResponse(201, {
+  return res.status(200).json(
+    new ApiResponse(200, {
       id: result.insertId,
       promise_heading_id: headingId,
       title,
@@ -94,7 +94,7 @@ const updatePromiseSection = asyncHandler(async (req, res, next) => {
      WHERE id = ?`,
     [title || existingData.title, description || existingData.description, iconImage || existingData.icon_image, sequence || existingData.sequence, id]
   );
-
+  
   if (result.affectedRows === 0) {
     return next(new ApiError(500, "Failed to update promise item."));
   }
@@ -111,7 +111,82 @@ const updatePromiseSection = asyncHandler(async (req, res, next) => {
   );
 });
 
+const viewPromiseSection = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  // If ID is provided, fetch specific promise item
+  if (id) {
+    const [rows] = await db.execute(
+      "SELECT * FROM promise_section_items WHERE id = ?",
+      [id]
+    );
+    
+
+    if (rows.length === 0) {
+      return next(new ApiError(404, "Promise item not found."));
+    }
+    
+
+    return res.status(200).json(
+      new ApiResponse(200, rows[0], "Promise item retrieved successfully.")
+    );
+  }
+
+  const [rows] = await db.execute(
+    "SELECT * FROM promise_section_items ORDER BY sequence"
+  );
+
+  if (rows.length === 0) {
+    return next(new ApiError(404, "No promise items found."));
+  }
+
+  return res.status(200).json(
+    new ApiResponse(200, rows, "Promise items retrieved successfully.")
+  );
+}); 
+
+const deletePromiseSection = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+
+  // Validate and find existing promise item
+  const [existingRows] = await db.execute(
+    "SELECT * FROM promise_section_items WHERE id = ?",
+    [id]
+  );
+
+  if (existingRows.length === 0) {
+    return next(new ApiError(404, "Promise item not found."));
+  }
+
+  const existingData = existingRows[0];
+  const iconImage = existingData.icon_image;
+
+  // Delete the promise item
+  const [result] = await db.execute(
+    "DELETE FROM promise_section_items WHERE id = ?",
+    [id]
+  );
+
+  if (result.affectedRows === 0) {
+    return next(new ApiError(500, "Failed to delete promise item."));
+  }
+
+  // Delete the image file if it exists
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+  const imagePath = path.join(__dirname, "../../public", "uploads", "PromiseSection", iconImage);
+
+  if (fs.existsSync(imagePath)) {
+    fs.unlinkSync(imagePath);
+  }
+
+  return res.status(200).json(
+    new ApiResponse(200, null, "Promise item deleted successfully.")
+  );
+});
+
 export { 
   createPromiseSection,
-  updatePromiseSection
+  updatePromiseSection,
+  viewPromiseSection,
+  deletePromiseSection
 }
