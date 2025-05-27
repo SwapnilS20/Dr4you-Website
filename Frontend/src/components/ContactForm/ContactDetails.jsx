@@ -10,26 +10,41 @@ import ContactCard from "./ContactCard";
 
 const ContactDetails = () => {
 
+  const placeCall =()=>{
+    window.location.href = "tel:022 6901 2250";
+  }
+  const openMail = () => {
+    window.location.href = "mailto:info@inmedbharat.com";
+  };
+
+  const openWhatsApp = () => {
+    window.open("https://wa.me/+918928473062", "_blank");
+  };
+  
   const contactDetails = [
     {
       icon: <FaClock />,
       heading: "Opening Hours",
       content: "Mon - Sat: 9:00 AM - 6:00 PM",
+      
     },
     {
       icon: <FaEnvelope  />,
       heading: "Email",
       content: "info@inmedbharat.com",
+      func: openMail,
     },
     {
       icon: <FaPhoneAlt  />,
       heading: "Phone",
       content: "+91 22 1234 5678",
+      func: placeCall,
     },
     {
       icon: <FaComments  />,
       heading: "Chat",
       content: "Available 24/7",
+      func: openWhatsApp,
     },
   ];
 
@@ -67,6 +82,7 @@ const ContactDetails = () => {
                 icon={detail.icon}
                 heading={detail.heading}
                 content={detail.content}
+                func={detail.func}  
               />
             ))}
       </div>
