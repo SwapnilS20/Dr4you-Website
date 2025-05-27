@@ -113,3 +113,14 @@
     background: var(--border-gradient);
     border-width: 0.1px;
   }
+
+  @layer base {
+
+
+  }
+  @layer components{
+    .flex-center{
+      @apply flex justify-center items-center;
+    }
+    
+  }

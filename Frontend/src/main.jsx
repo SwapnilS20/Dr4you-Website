@@ -10,6 +10,8 @@ import SpecialistPage from './Pages/SpecialistPages/SpecialistPage.jsx';
 import SpecialistInnerPage from './Pages/SpecialistPages/SpecialistInnerPage.jsx';
 import AboutUs from './Pages/AboutUs/AboutUs.jsx';
 import BlogPage from './Pages/BlogPages/BlogPage.jsx';
+import BlogInnerPage from './Pages/BlogPages/BlogInnerPage.jsx';
+import Contact from './Pages/Contact/Contact.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
         path: "/blogs",
         element: <BlogPage/>
       },
+      {
+        path: "/blog/:id",
+        element: <BlogInnerPage/>
+      },
+       {
+        path: "/contact-us",
+        element: <Contact/>
+      }
     ]
   }
 ]);
