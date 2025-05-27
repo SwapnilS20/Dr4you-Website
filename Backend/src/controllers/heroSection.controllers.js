@@ -71,7 +71,9 @@ const addHeroSection = asyncHandler(async (req, res, next) => {
       originalName // just the filename
     ]
   );
-
+  if (result.affectedRows === 0) {
+    return next(new ApiError(500, "Failed to create hero section."));
+  }
   return res
     .status(200)
     .json(new ApiResponse(200, result, "Hero Section Created Successfully"));
@@ -157,8 +159,10 @@ const updateHeroSection = asyncHandler(async (req, res, next) => {
 });
 
 const viewHeroSection = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  if (!id) return next(new ApiError(400, "ID is required for view."));
   // Fetch existing record
-  const [hero_section] = await db.execute("SELECT * FROM hero_section WHERE id = 1");
+  const [hero_section] = await db.execute("SELECT * FROM hero_section WHERE id = ?", [id]);
   if (hero_section.length === 0) return next(new ApiError(404, "Hero section not found."));
 
     const __filename = fileURLToPath(import.meta.url);

@@ -7,7 +7,7 @@ const router = Router();
 
 router.route('/add').post(upload.single('doctorImage') ,addHeroSection);
 router.route('/update/:id').patch(upload.single('doctorImage'),updateHeroSection);  
-router.route('/view').get(viewHeroSection);
+router.route('/view/:id').get(viewHeroSection);
 router.route('/delete/:id').delete(deleteHeroSection);
 
 export default router;
