@@ -9,7 +9,7 @@ import db from "../db/index.js";
 
 const createPlatformHead = asyncHandler(async (req, res, next) => {
   const { main_heading, description } = req.body;
-
+  
   // Validate all required fields
   if (!main_heading || !description) {
     return next(new ApiError(400, "All fields are required."));
@@ -24,7 +24,7 @@ const createPlatformHead = asyncHandler(async (req, res, next) => {
   // Insert into the database
   const [result] = await db.execute(
     `INSERT INTO platform_steps_heading
-         (main_heading, description, platform_head_image) 
+         (main_heading, description, image) 
          VALUES (?, ?, ?)`,
     [main_heading, description, platformHeadImage]
   );
@@ -47,7 +47,7 @@ const createPlatformHead = asyncHandler(async (req, res, next) => {
 });
 
 const updatePlatformHead = asyncHandler(async (req, res, next) => {
-  const { main_heading, description } = req.body;
+  const { main_heading, description ,uploadType} = req.body;
   const { id } = req.params;
   if (!id) {
     return next(new ApiError(400, "ID is required."));
@@ -82,7 +82,7 @@ const updatePlatformHead = asyncHandler(async (req, res, next) => {
   // Update in the database
   const [result] = await db.execute(
     `UPDATE platform_steps_heading 
-         SET main_heading = ?, description = ?, platform_head_image = ? 
+         SET main_heading = ?, description = ?, image = ? 
          WHERE id = ?`,
     [
       main_heading || existingData.main_heading,
@@ -110,4 +110,60 @@ const updatePlatformHead = asyncHandler(async (req, res, next) => {
   );
 });
 
-export { createPlatformHead ,updatePlatformHead};
+const viewPlatformHead = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  if (!id) {
+    return next(new ApiError(400, "ID is required."));
+  }
+
+  const [result] = await db.execute(
+    `SELECT * FROM platform_steps_heading WHERE id = ?`,
+    [id]
+  );
+  if (result.length === 0) {
+    return next(new ApiError(404, "Platform head not found."));
+  }
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  const platformImage = path.join(__dirname, "../../public", "uploads","PlatformWork", result[0].image);
+    if (!fs.existsSync(platformImage)) {
+          return next(new ApiError(404, "Platform image file not found."));
+    }
+
+  return res.status(200).json(
+    new ApiResponse(200, result[0], "Platform head retrieved successfully.")
+  );
+});
+
+// const deletePlatformHead = asyncHandler(async (req, res, next) => {
+//   const { id } = req.params;
+//   if (!id) {
+//     return next(new ApiError(400, "ID is required."));
+//   }
+
+//   const [platform_head] = await db.execute(
+//     `SELECT * FROM platform_steps_heading WHERE id = ?`,
+//     [id]
+//   );
+//   if (platform_head.affectedRows === 0) {
+//     return next(new ApiError(404, "Platform head not found."));
+//   }
+
+//   // Optionally delete the image file
+//   const __filename = fileURLToPath(import.meta.url);
+//   const __dirname = path.dirname(__filename);
+//   const imagePath = path.join(__dirname, "../../public", "uploads", "PlatformWork", platform_head[0].image);
+//   if (fs.existsSync(imagePath)) {
+//     fs.unlinkSync(imagePath);
+//   }
+
+//   const [result] = await db.execute("TRUNCATE TABLE platform_steps_heading;");
+
+
+//   return res.status(200).json(
+//     new ApiResponse(200, result, "Platform head deleted successfully.")
+//   );
+// });
+
+export { createPlatformHead ,updatePlatformHead, viewPlatformHead };
