@@ -32,7 +32,7 @@ const Header = () => {
   // if (!HeaderData) return null;
 
   const Navitems = [
-    { id:   1, name: HeaderData?.page1 || "Home", slug: "/", icon: <FaHome /> },
+    { id: 1, name: HeaderData?.page1 || "Home", slug: "/", icon: <FaHome /> },
     {
       id: 2,
       name: HeaderData?.page2 || "Services",
@@ -99,6 +99,11 @@ const Header = () => {
             " h-[56px] w-[174px] text-[20px] hidden lg:flex text-[20px] justify-center items-center bg-btn-gradient btn-hover-effect  "
           }
           children={" Patient Login"}
+          onClick={() =>
+            window.open(
+              "https://cloud.softlinkinternational.com/IBH_TeleHealth/Login/AppointmentPage"
+            )
+          }
         />
       </div>
 

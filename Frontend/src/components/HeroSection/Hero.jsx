@@ -62,6 +62,8 @@ const Hero = () => {
               " sm:h-[56px] h-[52px] sm:w-[227px] w-[172px] sm:text-[16px] text-[14px] bg-btn-gradient btn-hover-effect  "
             }
             children={"Book an Appointment"}
+          onClick={() => window.open("https://cloud.softlinkinternational.com/IBH_TeleHealth/Login/AppointmentPage")}
+
           />
           {/* contact */}
           <div className=" flex gap-4 items-center">
