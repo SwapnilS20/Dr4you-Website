@@ -44,7 +44,7 @@ const AboutUs = () => {
     <>
       <section className="bg-custom-gradient ">
         <Header />
-        <div className="max-w-7xl mx-auto px-6 font-general-sans space-y-16 mt-24 ">
+        <div className="max-w-7xl mx-auto px-6 font-general-sans space-y-16 mt-16 ">
           {/* Heading */}
           <h1 className="text-5xl md:text-6xl text-center font-semibold text-gradient-btn">
             About Us

@@ -192,7 +192,7 @@ const SpecialistPage = () => {
         <div className=" flex flex-col gap-8 bg-Primary-Blue-50 pb-14">
           <Header />
           {/* heading and para */}
-          <div className=" flex flex-col gap-4 justify-center items-center">
+          <div className=" flex flex-col gap-4 justify-center items-center mt-16">
             <h1 className=" text-6xl font-manrope font-bold text-center">
               Our <span className="text-gradient-btn">specialists</span>{" "}
             </h1>
@@ -214,7 +214,7 @@ const SpecialistPage = () => {
               />
             </div>
 
-            {/* Filter Dropdown */}
+            {/* Filter Dropdown */}`1`
             <div className="relative w-full max-w-[200px]">
               <select
                 name="Filter"

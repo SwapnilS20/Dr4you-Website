@@ -130,7 +130,7 @@ const BlogPage = () => {
       <section>
         <div className=" flex flex-col gap-8 ">
           <Header />
-          <div className=" flex flex-col gap-4 justify-center items-center mt-24">
+          <div className=" flex flex-col gap-4 justify-center items-center mt-16">
             <h1 className=" text-gradient-btn text-6xl font-manrope font-bold text-center p-2">
               Blogs
             </h1>

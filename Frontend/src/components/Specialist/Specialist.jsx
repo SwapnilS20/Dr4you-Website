@@ -137,7 +137,7 @@ const Specialist = ({ category, show }) => {
 
   return (
     <section className="w-full">
-      <div className="flex flex-col pt-8 items-center gap-4 lg:mt-8 bg-Primary-Blue-50 lg:min-h-[850px] p-4">
+      <div className="flex flex-col pt-10 pb-4 items-center gap-4 lg:mt-8 bg-Primary-Blue-50 lg:min-h-[750px] ">
         <h2 className="font-manrope font-bold text-[42px] text-center text-[#011632]">
           {show
             ? "Meet our specialists"
@@ -158,7 +158,7 @@ const Specialist = ({ category, show }) => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-10 lg:py-20 px-20 p-2"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 lg:py-6 px-20 p-2"
           >
             {show
               ? currentItems.map((data) => (
