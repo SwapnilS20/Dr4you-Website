@@ -214,7 +214,7 @@ const SpecialistPage = () => {
               />
             </div>
 
-            {/* Filter Dropdown */}`1`
+            {/* Filter Dropdown */}
             <div className="relative w-full max-w-[200px]">
               <select
                 name="Filter"
@@ -235,6 +235,7 @@ const SpecialistPage = () => {
                     className="text-black "
                   >
                     {data.category}
+                  
                   </option>
                 ))}
               </select>
