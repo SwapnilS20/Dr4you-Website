@@ -254,7 +254,7 @@ const SpecialtiesPage = () => {
         {/* appointment form */}
         <AppointmentForm />
         {/* Doctors info  */}
-        <MyEditor />
+        {/* <MyEditor /> */}
 
         <Specialist show={true} />
         {/* FAQ */}
