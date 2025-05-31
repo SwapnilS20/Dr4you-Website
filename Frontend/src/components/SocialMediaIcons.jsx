@@ -10,11 +10,11 @@ const iconColors = {
 };
 
 const icons = [
-  { name: 'facebook', class: 'ri-facebook-fill' },
-  { name: 'twitter', class: 'ri-twitter-fill' },
-  { name: 'linkedin', class: 'ri-linkedin-fill' },
-  { name: 'google', class: 'ri-google-fill' },
-  { name: 'instagram', class: 'ri-instagram-line' }, 
+  { name: 'facebook', class: 'ri-facebook-fill' , link : 'https://www.facebook.com/share/1AgFEBjDf1/' },
+  { name: 'twitter', class: 'ri-twitter-fill' ,link:'#'},
+  { name: 'linkedin', class: 'ri-linkedin-fill' , link:'https://www.linkedin.com/company/ibhl/' },
+  { name: 'google', class: 'ri-google-fill', link:'https://www.2ndro.com'},
+  { name: 'instagram', class: 'ri-instagram-line' ,link:'https://www.instagram.com/2ndr.o?igsh=ZnR6b3o5eW1uOHFy'}, 
 ];
 
 const SocialMediaIcons = ({setgap}) => {
@@ -24,7 +24,8 @@ const SocialMediaIcons = ({setgap}) => {
         {icons.map((icon, idx) => (
           <li key={idx} className="list-none">
             <a
-              href="#"
+              href={icon.link}
+              target='_blank'
               className={`
                 group relative w-10 h-10 flex items-center justify-center 
                 bg-white  ${setgap ? 'bg-amber-50' :''}  rounded-full overflow-hidden
