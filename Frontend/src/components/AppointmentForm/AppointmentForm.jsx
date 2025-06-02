@@ -1,7 +1,39 @@
 import React from "react";
 import Button from "../Button";
+import axios from "axios";
 
 const AppointmentFORM = () => {
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  
+  const url = "https://script.google.com/macros/s/AKfycbzrCp1u7eYc8-KU31lX4pC7I4U1PTmeq43RVeuWu9Oqwu-VCTph1PVbMKLKPk878cND/exec";
+  const form = e.target;
+
+  const formData = new FormData(form);
+  const data = new URLSearchParams();
+
+  for (const [key, value] of formData.entries()) {
+    data.append(key, value);
+  }
+  
+  data.append("sheetName", "RequestForm");
+
+  console.log([...data.entries()]);  // Debug output
+
+  axios.post(url, data, {
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  })
+  .then((response) => {
+    alert(response.data);
+    // form.reset();  // Clear form on success
+  })
+  .catch((error) => {
+    console.error("Error submitting form:", error);
+    alert("Submission failed.");
+  });
+}
+
   return (
     <section className="bg-[#011632] py-16 px-6 font-general-sans">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-10">
@@ -29,20 +61,23 @@ const AppointmentFORM = () => {
           <h3 className="text-xl text-center font-semibold text-[#011632] mb-8">
             Request Appointment
           </h3>
-          <form className="flex flex-col gap-4">
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder="Full Name"
+              name="FullName"
               className="border-2 border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#1376F8]"
             />
             <input
               type="email"
               placeholder="Email Address"
+              name="Email"
               className="border-2 border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#1376F8]"
             />
             <input
               type="tel"
               placeholder="Phone Number"
+              name="Phone"
               className="border-2 border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#1376F8]"
             />
             
