@@ -12,6 +12,7 @@ import promiseSectionHeadingRouter from "./routes/promiseSectionHeading.routes.j
 import promiseSectionItemsRouter from "./routes/promiseSectionItems.routes.js";
 import platformWorkHeadingRouter from "./routes/platformHead.routes.js";
 import platformStepsRouter from "./routes/platformSteps.routes.js";
+import whyChooseUsHeadRouter from "./routes/whyChooseUsHead.routes.js";
 
 import { errorHandler } from "./middlewares/errorHandling.middlewares.js";
 
@@ -40,6 +41,7 @@ app.use("/api/promiseSectionHeading", promiseSectionHeadingRouter);
 app.use("/api/promiseSection", promiseSectionItemsRouter);
 app.use("/api/platformHead", platformWorkHeadingRouter);
 app.use("/api/platformSteps", platformStepsRouter);
+app.use("/api/whyChooseUsHead",whyChooseUsHeadRouter );
 
 app.use(errorHandler);
 export default app;

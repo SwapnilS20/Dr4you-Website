@@ -12,8 +12,7 @@ const addWhyChooseUsHead = asyncHandler(async (req, res, next) => {
     label,
     heading_main,
     heading_highlight,
-    experience_text,
-    experience_label,
+    on_image_text,
   } = req.body;
 
   // Validate all required fields
@@ -21,8 +20,7 @@ const addWhyChooseUsHead = asyncHandler(async (req, res, next) => {
     !label ||
     !heading_main ||
     !heading_highlight ||
-    !experience_text ||
-    !experience_label
+    !on_image_text
   ) {
     return next(new ApiError(400, "All fields are required."));
   }
@@ -35,16 +33,15 @@ const addWhyChooseUsHead = asyncHandler(async (req, res, next) => {
 
   // Insert into the database
   const [result] = await db.execute(
-    `INSERT INTO why_choose_us_head
-        (label, heading_main, heading_highlight, experience_text, experience_label, doctor_image) 
-        VALUES (?, ?, ?, ?, ?, ?)`,
+    `INSERT INTO why_choose_us_heading
+        (label, heading_main, heading_highlight, doctor_image, on_image_text) 
+        VALUES (?, ?, ?, ?, ?)`,
     [
       label,
       heading_main,
       heading_highlight,
-      experience_text,
-      experience_label,
       whyChooseUsDoctorImage,
+      on_image_text,
     ]
   );
   if (result.affectedRows === 0) {
@@ -59,8 +56,7 @@ const addWhyChooseUsHead = asyncHandler(async (req, res, next) => {
         label,
         heading_main,
         heading_highlight,
-        experience_text,
-        experience_label,
+        on_image_text,
         whyChooseUsDoctorImage,
       },
       "Why choose us head created successfully."
@@ -77,20 +73,19 @@ const updateWhyChooseUsHead = asyncHandler(async (req, res, next) => {
     label,
     heading_main,
     heading_highlight,
-    experience_text,
-    experience_label,
+    on_image_text,
     uploadType,
   } = req.body;
 
   const [whyChooseUsHead] = await db.execute(
-    `SELECT * FROM why_choose_us_head WHERE id = ?`,
+    `SELECT * FROM why_choose_us_heading WHERE id = ?`,
     [id]
   );
   if (whyChooseUsHead.length === 0) {
     return next(new ApiError(404, "Why choose us head not found."));
   }
   const existingWhyChooseUsHead = whyChooseUsHead[0];
-  const whyChooseUsDoctorImage = existingWhyChooseUsHead.doctor_image;
+  let whyChooseUsDoctorImage = existingWhyChooseUsHead.doctor_image;
 
   // Handle uploaded file (why choose us head image)
   if (req.file) {
@@ -112,16 +107,15 @@ const updateWhyChooseUsHead = asyncHandler(async (req, res, next) => {
   whyChooseUsDoctorImage = req.file?.filename || whyChooseUsDoctorImage;
   // Update in the database
   const [result] = await db.execute(
-    `UPDATE why_choose_us_head 
-        SET label = ?, heading_main = ?, heading_highlight = ?, experience_text = ?, experience_label = ?, doctor_image = ? 
+    `UPDATE why_choose_us_heading 
+        SET label = ?, heading_main = ?, heading_highlight = ?, doctor_image = ? ,on_image_text = ?
         WHERE id = ?`,
     [
-      label,
-      heading_main,
-      heading_highlight,
-      experience_text,
-      experience_label,
-      whyChooseUsDoctorImage,
+      label || existingWhyChooseUsHead.label,
+      heading_main || existingWhyChooseUsHead.heading_main,
+      heading_highlight || existingWhyChooseUsHead.heading_highlight,
+      whyChooseUsDoctorImage || existingWhyChooseUsHead.doctor_image,
+      on_image_text || existingWhyChooseUsHead.on_image_text,
       id,
     ]
   );
@@ -135,11 +129,10 @@ const updateWhyChooseUsHead = asyncHandler(async (req, res, next) => {
       200,
       {
         id,
-        label,
+        label ,
         heading_main,
         heading_highlight,
-        experience_text,
-        experience_label,
+        on_image_text,
         whyChooseUsDoctorImage,
       },
       "Why choose us head updated successfully."
@@ -153,7 +146,7 @@ const viewWhyChooseUsHead = asyncHandler(async (req, res, next) => {
         return next(new ApiError(400, "ID is required."));
     }
     const [why_choose_us_head] = await db.execute(
-        `SELECT * FROM why_choose_us_head WHERE id = ?`,
+        `SELECT * FROM why_choose_us_heading WHERE id = ?`,
         [id]
     );
     if (why_choose_us_head.length === 0) {
@@ -171,6 +164,16 @@ const viewWhyChooseUsHead = asyncHandler(async (req, res, next) => {
     if (!fs.existsSync(imagePath)) {
         return next(new ApiError(404, "Image not found."));
     }   
+    return res.status(200).json(
+        new ApiResponse(
+            200,
+            {
+                ...why_choose_us_head[0],
+                doctor_image: why_choose_us_head[0].doctor_image,
+            },
+            "Why choose us head retrieved successfully."
+        )
+    );
 });
 
-export { addWhyChooseUsHead, updateWhyChooseUsHead };
+export { addWhyChooseUsHead, updateWhyChooseUsHead ,viewWhyChooseUsHead};

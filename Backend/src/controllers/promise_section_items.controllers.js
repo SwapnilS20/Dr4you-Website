@@ -57,9 +57,12 @@ const createPromiseSection = asyncHandler(async (req, res, next) => {
 });
 
 const updatePromiseSection = asyncHandler(async (req, res, next) => {
-  const { id } = req.params;
   const { title, description, sequence ,uploadType} = req.body;
+  const { id } = req.params;
 
+  if (!id) {
+    return next(new ApiError(400, "ID is required."));
+  }
   // Validate and find existing promise item
   const [existingRows] = await db.execute(
     "SELECT * FROM promise_section_items WHERE id = ?",
@@ -116,7 +119,7 @@ const viewPromiseSection = asyncHandler(async (req, res, next) => {
   // If ID is provided, fetch specific promise item
   if (id) {
     const [rows] = await db.execute(
-      "SELECT * FROM promise_section_items WHERE id = ?",
+      "SELECT * FROM promise_section_items WHERE id = ? ORDER BY sequence",
       [id]
     );
     
