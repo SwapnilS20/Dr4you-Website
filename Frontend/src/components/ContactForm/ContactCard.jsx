@@ -4,7 +4,7 @@ const ContactCard = ({ icon, heading, content, func }) => {
   
 
   return (
-    <div className="xl:w-[450px]  lg:w-[40vw]">
+    <div className="lg:w-[450px]  ">
       <div
         onClick={func}
         className={`flex items-start gap-3 p-4 rounded-md bg-white drop-shadow-2xl transition-all hover:scale-[1.01]`}

@@ -51,7 +51,7 @@ const ContactDetails = () => {
   return (
     <div className=" sm:w-[400px] mx-auto bg-transparent space-y-4 p-4">
       {/* Map and Address Card */}
-      <div className="relative border-2 border-Primary-Blue-400 border-opacity-50 max-h-[310px] xl:w-[450px]  lg:w-[40vw] border-P rounded-md overflow-hidden shadow-sm">
+      <div className="relative border-2 border-Primary-Blue-400 border-opacity-50 max-h-[310px] lg:w-[450px] border-P rounded-md overflow-hidden shadow-sm">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.6222513451266!2d72.88888447580698!3d19.124220750455745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c90069cf10d1%3A0x91780a7c1c15c83a!2sInmed%20Bharat%20Healthcare%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1748333595734!5m2!1sen!2sin"
           loading="lazy"
