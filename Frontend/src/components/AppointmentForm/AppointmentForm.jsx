@@ -26,7 +26,7 @@ const handleSubmit = (e) => {
   })
   .then((response) => {
     alert(response.data);
-    // form.reset();  // Clear form on success
+    form.reset();  // Clear form on success
   })
   .catch((error) => {
     console.error("Error submitting form:", error);

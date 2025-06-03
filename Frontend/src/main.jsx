@@ -1,64 +1,69 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import App from './App.jsx';
-import './index.css';
-import HomePage from './Pages/HomePages/HomePage.jsx';
-import SpecialtiesPage from './Pages/SpecialtiesPages/SpecialtiesPage.jsx';
-import SpecialtiesInnerPage from './Pages/SpecialtiesPages/SpecialtiesInnerPage.jsx';
-import SpecialistPage from './Pages/SpecialistPages/SpecialistPage.jsx';
-import SpecialistInnerPage from './Pages/SpecialistPages/SpecialistInnerPage.jsx';
-import AboutUs from './Pages/AboutUs/AboutUs.jsx';
-import BlogPage from './Pages/BlogPages/BlogPage.jsx';
-import BlogInnerPage from './Pages/BlogPages/BlogInnerPage.jsx';
-import Contact from './Pages/Contact/Contact.jsx';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from "./App.jsx";
+import "./index.css";
+import HomePage from "./Pages/HomePages/HomePage.jsx";
+import SpecialtiesPage from "./Pages/SpecialtiesPages/SpecialtiesPage.jsx";
+import SpecialtiesInnerPage from "./Pages/SpecialtiesPages/SpecialtiesInnerPage.jsx";
+import SpecialistPage from "./Pages/SpecialistPages/SpecialistPage.jsx";
+import SpecialistInnerPage from "./Pages/SpecialistPages/SpecialistInnerPage.jsx";
+import AboutUs from "./Pages/AboutUs/AboutUs.jsx";
+import BlogPage from "./Pages/BlogPages/BlogPage.jsx";
+import BlogInnerPage from "./Pages/BlogPages/BlogInnerPage.jsx";
+import Contact from "./Pages/Contact/Contact.jsx";
+import LoginPage from "./Pages/Login/LoginPage.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/", 
-    element: <App/>, 
+    path: "/",
+    element: <App />,
     children: [
       {
         path: "/",
-        element: <HomePage />
+        element: <HomePage />,
       },
       {
         path: "/services",
-        element: <SpecialtiesPage />
+        element: <SpecialtiesPage />,
       },
       {
         path: "/Category/:category",
-        element: <SpecialtiesInnerPage />
+        element: <SpecialtiesInnerPage />,
       },
       {
         path: "/specialist",
-        element: <SpecialistPage />
+        element: <SpecialistPage />,
       },
       {
         path: "/doctor/:id",
-        element: <SpecialistInnerPage />
+        element: <SpecialistInnerPage />,
       },
       {
         path: "/about",
-        element: <AboutUs/>
+        element: <AboutUs />,
       },
       {
         path: "/blogs",
-        element: <BlogPage/>
+        element: <BlogPage />,
       },
       {
         path: "/blog/:id",
-        element: <BlogInnerPage/>
+        element: <BlogInnerPage />,
       },
-       {
+      {
         path: "/contact-us",
-        element: <Contact/>
-      }
-    ]
-  }
+        element: <Contact />,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
+    ],
+  },
 ]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
   </StrictMode>
