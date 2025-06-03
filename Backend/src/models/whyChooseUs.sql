@@ -3,8 +3,7 @@ CREATE TABLE why_choose_us_heading (
     label VARCHAR(255) NOT NULL,            -- e.g., "Why choose us"
     heading_main VARCHAR(255) NOT NULL,     -- e.g., "Why Pick Us for"
     heading_highlight VARCHAR(255),         -- e.g., "Your Healthcare"
-    experience_text VARCHAR(100),           -- e.g., "22+"
-    experience_label VARCHAR(100),          -- e.g., "Experience"
+    on_image_text TEXT ,        -- e.g., "We are committed to providing..."
     doctor_image VARCHAR(255)              -- e.g., "doctor.png"
 );
 
