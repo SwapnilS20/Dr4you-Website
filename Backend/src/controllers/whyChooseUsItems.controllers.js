@@ -64,7 +64,7 @@ const addWhyChooseUsItem = asyncHandler(async (req, res, next) => {
 });
 
 const updateWhyChooseUsItem = asyncHandler(async (req, res, next) => {
-  const { title, description, sequence } = req.body;
+  const { title, description, sequence ,uploadType} = req.body;
   const { id } = req.params;
 
   if (!id) {
@@ -81,7 +81,7 @@ const updateWhyChooseUsItem = asyncHandler(async (req, res, next) => {
     return next(new ApiError(404, "Why choose us item not found."));
   }
 
-  const iconImage = itemRows[0].icon_image; // Sanitize just the filename
+  let iconImage = itemRows[0].icon_image; // Sanitize just the filename
 
   if (req.file) {
     const __filename = fileURLToPath(import.meta.url);
@@ -93,7 +93,7 @@ const updateWhyChooseUsItem = asyncHandler(async (req, res, next) => {
       uploadType,
       itemRows[0].icon_image
     );
-
+ 
     // Delete old image if it exists
     if (fs.existsSync(oldImagePath)) {
       fs.unlinkSync(oldImagePath);
@@ -170,7 +170,7 @@ const deleteWhyChooseUsItem = asyncHandler(async (req, res, next) => {
     __dirname,
     "../../public",
     "uploads",
-    uploadType,
+    "WhyChooseUs",
     iconImage
   );
 
