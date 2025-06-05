@@ -1,6 +1,7 @@
 import React from "react";
 import img from "../../assets/Images/WelcomeBannerImg.png";
 import { BsTelephone } from "react-icons/bs";
+import { FaWhatsappSquare } from "react-icons/fa";
 import axios from "axios";
 
 function WelcomeBanner() {
@@ -63,8 +64,8 @@ function WelcomeBanner() {
           </p>
 
           {/* Form */}
-          <form onSubmit={handleSubmit}>
-            <div className="flex flex-row justify-center">
+          <form onSubmit={handleSubmit} className=" flex md:justify-center lg:justify-start items-center w-[100%]">
+            <div className="flex flex-row justify-center items-center">
               <div className="flex items-center xs:w-[210px] h-[55px] border border-[#cecece] bg-white rounded-l-md px-3 xs:px-1">
                 <BsTelephone className="text-gray-500 mr-3 text-xl" />
                 <input
@@ -84,6 +85,9 @@ function WelcomeBanner() {
               >
                 Submit
               </button>
+
+              <FaWhatsappSquare  className="text-6xl xss:hidden sm:ml-2 " color="green" onClick={()=> window.open("https://wa.me/+918928473062", "_blank")}/>
+
             </div>
           </form>
         </div>

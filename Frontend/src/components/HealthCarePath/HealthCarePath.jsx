@@ -16,17 +16,17 @@ const HealthCarePath = () => {
     },
     {
       id: 2,
-      imagee: treatment,
-      title: "Treatment",
-      description:
-        "Based on your individual requirements your treatment will begin when you are ready and at a convenient time to suit you.",
-    },
-    {
-      id: 3,
       imagee: aftercare,
       title: "Support & Aftercare",
       description:
-        "Our comprehensive aftercare provides support and guidance throughout your treatment and recovery journey.",
+      "Our comprehensive aftercare provides support and guidance throughout your treatment and recovery journey.",
+    },
+    {
+      id: 3,
+      imagee: treatment,
+      title: "Follow Up",
+      description:
+        "We provide one week of dedicated follow-up after your consultation to monitor your progress, address any concerns, and ensure your treatment is on the right track.",
     },
   ];
   return (

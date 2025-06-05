@@ -65,6 +65,7 @@ const ContactDetails = () => {
         <div className="absolute bottom-0 left-0 right-0 m-2 rounded-md bg-white/50 backdrop-blur-md shadow-md border border-blue-200 p-4 flex items-center gap-3 z-10">
           <div className=" flex justify-center items-center w-10 h-10 rounded-full bg-btn-gradient">
             <FaMapMarkerAlt className="text-white text-xl" />
+            
           </div>
           <div>
             <p className="font-semibold ">Office Address</p>
