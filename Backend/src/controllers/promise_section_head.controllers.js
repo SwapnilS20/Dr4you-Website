@@ -30,7 +30,7 @@ const updatePromiseSectionHeading = asyncHandler(async (req, res, next) => {
   }
   const [headingResult] = await db.execute(
     `SELECT * FROM promise_section_heading WHERE id = ?`,
-    [id]
+    [id]   
   );
   if (headingResult.length === 0) {
     return next(new ApiError(404, "Promise section heading not found"));

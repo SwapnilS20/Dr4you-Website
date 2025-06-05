@@ -57,9 +57,7 @@ const addPlatformStep = asyncHandler(async (req, res, next) => {
 
 const updatePlatformStep = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
-  console.log(req.body);
   const { title, description, sequence } = req.body;
-
     
   if (!id) {
     return next(new ApiError(400, "Platform step ID is required."));
