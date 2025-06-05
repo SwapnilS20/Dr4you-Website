@@ -158,7 +158,7 @@ const Specialist = ({ category, show }) => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="grid  gap-x-10 lg:py-6 px-20 p-2 grid-flow-col auto-cols-auto "
+            className="grid  gap-x-10 lg:py-6  p-2 grid-flow-col auto-cols-auto "
           >
             {show
               ? currentItems.map((data) => (

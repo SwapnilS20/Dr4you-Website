@@ -41,10 +41,10 @@ const Hero = () => {
       {/* left side    */}
       <div className="flex flex-col gap-6 mt-4 sm:gap-10 lg:w-[50%] md:pl-[0px] lg:pl-[50px]  lg:mt-[120px] xl:mt-[120px]">
         {/* Tagline */}
-        <h1 className=" font-manrope font-bold  text-[32px] sm:text-[46px]  ">
+        <h1 className=" font-manrope font-bold  text-[28px] sm:text-[46px] xs:text-[26px]  ">
           Connecting You to Experts. <br />{" "}
-          <p className=" py-2 text-gradient-btn font-extrabold text-justify animate-typing overflow-hidden whitespace-nowrap delay-200 ">
-            Anytime, Anywhere.
+          <p className=" py-2 text-gradient-btn font-extrabold line-clamp-2 text-justify animate-typing overflow-hidden whitespace-nowrap delay-200 sm:text-[36px] xl:text-[34px] 2xl:text-[40px]  ">
+            Every patient, <br className=" sm:hidden  lg:block xl:hidden" />Every time, Everywhere 
           </p>
         </h1>
         {/* Description */}
@@ -67,7 +67,7 @@ const Hero = () => {
           />
           {/* contact */}
           <div className=" flex gap-4 items-center">
-            <div className="border-gradient-btn h-[55px] w-[55px] rounded-[20%]  p-[1px] ">
+            <div className="border-gradient-btn h-[55px] w-[55px] rounded-[20%]  p-[1px] " onClick={()=>window.location.href ="tel:022 6901 2250"}>
               <div className=" flex justify-center items-center bg-white h-full w-full rounded-[20%] p-[4px] ">
                 <span className=" flex items-center justify-center bg-bg-gradient h-full w-full rounded-[15%] ">
                   {" "}
@@ -76,7 +76,7 @@ const Hero = () => {
               </div>
             </div>
             <div  className=" flex flex-col text-base font-general-sans  ">
-              <span className=" text-[#1376F8] font-semibold">Emergency</span>
+              <span className=" text-[#1376F8] font-semibold">Contact Us</span>
               <a
                 href="tel:8655910652"
                 className=" font-normal text-[12px] sm:text-base"
@@ -138,7 +138,7 @@ const Hero = () => {
 
           {/* Middle: Text */}
           <div className="mt-2 text-base text-Primary-Blue-500 font-manrope font-bold">
-            Happy Customers
+            Happy Patients
           </div>
 
           {/* Bottom: Stars */}

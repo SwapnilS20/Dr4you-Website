@@ -42,7 +42,7 @@ function WhyChooseUs() {
         <div className="flex  flex-col-reverse lg:flex-row gap-8 ">
           {/* left div */}
         <div className="lg:w-[50%]  flex flex-col  gap-4 ">
-          <h2 className="text-Neutral-900 text-[40px]/[48px] font-manrope font-bold flex flex-col  ">
+          <h2 className="text-Neutral-900 text-[40px]/[48px] text-center lg:text-start font-manrope font-bold flex flex-col  ">
             Why Pick Us for{" "}
             <span className="text-gradient-btn">Your Healthcare</span>
           </h2>
@@ -56,8 +56,8 @@ function WhyChooseUs() {
         <div className="lg:w-[50%] flex items-center justify-center relative">
           <div className="md:w-[130px] md:h-[130px] lg:w-[150px] lg:h-[150px] w-[100px] h-[100px]  bg-Primary-Blue-700 rounded-full absolute  bottom-52 left-6 xs:left-0 md:left-28 md:bottom-60 lg:-left-8 lg:bottom-96  flex flex-col justify-center items-center">
             <div className="flex flex-col text-white font-manrope text-5xl ">
-            <span className="font-bold text-lg sm:text-5xl text-center">22<span className="font-extrabold">+</span></span>
-            <span className="text-base">Experience</span>
+            <span className="font-bold text-lg sm:text-4xl text-center">100%</span>
+            <span className="text-base text-center">Transparency</span>
 
             </div>
           </div>

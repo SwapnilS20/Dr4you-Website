@@ -32,7 +32,7 @@ const Promise = () => {
     },
     {
       img: promise5,
-      title: "No Cancellations",
+      title: "Guaranteed Consultation",
       description: "Once you have scheduled your treatment, we guarantee it will not be cancelled.",
     },
     {

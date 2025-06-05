@@ -9,6 +9,8 @@ export default {
       screens: {
        
         'xs': {'max': '375px'},
+        'xss': {'max': '320px'},
+
         '4xl': {'min': '2560px'},
 
       },
