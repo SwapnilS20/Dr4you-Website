@@ -32,8 +32,10 @@
       "required": true
     },
     "emergency_contact": {
-      "type": "integer",
-      "required": true
+      "type": "text",
+      "maxLength": 10,
+      "required": true,
+      "regex": "^[6-9]\\d{9}$"
     }
   }
 }
