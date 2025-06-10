@@ -1,5 +1,5 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "homes",
   "info": {
     "singularName": "home",
@@ -12,19 +12,12 @@
   "pluginOptions": {},
   "attributes": {
     "tagline_1": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "tagline_2": {
-      "type": "string"
-    },
-    "doctor_image": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
+      "type": "string",
+      "required": true
     }
   }
 }
