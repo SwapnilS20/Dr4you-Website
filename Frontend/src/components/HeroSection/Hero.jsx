@@ -12,9 +12,11 @@ import commentImg4 from "../../assets/Images/commentImg4.jpg";
 import { FaStar, FaStarHalf } from "react-icons/fa";
 import { BsQuote } from "react-icons/bs";
 import NumberAnimation from "./NumberAnimation";
+import useFetch from "../../Hooks/useFetch";
 
 const Hero = () => {
   const commentImages = [commentImg1, commentImg2, commentImg3, commentImg4];
+  const { loading, data, error } = useFetch();
 
   const InfoData= [
     {
