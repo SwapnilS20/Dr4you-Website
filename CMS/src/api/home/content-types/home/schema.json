@@ -18,6 +18,22 @@
     "tagline_2": {
       "type": "string",
       "required": true
+    },
+    "Description": {
+      "type": "string",
+      "required": true
+    },
+    "appointment_btn_text": {
+      "type": "string",
+      "required": true
+    },
+    "emergency_label": {
+      "type": "string",
+      "required": true
+    },
+    "emergency_contact": {
+      "type": "integer",
+      "required": true
     }
   }
 }
