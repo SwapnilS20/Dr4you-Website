@@ -68,9 +68,8 @@ const Header = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center pl-6 pr-6  sm:pl-12 sm:pr-12">
-          <img src={logo} alt="logo"  className=" w-32" />
-          
+      <div className="flex justify-between items-center pl-6 pr-6 pt-6 sm:pl-12 sm:pr-12">
+           <img src={logo} alt="logo" width={200}   /> 
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex gap-6 text-Neutral-900 font-manrope font-semibold text-[16px]">
