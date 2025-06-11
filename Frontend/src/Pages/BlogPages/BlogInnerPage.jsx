@@ -211,7 +211,7 @@ const BlogInnerPage = () => {
                   initial="hidden"
                   animate="show"
                   exit="hidden"
-                >
+                > 
                   {currentItems.map((data) => (
                     <motion.div key={data.id} variants={card}>
                       <BlogsCard data={data} />

@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/Images/fotterLogo.png";
+import logo from "../../assets/Images/Logo.png";
 import { FaFacebook } from "react-icons/fa";
 import { SiLinkedin } from "react-icons/si";
 import { FaInstagram } from "react-icons/fa";
@@ -11,13 +11,10 @@ const Footer = () => {
     <footer className="  bg-Primary-Blue-50 w-full py-4 xl:px-32">
       <div className=" flex md:flex-row flex-col justify-between border-b-2 border-Primary-Blue-400 border-opacity-40 pb-10 p-4">
         {/* logo name and tagline */}
-        <div className=" flex flex-col gap-8 border-b-2 border-Primary-Blue-400 border-opacity-40 pb-10 md:pb-0 md:border-b-0 md:w-[30%]">
+        <div className=" flex flex-col  border-b-2 border-Primary-Blue-400 border-opacity-40 pb-10 md:pb-0 md:border-b-0 md:w-[30%]">
           <div>
-            <img src={logo} alt="" className=" w-[89px] h-[92px]" />
-            <h2 className="  text-2xl font-general-sans font-bold text-Primary-Blue-700">
-              {" "}
-              Drs-4You
-            </h2>
+            <img src={logo} alt="" className=" w-[189px] " />
+            
           </div>
           <p className=" font-manrope text-base max-w-[269px]">
             Experience personalized medical care from the comfort of your home.
