@@ -32,7 +32,33 @@
       "required": true
     },
     "emergency_contact": {
-      "type": "integer",
+      "type": "string",
+      "maxLength": 10,
+      "required": true,
+      "regex": "^[6-9]\\d{9}$"
+    },
+    "label1": {
+      "type": "string",
+      "required": true
+    },
+    "value1": {
+      "type": "string",
+      "required": true
+    },
+    "label2": {
+      "type": "string",
+      "required": true
+    },
+    "value2": {
+      "type": "string",
+      "required": true
+    },
+    "label3": {
+      "type": "string",
+      "required": true
+    },
+    "value3": {
+      "type": "string",
       "required": true
     }
   }
