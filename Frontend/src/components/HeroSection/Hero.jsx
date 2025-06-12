@@ -48,7 +48,7 @@ const Hero = () => {
         {/* Tagline */}
         <h1 className=" font-manrope font-bold  text-[28px] sm:text-[46px] xs:text-[26px]  ">
           Connecting You to Experts. <br />{" "}
-          <p className=" py-2 text-gradient-btn font-extrabold line-clamp-2 text-justify animate-typing overflow-hidden whitespace-nowrap delay-200 sm:text-[36px] xl:text-[34px] 2xl:text-[40px]  ">
+          <p className=" py-2 text-gradient-btn font-extrabold line-clamp-2 text-justify animate-typing animation-delay-2000 overflow-hidden whitespace-nowrap delay-200 sm:text-[36px] xl:text-[34px] 2xl:text-[40px]  ">
             Every patient, <br className=" sm:hidden  lg:block xl:hidden" />Every time, Everywhere 
           </p>
         </h1>
@@ -120,7 +120,7 @@ const Hero = () => {
 
         {/* Comment Section */}
         {/* comment one */}
-        <div className=" hidden relative w-[241px] h-[128px] bg-white border-2 border-[#95DDFF] rounded-xl shadow-md p-4   lg:flex flex-col justify-between left-44 lg:left-32 xl:left-44 lg:bottom-44 bottom-48 sm:bottom-54 ">
+        <div className=" hidden relative w-[200px] h-[128px] bg-white border-2 border-[#95DDFF] rounded-xl shadow-md p-4   lg:flex flex-col justify-between left-44 lg:left-32 xl:left-44 lg:bottom-44 bottom-48 sm:bottom-54 ">
           {/* Top: Images + Number */}
           <div className="flex items-center justify-between">
             {/* Images */}

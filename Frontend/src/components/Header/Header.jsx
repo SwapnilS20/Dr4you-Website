@@ -67,7 +67,8 @@ const Header = () => {
   ];
 
   return (
-    <div>
+    <div   >
+      {/* className="sticky top-0 z-50 bg-custom-gradient" */}
       <div className="flex justify-between items-center pl-6 pr-6 pt-6 sm:pl-12 sm:pr-12">
            <img src={logo} alt="logo" width={200}   /> 
 
