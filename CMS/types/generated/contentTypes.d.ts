@@ -408,46 +408,6 @@ export interface ApiHeaderAndFooterHeaderAndFooter
   };
 }
 
-export interface ApiHomeHome extends Struct.SingleTypeSchema {
-  collectionName: 'homes';
-  info: {
-    displayName: 'Home';
-    pluralName: 'homes';
-    singularName: 'home';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    appointment_btn_text: Schema.Attribute.String & Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Description: Schema.Attribute.String & Schema.Attribute.Required;
-    emergency_contact: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 10;
-      }>;
-    emergency_label: Schema.Attribute.String & Schema.Attribute.Required;
-    label1: Schema.Attribute.String & Schema.Attribute.Required;
-    label2: Schema.Attribute.String & Schema.Attribute.Required;
-    label3: Schema.Attribute.String & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    tagline_1: Schema.Attribute.String & Schema.Attribute.Required;
-    tagline_2: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    value1: Schema.Attribute.String & Schema.Attribute.Required;
-    value2: Schema.Attribute.String & Schema.Attribute.Required;
-    value3: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -958,7 +918,6 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::header-and-footer.header-and-footer': ApiHeaderAndFooterHeaderAndFooter;
-      'api::home.home': ApiHomeHome;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
