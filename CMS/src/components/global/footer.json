@@ -4,6 +4,36 @@
     "displayName": "Footer"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "copyright": {
+      "type": "string"
+    },
+    "support": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": true
+    },
+    "policy_links": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": true
+    },
+    "social_icons": {
+      "type": "component",
+      "component": "shared.social-media-icon-links",
+      "repeatable": true
+    }
+  },
   "config": {}
 }

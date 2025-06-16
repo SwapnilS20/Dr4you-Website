@@ -12,11 +12,14 @@
   "pluginOptions": {},
   "attributes": {
     "Header": {
-      "type": "dynamiczone",
-      "components": [
-        "global.navbar"
-      ],
-      "max": 1
+      "type": "component",
+      "component": "global.navbar",
+      "repeatable": false
+    },
+    "Footer": {
+      "type": "component",
+      "component": "global.footer",
+      "repeatable": false
     }
   }
 }
