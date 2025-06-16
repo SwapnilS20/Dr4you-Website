@@ -12,9 +12,16 @@ const useFetch = (url) => {
 
       try {
 
-        const res = await fetch(url);
+        const res = await fetch(url ,{
+          headers:{
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${import.meta.env.VITE_STRAPI_API_KEY}` // Ensure you have the correct token set in your environment variables
+          }
+        } );
         const json = await res.json();
         setData(json);
+        console.log(import.meta.env.VITE_STRAPI_API_KEY);
+        
         setLoading(false);
         
       } catch (error) {

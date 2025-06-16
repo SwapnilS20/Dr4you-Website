@@ -16,7 +16,7 @@ import useFetch from "../../Hooks/useFetch";
 
 const Hero = () => {
   const commentImages = [commentImg1, commentImg2, commentImg3, commentImg4];
-  const { loading, data, error } = useFetch('http://localhost:1337/api/home');
+  const { loading, data, error } = useFetch('http://localhost:1337/api/header-and-footers?populate[Header][populate]=*');
 
   console.log("home data", data);
   
