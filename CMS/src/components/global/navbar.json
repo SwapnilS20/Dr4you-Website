@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_global_navbars",
+  "info": {
+    "displayName": "Navbar"
+  },
+  "options": {},
+  "attributes": {
+    "Logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Navbar_Items": {
+      "type": "component",
+      "component": "items.navbar-items",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

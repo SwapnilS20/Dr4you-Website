@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "header_and_footers",
+  "info": {
+    "singularName": "header-and-footer",
+    "pluralName": "header-and-footers",
+    "displayName": "Header & Footer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Header": {
+      "type": "dynamiczone",
+      "components": [
+        "global.navbar"
+      ],
+      "max": 1
+    }
+  }
+}
