@@ -1,10 +1,4 @@
-
-
-
-import React, { useEffect, useState } from "react";
-import Button from "../Button";
-import "../../index.css";
-import logo from "../../assets/Images/Logo.png";
+import React, { useLayoutEffect, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,24 +6,49 @@ import { FaHome, FaPhoneSquareAlt } from "react-icons/fa";
 import { FaBriefcaseMedical } from "react-icons/fa6";
 import { TbInfoOctagonFilled } from "react-icons/tb";
 import { PiVideoBold } from "react-icons/pi";
+import gsap from "gsap";
+
+import Button from "../Button";
 import SocialMediaIcons from "../SocialMediaIcons";
-import { viewHeader, headerImageUrl } from "../../Api/Header";
+import logo from "../../assets/Images/Logo.png";
+import "../../index.css";
 
 const Header = () => {
   const [DrawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate();
   const [HeaderData, setHeaderData] = useState();
 
-  useEffect(() => {
-    const fetchHeaderData = async () => {
-      const res = await viewHeader();
-      if (res.status === 200) {
-        setHeaderData(res.data.data);
-      } else {
-        console.error("Error fetching header data");
-      }
-    };
-    fetchHeaderData();
+  useLayoutEffect(() => {
+    const timeout = setTimeout(() => {
+      const elements = gsap.utils.toArray(".header-anim");
+
+      const tl = gsap.timeline({
+        defaults: {
+          ease: "back.out(1.7)",
+          duration: 0.8,
+        },
+      });
+
+      tl.from(".header-container", {
+        opacity: 0,
+        y: -20,
+        duration: 0.5,
+      });
+
+      tl.from(
+        elements,
+        {
+          delay:0.3,
+          y: -30,
+          scale: 0.95,
+          autoAlpha: 0,
+          stagger: 0.2,
+        },
+        "-=0.4"
+      );
+    }, 50);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   const Navitems = [
@@ -67,10 +86,9 @@ const Header = () => {
   ];
 
   return (
-    <div   >
-      {/* className="sticky top-0 z-50 bg-custom-gradient" */}
-      <div className="flex justify-between items-center pl-6 pr-6 pt-6 sm:pl-12 sm:pr-12">
-           <img src={logo} alt="logo" width={200}   /> 
+    <div>
+      <div className="header-container flex justify-between items-center pl-6 pr-6 pt-6 sm:pl-12 sm:pr-12">
+        <img src={logo} alt="logo" width={200} className="header-anim" />
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex gap-6 text-Neutral-900 font-manrope font-semibold text-[16px]">
@@ -86,7 +104,7 @@ const Header = () => {
                 }`
               }
             >
-              <span>{data.name}</span>
+              <span className="header-anim">{data.name}</span>
             </NavLink>
           ))}
         </nav>
@@ -107,13 +125,14 @@ const Header = () => {
         {/* Login Button */}
         <Button
           styles={
-            "h-[56px] w-[174px] text-[20px] hidden lg:flex justify-center items-center bg-btn-gradient btn-hover-effect"
+            "header-anim h-[56px] w-[174px] text-[20px] hidden lg:flex justify-center items-center bg-btn-gradient btn-hover-effect"
           }
           children={" Patient Login"}
           onClick={() =>
             window.open(
               "https://cloud.softlinkinternational.com/IBH_TeleHealth/Login/AppointmentPage"
-            )}
+            )
+          }
         />
       </div>
 
@@ -121,7 +140,6 @@ const Header = () => {
       <AnimatePresence>
         {DrawerOpen && (
           <>
-            {/* Overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.4 }}
@@ -131,7 +149,6 @@ const Header = () => {
               onClick={() => setDrawerOpen(false)}
             />
 
-            {/* Drawer Content */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -139,7 +156,6 @@ const Header = () => {
               transition={{ duration: 0.4, ease: "easeInOut" }}
               className="lg:hidden fixed top-0 right-0 w-[80vw] md:w-[50vw] z-50 bg-white shadow-lg rounded-l-2xl flex flex-col"
             >
-              {/* Drawer Header */}
               <div className="flex justify-between items-center px-4 py-4 border-b">
                 <h1 className="flex items-center gap-2 text-xl font-general-sans font-bold text-Primary-Blue-400">
                   <img src={logo} alt="logo" />
@@ -151,7 +167,6 @@ const Header = () => {
                 />
               </div>
 
-              {/* Drawer Nav */}
               <div className="flex-1 overflow-y-auto px-4 py-6">
                 <nav className="flex flex-col gap-6 text-Neutral-900 font-manrope font-semibold text-lg">
                   {Navitems.map((data) => (
@@ -161,11 +176,11 @@ const Header = () => {
                       className={({ isActive }) =>
                         `flex items-center gap-3 ${
                           isActive
-                            ? "text-Primary-Blue-700 font-bold "
+                            ? "text-Primary-Blue-700 font-bold"
                             : "text-Neutral-900"
                         }`
                       }
-                      onClick={() => setDrawerOpen(false)} // close on link click
+                      onClick={() => setDrawerOpen(false)}
                     >
                       {data.icon}
                       {data.name}
@@ -174,7 +189,6 @@ const Header = () => {
                 </nav>
               </div>
 
-              {/* Drawer Footer */}
               <div className="px-4 py-4 border-t">
                 <SocialMediaIcons setgap={true} />
               </div>
