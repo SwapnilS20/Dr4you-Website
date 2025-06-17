@@ -19,7 +19,21 @@
     "copyright": {
       "type": "string"
     },
+    "links_title_1": {
+      "type": "string"
+    },
+    "links_title_2": {
+      "type": "string"
+    },
+    "links_title_3": {
+      "type": "string"
+    },
     "support": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": true
+    },
+    "services_links": {
       "type": "component",
       "component": "shared.link",
       "repeatable": true

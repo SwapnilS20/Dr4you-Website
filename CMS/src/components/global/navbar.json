@@ -19,6 +19,11 @@
       "type": "component",
       "component": "items.navbar-items",
       "repeatable": true
+    },
+    "patient_redirection": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": false
     }
   },
   "config": {}

@@ -1,7 +1,7 @@
 {
   "collectionName": "components_items_navbar_items",
   "info": {
-    "displayName": "navbar_items"
+    "displayName": "Navbar_items"
   },
   "options": {},
   "attributes": {
@@ -10,8 +10,8 @@
       "required": true,
       "unique": false
     },
-    "url": {
-      "type": "string"
+    "sequence": {
+      "type": "integer"
     }
   },
   "config": {}
