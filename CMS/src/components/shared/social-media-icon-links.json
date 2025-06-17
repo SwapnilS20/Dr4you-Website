@@ -1,19 +1,13 @@
 {
   "collectionName": "components_shared_social_media_icon_links",
   "info": {
-    "displayName": "social_media_icon_links"
+    "displayName": "Social_media_icon_links"
   },
   "options": {},
   "attributes": {
-    "icon": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "remixicon_classname": {
+      "type": "string",
+      "regex": "^ri-[a-z-]+$"
     },
     "link": {
       "type": "component",

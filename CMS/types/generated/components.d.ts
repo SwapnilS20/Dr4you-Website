@@ -1,5 +1,25 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface DynamicZoneHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_hero_sections';
+  info: {
+    displayName: 'Hero-section';
+  };
+  attributes: {
+    contact_number: Schema.Attribute.String;
+    CTAs: Schema.Attribute.Component<'shared.button', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 2;
+        },
+        number
+      >;
+    description: Schema.Attribute.Text;
+    highlighting_text: Schema.Attribute.String;
+    tagline: Schema.Attribute.String;
+  };
+}
+
 export interface GlobalFooter extends Struct.ComponentSchema {
   collectionName: 'components_global_footers';
   info: {
@@ -8,8 +28,12 @@ export interface GlobalFooter extends Struct.ComponentSchema {
   attributes: {
     copyright: Schema.Attribute.String;
     description: Schema.Attribute.String;
+    links_title_1: Schema.Attribute.String;
+    links_title_2: Schema.Attribute.String;
+    links_title_3: Schema.Attribute.String;
     logo: Schema.Attribute.Media<'images' | 'files'>;
     policy_links: Schema.Attribute.Component<'shared.link', true>;
+    services_links: Schema.Attribute.Component<'shared.link', true>;
     social_icons: Schema.Attribute.Component<
       'shared.social-media-icon-links',
       true
@@ -26,16 +50,42 @@ export interface GlobalNavbar extends Struct.ComponentSchema {
   attributes: {
     Logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Navbar_Items: Schema.Attribute.Component<'items.navbar-items', true>;
+    patient_redirection: Schema.Attribute.Component<'shared.button', false>;
+  };
+}
+
+export interface ItemsHeroItemsStats extends Struct.ComponentSchema {
+  collectionName: 'components_items_hero_items_stats';
+  info: {
+    displayName: 'Hero_items_stats';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+    value: Schema.Attribute.BigInteger;
   };
 }
 
 export interface ItemsNavbarItems extends Struct.ComponentSchema {
   collectionName: 'components_items_navbar_items';
   info: {
-    displayName: 'navbar_items';
+    displayName: 'Navbar_items';
   };
   attributes: {
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    sequence: Schema.Attribute.Integer;
+  };
+}
+
+export interface SharedButton extends Struct.ComponentSchema {
+  collectionName: 'components_shared_buttons';
+  info: {
+    displayName: 'Button';
+  };
+  attributes: {
+    target: Schema.Attribute.Enumeration<
+      ['_blank', '_self', '_parent', '_top']
+    >;
+    text: Schema.Attribute.String;
     url: Schema.Attribute.String;
   };
 }
@@ -58,20 +108,23 @@ export interface SharedLink extends Struct.ComponentSchema {
 export interface SharedSocialMediaIconLinks extends Struct.ComponentSchema {
   collectionName: 'components_shared_social_media_icon_links';
   info: {
-    displayName: 'social_media_icon_links';
+    displayName: 'Social_media_icon_links';
   };
   attributes: {
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     link: Schema.Attribute.Component<'shared.link', false>;
+    remixicon_classname: Schema.Attribute.String;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'dynamic-zone.hero-section': DynamicZoneHeroSection;
       'global.footer': GlobalFooter;
       'global.navbar': GlobalNavbar;
+      'items.hero-items-stats': ItemsHeroItemsStats;
       'items.navbar-items': ItemsNavbarItems;
+      'shared.button': SharedButton;
       'shared.link': SharedLink;
       'shared.social-media-icon-links': SharedSocialMediaIconLinks;
     }

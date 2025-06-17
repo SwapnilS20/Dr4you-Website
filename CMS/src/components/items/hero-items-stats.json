@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_items_hero_items_stats",
+  "info": {
+    "displayName": "Hero_items_stats"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "value": {
+      "type": "biginteger"
+    }
+  },
+  "config": {}
+}

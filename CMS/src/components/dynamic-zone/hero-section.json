@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_dynamic_zone_hero_sections",
+  "info": {
+    "displayName": "Hero-section"
+  },
+  "options": {},
+  "attributes": {
+    "tagline": {
+      "type": "string"
+    },
+    "highlighting_text": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "CTAs": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": true,
+      "max": 2
+    },
+    "contact_number": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
