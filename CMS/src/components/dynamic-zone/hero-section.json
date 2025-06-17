@@ -22,6 +22,32 @@
     },
     "contact_number": {
       "type": "string"
+    },
+    "our_stats": {
+      "type": "component",
+      "component": "items.hero-items-stats",
+      "repeatable": true,
+      "max": 4
+    },
+    "doctor_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "on_image_text_1": {
+      "type": "string"
+    },
+    "on_image_text_2": {
+      "type": "string"
+    },
+    "our_rating_outof5": {
+      "type": "decimal",
+      "max": 5
     }
   },
   "config": {}

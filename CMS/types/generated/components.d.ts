@@ -15,7 +15,26 @@ export interface DynamicZoneHeroSection extends Struct.ComponentSchema {
         number
       >;
     description: Schema.Attribute.Text;
+    doctor_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     highlighting_text: Schema.Attribute.String;
+    on_image_text_1: Schema.Attribute.String;
+    on_image_text_2: Schema.Attribute.String;
+    our_rating_outof5: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+        },
+        number
+      >;
+    our_stats: Schema.Attribute.Component<'items.hero-items-stats', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 4;
+        },
+        number
+      >;
     tagline: Schema.Attribute.String;
   };
 }
