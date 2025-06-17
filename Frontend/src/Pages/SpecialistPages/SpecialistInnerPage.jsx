@@ -154,7 +154,7 @@ const SpecialistInnerPage = () => {
   return (
     <>
       <section className="bg-custom-gradient min-h-screen">
-        <Header />
+       
         <div className="max-w-7xl mx-auto px-2 lg:px-6 py-16 flex flex-col gap-16">
           <h1 className="text-5xl md:text-6xl font-manrope font-bold text-center">
             Our <span className="text-gradient-btn">Specialist</span>

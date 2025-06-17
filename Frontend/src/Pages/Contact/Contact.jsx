@@ -10,7 +10,7 @@ const Contact = () => {
   return (
     <>
       <section className=" bg-custom-gradient">
-        <Header />
+       
         <div className=" flex flex-col items-center justify-center gap-4 mt-16 p-6">
           <h1 className=" text-Primary-Blue-950 text-5xl font-bold">Get In Touch</h1>
           <p className=" text-Neutral-700">Book an Appointment and take the first step toward better health today.</p>

@@ -194,7 +194,7 @@ const SpecialtiesPage = () => {
       {/* cards section */}
       <section>
         <div className="bg-custom-gradient ">
-          <Header />
+          
           <div className=" flex flex-col gap-10 py-14 ">
             {/* Name and Description */}
             <div className=" flex flex-col justify-center items-center gap-4 mt-8 ">

@@ -21,7 +21,6 @@ const HomePage = () => {
             
             {/* Header ands Hero secrtion */}
            <section className=' bg-custom-gradient'>            
-                    <Header />
                     <Hero />
             </section> 
 

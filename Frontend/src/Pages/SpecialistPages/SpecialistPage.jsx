@@ -190,7 +190,7 @@ const SpecialistPage = () => {
     <>
       <section>
         <div className=" flex flex-col gap-8 bg-Primary-Blue-50 pb-14">
-          <Header />
+          
           {/* heading and para */}
           <div className=" flex flex-col gap-4 justify-center items-center mt-16">
             <h1 className=" text-6xl font-manrope font-bold text-center">

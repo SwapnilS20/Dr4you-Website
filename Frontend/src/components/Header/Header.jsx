@@ -86,7 +86,7 @@ const Header = () => {
   ];
 
   return (
-    <div>
+    <div className="bg-transparent">
       <div className="header-container flex justify-between items-center pl-6 pr-6 pt-6 sm:pl-12 sm:pr-12">
         <img src={logo} alt="logo" width={200} className="header-anim" />
 

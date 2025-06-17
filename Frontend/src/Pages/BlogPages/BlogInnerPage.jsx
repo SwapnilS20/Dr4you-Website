@@ -156,7 +156,7 @@ const BlogInnerPage = () => {
       {FilteredData ? (
         <>
           <section className="bg-custom-gradient pb-16">
-            <Header />
+          
             <div className="flex flex-col items-center mt-12 md:px-8 px-4 ">
               {/* Image */}
               <div className="w-full max-w-7xl h-auto">

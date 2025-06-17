@@ -215,7 +215,7 @@ const SpecialtiesInnerPage = () => {
     <>
       <section>
         <div className="bg-custom-gradient ">
-          <Header />
+         
           <div className="max-w-5xl mx-auto py-12 px-6 ">
             {selectedCategory ? (
               <>
