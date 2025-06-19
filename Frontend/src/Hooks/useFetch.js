@@ -20,7 +20,6 @@ const useFetch = (url) => {
         } );
         const json = await res.json();
         setData(json);
-        console.log(import.meta.env.VITE_STRAPI_API_KEY);
         
         setLoading(false);
         

@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
@@ -7,21 +7,42 @@ import { FaBriefcaseMedical } from "react-icons/fa6";
 import { TbInfoOctagonFilled } from "react-icons/tb";
 import { PiVideoBold } from "react-icons/pi";
 import gsap from "gsap";
-
 import Button from "../Button";
 import SocialMediaIcons from "../SocialMediaIcons";
 import logo from "../../assets/Images/Logo.png";
 import "../../index.css";
+import useFetch from "../../Hooks/useFetch";
+import { useDispatch } from "react-redux";
+import { setHeader , setFooter } from "../../App/features/headerFooterSlics";
 
 const Header = () => {
   const [DrawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate();
-  const [HeaderData, setHeaderData] = useState();
+  const [HeaderData, setHeaderData] = useState();   
+  const [logoUrl, setLogoUrl] = useState();
+  const dispatch = useDispatch();
+  const { loading, data, error } = useFetch(
+    "http://localhost:1337/api/header-and-footer?populate[Header][populate]=*&populate[Footer][populate]=*"
+  );
+
+  useEffect(() => {
+    if (!loading && data?.data) {
+      setHeaderData(data.data.Header);
+      dispatch(setHeader(data.data.Header));
+      
+      dispatch(setFooter(data.data.Footer));
+      setLogoUrl(`http://localhost:1337${data.data.Header.Logo.url}`);
+    }
+
+    if (error) {
+      console.error("Error fetching header data:", error);
+    }
+  }, [loading, data, error]);
+
 
   useLayoutEffect(() => {
     const timeout = setTimeout(() => {
       const elements = gsap.utils.toArray(".header-anim");
-
       const tl = gsap.timeline({
         defaults: {
           ease: "back.out(1.7)",
@@ -30,7 +51,8 @@ const Header = () => {
       });
 
       tl.from(".header-container", {
-        opacity: 0,
+        opacity: 0,   
+
         y: -20,
         duration: 0.5,
       });
@@ -38,7 +60,7 @@ const Header = () => {
       tl.from(
         elements,
         {
-          delay:0.3,
+          delay: 0.3,
           y: -30,
           scale: 0.95,
           autoAlpha: 0,
@@ -51,7 +73,8 @@ const Header = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const Navitems = [
+  
+const Navitems = [
     { id: 1, name: HeaderData?.page1 || "Home", slug: "/", icon: <FaHome /> },
     {
       id: 2,
@@ -85,10 +108,21 @@ const Header = () => {
     },
   ];
 
+
+  if (loading) {
+    return (
+      <div className="header-container flex justify-between items-center pl-6 pr-6 pt-6 sm:pl-12 sm:pr-12">
+        <p className="text-xl font-bold text-gray-500 animate-pulse">
+          Loading header...
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-transparent">
       <div className="header-container flex justify-between items-center pl-6 pr-6 pt-6 sm:pl-12 sm:pr-12">
-        <img src={logo} alt="logo" width={200} className="header-anim" />
+        <img src={logoUrl} alt="logo" width={200} className="header-anim" />
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex gap-6 text-Neutral-900 font-manrope font-semibold text-[16px]">

@@ -14,6 +14,9 @@ import BlogInnerPage from "./Pages/BlogPages/BlogInnerPage.jsx";
 import Contact from "./Pages/Contact/Contact.jsx";
 import LoginPage from "./Pages/Login/LoginPage.jsx";
 
+import { Provider } from "react-redux";
+import store from "./App/store.js"
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -64,7 +67,7 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  <Provider store={store}>
     <RouterProvider router={router} />
-  </StrictMode>
+  </Provider>
 );
