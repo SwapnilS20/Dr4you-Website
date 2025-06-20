@@ -230,7 +230,7 @@ const BlogPage = () => {
       </section>
       <AppointmentFORM />
       <FrequentlyAskedQuestion />
-      <Footer />
+      
     </>
   );
 };

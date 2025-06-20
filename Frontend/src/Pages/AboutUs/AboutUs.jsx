@@ -115,7 +115,7 @@ const AboutUs = () => {
       </div>
       <AppointmentFORM/>
       <FrequentlyAskedQuestion/>
-      <Footer/>
+     
     </>
   );
 };

@@ -259,8 +259,7 @@ const SpecialtiesPage = () => {
         <Specialist show={true} />
         {/* FAQ */}
         <FrequentlyAskedQuestion />
-        {/* footer */}
-        <Footer />
+ 
 
       </section>
     </>

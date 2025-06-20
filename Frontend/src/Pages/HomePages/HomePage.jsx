@@ -12,7 +12,7 @@ import PlatformWorking from '../../components/PlatformWorking/PlatformWorking.js
 import Testimonials from '../../components/Testimonials/Testimonials.jsx';
 import Specialist from '../../components/Specialist/Specialist.jsx';
 import FrequentlyAskedQuestion from '../../components/FAQ/FrequentlyAskedQuestion.jsx';
-import Footer from '../../components/Footer/Footer.jsx';
+
 
 const HomePage = () => {
  
@@ -34,7 +34,7 @@ const HomePage = () => {
             <Testimonials/>
             <Specialist show={true}/>
             <FrequentlyAskedQuestion/>
-            <Footer/>
+           
         </div>
     );
 }

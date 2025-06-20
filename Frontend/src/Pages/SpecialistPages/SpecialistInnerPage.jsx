@@ -275,7 +275,7 @@ const SpecialistInnerPage = () => {
       </section>
       <AppointmentForm />
       <FrequentlyAskedQuestion />
-      <Footer />
+      
     </>
   );
 };

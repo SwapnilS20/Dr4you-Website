@@ -239,7 +239,7 @@ const SpecialtiesInnerPage = () => {
       <HealthCarePath />
       <AppointmentForm />
       <FrequentlyAskedQuestion />
-      <Footer />
+      
     </>
   );
 };

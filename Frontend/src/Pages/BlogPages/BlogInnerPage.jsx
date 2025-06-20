@@ -248,7 +248,7 @@ const BlogInnerPage = () => {
 
           <AppointmentFORM />
           <FrequentlyAskedQuestion />
-          <Footer />
+     
         </>
       ) : (
         <div className="text-center mt-20 text-gray-600 text-lg">
