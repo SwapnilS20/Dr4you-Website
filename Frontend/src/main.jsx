@@ -16,6 +16,7 @@ import LoginPage from "./Pages/Login/LoginPage.jsx";
 
 import { Provider } from "react-redux";
 import store from "./App/store.js"
+import TestimonialPage from "./Pages/TestimonialsPage/TestimonialPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -59,9 +60,14 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
+        path: "/testimonials",
+        element: <TestimonialPage/>
+      },
+      {
         path: "/login",
         element: <LoginPage />,
       },
+
     ],
   },
 ]);
