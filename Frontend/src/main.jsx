@@ -36,7 +36,7 @@ const router = createBrowserRouter([
         element: <SpecialtiesInnerPage />,
       },
       {
-        path: "/specialist",
+        path: "/specialists",
         element: <SpecialistPage />,
       },
       {

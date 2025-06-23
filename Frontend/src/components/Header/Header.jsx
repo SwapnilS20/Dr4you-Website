@@ -42,7 +42,7 @@ const Header = () => {
   }, [loading, data, error]);
 
 
-  console.log(HeaderData);
+  console.log("header adata",HeaderData);
 
   useLayoutEffect(() => {
     const timeout = setTimeout(() => {
@@ -78,39 +78,7 @@ const Header = () => {
   }, []);
 
   
-const Navitems = [
-    { id: 1, name: HeaderData?.page1 || "Home", slug: "/", icon: <FaHome /> },
-    {
-      id: 2,
-      name: HeaderData?.page2 || "Services",
-      slug: "/services",
-      icon: <FaBriefcaseMedical />,
-    },
-    {
-      id: 3,
-      name: HeaderData?.page3 || "Find Doctors",
-      slug: "/specialist",
-      icon: <FaBriefcaseMedical />,
-    },
-    {
-      id: 4,
-      name: HeaderData?.page4 || "About us",
-      slug: "/about",
-      icon: <TbInfoOctagonFilled />,
-    },
-    {
-      id: 5,
-      name: HeaderData?.page5 || "Blogs",
-      slug: "/blogs",
-      icon: <PiVideoBold />,
-    },
-    {
-      id: 6,
-      name: HeaderData?.page6 || "Contact us",
-      slug: "/contact-us",
-      icon: <FaPhoneSquareAlt />,
-    },
-  ];
+
 
 
   if (loading) {
@@ -130,7 +98,7 @@ const Navitems = [
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex gap-6 text-Neutral-900 font-manrope font-semibold text-[16px]">
-          {Navitems.map((data) => (
+          {HeaderData.map((data) => (
             <NavLink
               key={data.id}
               to={data.slug}
@@ -207,7 +175,7 @@ const Navitems = [
 
               <div className="flex-1 overflow-y-auto px-4 py-6">
                 <nav className="flex flex-col gap-6 text-Neutral-900 font-manrope font-semibold text-lg">
-                  {Navitems.map((data) => (
+                  {HeaderData.map((data) => (
                     <NavLink
                       key={data.id}
                       to={data.slug}
@@ -220,7 +188,7 @@ const Navitems = [
                       }
                       onClick={() => setDrawerOpen(false)}
                     >
-                      {data.icon}
+                      <i className={`${data.remixicon_classname}`}></i>
                       {data.name}
                     </NavLink>
                   ))}
