@@ -11,6 +11,7 @@ import Button from "../Button";
 import SocialMediaIcons from "../SocialMediaIcons";
 import logo from "../../assets/Images/Logo.png";
 import "../../index.css";
+import 'remixicon/fonts/remixicon.css';
 import useFetch from "../../Hooks/useFetch";
 import { useDispatch } from "react-redux";
 import { setHeader , setFooter } from "../../App/features/headerFooterSlics";
@@ -22,13 +23,14 @@ const Header = () => {
   const [logoUrl, setLogoUrl] = useState();
   const dispatch = useDispatch();
   const { loading, data, error } = useFetch(
-    "http://localhost:1337/api/header-and-footer?populate[Header][populate]=*&populate[Footer][populate]=*"
+    "http://localhost:1337/api/header-and-footer?populate[Header][populate]=*&populate[Footer][populate][logo]=true&populate[Footer][populate][policy_links]=true&populate[Footer][populate][services_links]=true&populate[Footer][populate][support]=true&populate[Footer][populate][social_icons][populate]=link"
   );
 
   useEffect(() => {
     if (!loading && data?.data) {
       setHeaderData(data.data.Header);
       dispatch(setHeader(data.data.Header));
+      
       
       dispatch(setFooter(data.data.Footer));
       setLogoUrl(`http://localhost:1337${data.data.Header.Logo.url}`);
@@ -39,6 +41,8 @@ const Header = () => {
     }
   }, [loading, data, error]);
 
+
+  console.log(HeaderData);
 
   useLayoutEffect(() => {
     const timeout = setTimeout(() => {
@@ -192,8 +196,8 @@ const Navitems = [
             >
               <div className="flex justify-between items-center px-4 py-4 border-b">
                 <h1 className="flex items-center gap-2 text-xl font-general-sans font-bold text-Primary-Blue-400">
-                  <img src={logo} alt="logo" />
-                  Drs-4You
+                  <img src={logoUrl} alt="logo" />
+                
                 </h1>
                 <IoClose
                   className="text-3xl text-Primary-Blue-700 cursor-pointer"
