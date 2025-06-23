@@ -12,6 +12,13 @@
     },
     "sequence": {
       "type": "integer"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "remixicon_classname": {
+      "type": "string",
+      "regex": "^ri-[a-z-]+$"
     }
   },
   "config": {}

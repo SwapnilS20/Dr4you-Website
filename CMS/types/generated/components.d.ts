@@ -39,6 +39,26 @@ export interface DynamicZoneHeroSection extends Struct.ComponentSchema {
   };
 }
 
+export interface DynamicZoneWelcomeBanner extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_welcome_banners';
+  info: {
+    displayName: 'Welcome-Banner';
+  };
+  attributes: {
+    button_text: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    patient_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    placeholder: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    whatsapp_number: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 10;
+      }>;
+  };
+}
+
 export interface GlobalFooter extends Struct.ComponentSchema {
   collectionName: 'components_global_footers';
   info: {
@@ -91,7 +111,9 @@ export interface ItemsNavbarItems extends Struct.ComponentSchema {
   };
   attributes: {
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    remixicon_classname: Schema.Attribute.String;
     sequence: Schema.Attribute.Integer;
+    slug: Schema.Attribute.String;
   };
 }
 
@@ -139,6 +161,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'dynamic-zone.hero-section': DynamicZoneHeroSection;
+      'dynamic-zone.welcome-banner': DynamicZoneWelcomeBanner;
       'global.footer': GlobalFooter;
       'global.navbar': GlobalNavbar;
       'items.hero-items-stats': ItemsHeroItemsStats;

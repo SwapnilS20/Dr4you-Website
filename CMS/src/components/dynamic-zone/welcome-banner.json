@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_dynamic_zone_welcome_banners",
+  "info": {
+    "displayName": "Welcome-Banner"
+  },
+  "options": {},
+  "attributes": {
+    "patient_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "placeholder": {
+      "type": "string"
+    },
+    "button_text": {
+      "type": "string"
+    },
+    "whatsapp_number": {
+      "type": "string",
+      "maxLength": 10
+    }
+  },
+  "config": {}
+}

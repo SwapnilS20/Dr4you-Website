@@ -17,7 +17,8 @@
     "dynamic_zone": {
       "type": "dynamiczone",
       "components": [
-        "dynamic-zone.hero-section"
+        "dynamic-zone.hero-section",
+        "dynamic-zone.welcome-banner"
       ]
     }
   }
