@@ -126,8 +126,6 @@ export interface ItemsNavbarItems extends Struct.ComponentSchema {
   attributes: {
     name: Schema.Attribute.String & Schema.Attribute.Required;
     remixicon_classname: Schema.Attribute.String;
-    sequence: Schema.Attribute.Integer;
-    slug: Schema.Attribute.String;
   };
 }
 
