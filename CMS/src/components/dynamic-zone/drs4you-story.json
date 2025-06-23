@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_dynamic_zone_drs4you_stories",
+  "info": {
+    "displayName": "Drs4you Story"
+  },
+  "options": {},
+  "attributes": {
+    "story_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "highlighting_head": {
+      "type": "string"
+    },
+    "normal_head": {
+      "type": "string"
+    },
+    "story_description": {
+      "type": "text"
+    },
+    "button_text": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

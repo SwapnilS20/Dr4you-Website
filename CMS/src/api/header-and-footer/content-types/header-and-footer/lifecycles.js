@@ -7,7 +7,7 @@ module.exports = {
       Header: {
         populate: {
           navbar_items: {
-            fields: ["slug", "id"],
+            fields: ["slug", "id", "name"],
           },
         },
       },
@@ -29,14 +29,21 @@ module.exports = {
         (item) => item.id === updatedItem.id
       );
 
-      if (
-        matchingExisting &&
-        updatedItem.slug &&
-        updatedItem.slug !== matchingExisting.slug
-      ) {
-        throw new Error(
-          `Slug for navbar item "${matchingExisting.name}" cannot be edited once set.`
-        );
+      if (matchingExisting) {
+        // 🔁 Auto-restore slug if blank or removed
+        if (!updatedItem.slug) {
+          updatedItem.slug = matchingExisting.slug;
+        }
+
+        // ❌ Block slug edit
+        if (
+          updatedItem.slug &&
+          updatedItem.slug !== matchingExisting.slug
+        ) {
+          throw new Error(
+            `Slug for navbar item "${matchingExisting.name}" cannot be edited once set.`
+          );
+        }
       }
     }
   },

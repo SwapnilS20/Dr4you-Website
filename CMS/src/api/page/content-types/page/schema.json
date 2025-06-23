@@ -18,7 +18,8 @@
       "type": "dynamiczone",
       "components": [
         "dynamic-zone.hero-section",
-        "dynamic-zone.welcome-banner"
+        "dynamic-zone.welcome-banner",
+        "dynamic-zone.drs4you-story"
       ]
     }
   }

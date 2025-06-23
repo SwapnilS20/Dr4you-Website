@@ -1,5 +1,19 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface DynamicZoneDrs4YouStory extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_drs4you_stories';
+  info: {
+    displayName: 'Drs4you Story';
+  };
+  attributes: {
+    button_text: Schema.Attribute.String;
+    highlighting_head: Schema.Attribute.String;
+    normal_head: Schema.Attribute.String;
+    story_description: Schema.Attribute.Text;
+    story_image: Schema.Attribute.Media<'images' | 'files'>;
+  };
+}
+
 export interface DynamicZoneHeroSection extends Struct.ComponentSchema {
   collectionName: 'components_dynamic_zone_hero_sections';
   info: {
@@ -160,6 +174,7 @@ export interface SharedSocialMediaIconLinks extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'dynamic-zone.drs4you-story': DynamicZoneDrs4YouStory;
       'dynamic-zone.hero-section': DynamicZoneHeroSection;
       'dynamic-zone.welcome-banner': DynamicZoneWelcomeBanner;
       'global.footer': GlobalFooter;
