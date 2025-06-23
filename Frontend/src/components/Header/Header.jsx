@@ -30,8 +30,6 @@ const Header = () => {
     if (!loading && data?.data) {
       setHeaderData(data.data.Header);
       dispatch(setHeader(data.data.Header));
-      
-      
       dispatch(setFooter(data.data.Footer));
       setLogoUrl(`http://localhost:1337${data.data.Header.Logo.url}`);
     }
@@ -42,7 +40,6 @@ const Header = () => {
   }, [loading, data, error]);
 
 
-  console.log("header adata",HeaderData);
 
   useLayoutEffect(() => {
     const timeout = setTimeout(() => {
@@ -77,7 +74,7 @@ const Header = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  
+  const navSlugs = [ '/', '/services', '/specialists', '/about','/blogs', '/contact-us'];
 
 
 
@@ -98,7 +95,7 @@ const Header = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex gap-6 text-Neutral-900 font-manrope font-semibold text-[16px]">
-          {HeaderData.map((data) => (
+          {HeaderData?.Navbar_Items?.map((data) => (
             <NavLink
               key={data.id}
               to={data.slug}
@@ -133,10 +130,11 @@ const Header = () => {
           styles={
             "header-anim h-[56px] w-[174px] text-[20px] hidden lg:flex justify-center items-center bg-btn-gradient btn-hover-effect"
           }
-          children={" Patient Login"}
+          children={HeaderData?.patient_redirection.text}
           onClick={() =>
             window.open(
-              "https://cloud.softlinkinternational.com/IBH_TeleHealth/Login/AppointmentPage"
+              `headerData?.patient_redirection.url`,
+              "_blank"
             )
           }
         />
@@ -175,7 +173,7 @@ const Header = () => {
 
               <div className="flex-1 overflow-y-auto px-4 py-6">
                 <nav className="flex flex-col gap-6 text-Neutral-900 font-manrope font-semibold text-lg">
-                  {HeaderData.map((data) => (
+                  {HeaderData?.Navbar_Items?.map((data) => (
                     <NavLink
                       key={data.id}
                       to={data.slug}

@@ -18,7 +18,7 @@ function App() {
     <>
       <div
         className={`${
-          path === "specialist" ? "bg-Primary-Blue-50" : "bg-custom-gradient"
+          path === "specialists" ? "bg-Primary-Blue-50" : "bg-custom-gradient"
         } h-[500px]`}
       >
         <Header />
