@@ -7,7 +7,7 @@
   "attributes": {
     "remixicon_classname": {
       "type": "string",
-      "regex": "^ri-[a-z-]+$"
+      "regex": "^ri-[a-z0-9-]+$"
     },
     "link": {
       "type": "component",
