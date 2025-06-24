@@ -19,7 +19,8 @@
       "components": [
         "dynamic-zone.hero-section",
         "dynamic-zone.welcome-banner",
-        "dynamic-zone.drs4you-story"
+        "dynamic-zone.drs4you-story",
+        "dynamic-zone.services-card-section"
       ]
     }
   }

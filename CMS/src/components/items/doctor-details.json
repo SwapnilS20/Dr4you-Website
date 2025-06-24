@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_items_doctor_details",
+  "info": {
+    "displayName": "Doctor_Details"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "doctor_qualification": {
+      "type": "component",
+      "component": "shared.doctor-qualification",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

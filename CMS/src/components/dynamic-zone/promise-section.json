@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_dynamic_zone_promise_sections",
+  "info": {
+    "displayName": "promise_section"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "sub_heading": {
+      "type": "string"
+    },
+    "promise_items": {
+      "type": "component",
+      "component": "card.promise-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

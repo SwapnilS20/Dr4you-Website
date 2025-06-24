@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_doctor_qualifications",
+  "info": {
+    "displayName": "doctor_qualification"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

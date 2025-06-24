@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface CardPromiseCard extends Struct.ComponentSchema {
+  collectionName: 'components_card_promise_cards';
+  info: {
+    displayName: 'promise_card';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface DynamicZoneDrs4YouStory extends Struct.ComponentSchema {
   collectionName: 'components_dynamic_zone_drs4you_stories';
   info: {
@@ -50,6 +62,29 @@ export interface DynamicZoneHeroSection extends Struct.ComponentSchema {
         number
       >;
     tagline: Schema.Attribute.String;
+  };
+}
+
+export interface DynamicZonePromiseSection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_promise_sections';
+  info: {
+    displayName: 'promise_section';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    promise_items: Schema.Attribute.Component<'card.promise-card', true>;
+    sub_heading: Schema.Attribute.String;
+  };
+}
+
+export interface DynamicZoneServicesCardSection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_services_card_sections';
+  info: {
+    displayName: 'Services_card_section';
+  };
+  attributes: {
+    pagehead: Schema.Attribute.Component<'shared.page-head', false>;
+    services: Schema.Attribute.Relation<'oneToMany', 'api::service.service'>;
   };
 }
 
@@ -107,6 +142,21 @@ export interface GlobalNavbar extends Struct.ComponentSchema {
   };
 }
 
+export interface ItemsDoctorDetails extends Struct.ComponentSchema {
+  collectionName: 'components_items_doctor_details';
+  info: {
+    displayName: 'Doctor_Details';
+  };
+  attributes: {
+    doctor_qualification: Schema.Attribute.Component<
+      'shared.doctor-qualification',
+      true
+    >;
+    heading: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface ItemsHeroItemsStats extends Struct.ComponentSchema {
   collectionName: 'components_items_hero_items_stats';
   info: {
@@ -143,6 +193,16 @@ export interface SharedButton extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedDoctorQualification extends Struct.ComponentSchema {
+  collectionName: 'components_shared_doctor_qualifications';
+  info: {
+    displayName: 'doctor_qualification';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+  };
+}
+
 export interface SharedLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_links';
   info: {
@@ -155,6 +215,17 @@ export interface SharedLink extends Struct.ComponentSchema {
     >;
     text: Schema.Attribute.String;
     url: Schema.Attribute.String;
+  };
+}
+
+export interface SharedPageHead extends Struct.ComponentSchema {
+  collectionName: 'components_shared_page_heads';
+  info: {
+    displayName: 'Page_Head';
+  };
+  attributes: {
+    short_description: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -172,15 +243,21 @@ export interface SharedSocialMediaIconLinks extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'card.promise-card': CardPromiseCard;
       'dynamic-zone.drs4you-story': DynamicZoneDrs4YouStory;
       'dynamic-zone.hero-section': DynamicZoneHeroSection;
+      'dynamic-zone.promise-section': DynamicZonePromiseSection;
+      'dynamic-zone.services-card-section': DynamicZoneServicesCardSection;
       'dynamic-zone.welcome-banner': DynamicZoneWelcomeBanner;
       'global.footer': GlobalFooter;
       'global.navbar': GlobalNavbar;
+      'items.doctor-details': ItemsDoctorDetails;
       'items.hero-items-stats': ItemsHeroItemsStats;
       'items.navbar-items': ItemsNavbarItems;
       'shared.button': SharedButton;
+      'shared.doctor-qualification': SharedDoctorQualification;
       'shared.link': SharedLink;
+      'shared.page-head': SharedPageHead;
       'shared.social-media-icon-links': SharedSocialMediaIconLinks;
     }
   }
