@@ -8,34 +8,21 @@ import commentImg1 from "../../assets/Images/commentImg1.jpg";
 import commentImg2 from "../../assets/Images/commentImg2.jpg";
 import commentImg3 from "../../assets/Images/commentImg3.jpg";
 import commentImg4 from "../../assets/Images/commentImg4.jpg";
-
 import { FaStar, FaStarHalf } from "react-icons/fa";
 import { BsQuote } from "react-icons/bs";
 import NumberAnimation from "./NumberAnimation";
-import useFetch from "../../Hooks/useFetch";
+import { useSelector } from "react-redux";
 
 const Hero = () => {
   const commentImages = [commentImg1, commentImg2, commentImg3, commentImg4];
-  
+  const HeroSectionData = useSelector((state) => state.home.heroSection);
+  const decimalPart =
+    HeroSectionData?.our_rating_outof5 -
+    Math.floor(HeroSectionData?.our_rating_outof5);
 
-  const InfoData= [
-    {
-      id: 1,
-      number: 60,
-      text: "Expert Specialists",
-    },
-    {
-      id: 2,
-      number: 500,
-      text: "Patients Served",
-    },
-    {
-      id: 3,
-      number: 22,
-      text: "Medical Services",
-      span:true
-    },
-  ];
+  console.log(decimalPart);
+
+  console.log(" hero section ", HeroSectionData);
 
   return (
     // Main Container
@@ -44,18 +31,15 @@ const Hero = () => {
       <div className="flex flex-col gap-6 mt-4 sm:gap-10 lg:w-[50%] md:pl-[0px] lg:pl-[50px]  lg:mt-[120px] xl:mt-[120px]">
         {/* Tagline */}
         <h1 className=" font-manrope font-bold  text-[28px] sm:text-[46px] xs:text-[26px]  ">
-          Connecting You to Experts. <br />{" "}
+          {HeroSectionData?.tagline} <br />{" "}
           <p className=" py-2 text-gradient-btn font-extrabold line-clamp-2 text-justify animate-typing animation-delay-2000 overflow-hidden whitespace-nowrap delay-200 sm:text-[36px] xl:text-[34px] 2xl:text-[40px]  ">
-            Every patient, <br className=" sm:hidden  lg:block xl:hidden" />Every time, Everywhere 
+            {/* Every patient, <br className=" sm:hidden  lg:block xl:hidden" />Every time, Everywhere  */}
+            {HeroSectionData?.highlighting_text}
           </p>
         </h1>
         {/* Description */}
         <p className=" font-manrope text-base text-justify">
-          From Consultation to Clarity—We’re With You.Get personalized care from
-          home with Drs-4You. Whether it’s your first consultation or a
-          follow-up, connect with certified doctors across specialties. From
-          expert medical advice to prescriptions and appointments—healthcare
-          made simple, secure, and supportive.
+          {HeroSectionData?.description}
         </p>
         {/* Button and contact */}
         <div className="flex flex-row justify-evenly sm:justify-center lg:justify-start gap-4 md:gap-16 lg:gap-4">
@@ -63,13 +47,15 @@ const Hero = () => {
             styles={
               " sm:h-[56px] h-[52px] sm:w-[227px] w-[172px] sm:text-[16px] text-[14px] bg-btn-gradient btn-hover-effect  "
             }
-            children={"Book an Appointment"}
-          onClick={() => window.open("https://cloud.softlinkinternational.com/IBH_TeleHealth/Login/AppointmentPage")}
-
+            children={HeroSectionData?.CTAs?.[0].text}
+            onClick={() => window.open(HeroSectionData?.CTAs?.[0].url)}
           />
           {/* contact */}
           <div className=" flex gap-4 items-center">
-            <div className="border-gradient-btn h-[55px] w-[55px] rounded-[20%]  p-[1px] " onClick={()=>window.location.href ="tel:022 6901 2250"}>
+            <div
+              className="border-gradient-btn h-[55px] w-[55px] rounded-[20%]  p-[1px] "
+              onClick={() => (window.location.href = "tel:022 6901 2250")}
+            >
               <div className=" flex justify-center items-center bg-white h-full w-full rounded-[20%] p-[4px] ">
                 <span className=" flex items-center justify-center bg-bg-gradient h-full w-full rounded-[15%] ">
                   {" "}
@@ -77,28 +63,29 @@ const Hero = () => {
                 </span>
               </div>
             </div>
-            <div  className=" flex flex-col text-base font-general-sans  ">
-              <span className=" text-[#1376F8] font-semibold">Contact Us</span>
+            <div className=" flex flex-col text-base font-general-sans  ">
+              <span className=" text-[#1376F8] font-semibold">
+                {HeroSectionData?.CTAs?.[1].text}
+              </span>
               <a
-                href="tel:8655910652"
+                href={`tel:${HeroSectionData?.CTAs?.[1].url}`}
                 className=" font-normal text-[12px] sm:text-base"
               >
-                +91 8655910652
+                {HeroSectionData?.contact_number}
               </a>
             </div>
           </div>
         </div>
 
         <div className="grid grid-cols-2 gap-4 sm:gap-8 place-items-center lg:w-[25vw]">
-          {
-            InfoData.map((data) => (  
-              < NumberAnimation 
-                key={data.id}
-                number={data.number}
-                text={data.text}
-                span={data.span}
-                />))
-          }
+          {HeroSectionData?.our_stats?.slice(0, 3).map((data) => (
+            <NumberAnimation
+              key={data.id}
+              number={data.value}
+              text={data.text}
+              span={data.span}
+            />
+          ))}
         </div>
       </div>
 
@@ -109,7 +96,9 @@ const Hero = () => {
 
         <div>
           <img
-            src={HeroImg}
+            src={`${import.meta.env.VITE_STRAPI_URL}${
+              HeroSectionData?.doctor_image?.url
+            }`}
             alt=""
             className=" relative lg:w-[482px] lg:h-[476px] w-[382px] h-[376px] left-4 lg:top-[123px] sm:top-6    "
           />
@@ -134,25 +123,30 @@ const Hero = () => {
 
             {/* Count */}
             <div className="text-xl font-bold text-gray-900">
-              2400<span className="text-blue-500 font-semibold">+</span>
+              {HeroSectionData?.our_stats?.[3]?.value}
+              <span className="text-blue-500 font-semibold">+</span>
             </div>
           </div>
 
           {/* Middle: Text */}
           <div className="mt-2 text-base text-Primary-Blue-500 font-manrope font-bold">
-            Happy Patients
+            {HeroSectionData?.our_stats?.[3]?.text}
           </div>
 
           {/* Bottom: Stars */}
           <div className="flex items-center gap-1 text-yellow-400 text-xl">
             <div className="flex">
-              <FaStar className="text-yellow-400 text-base" />
-              <FaStar className="text-yellow-400 text-base" />
-              <FaStar className="text-yellow-400 text-base" />
-              <FaStar className="text-yellow-400 text-base" />
-              <FaStarHalf className="text-yellow-400 text-base" />
+              {Array.from(
+                { length: HeroSectionData?.our_rating_outof5 },
+                (_, i) => (
+                  <FaStar key={i} className="text-yellow-400" />
+                )
+              )}
+              {decimalPart > 0.4 && <FaStarHalf className="text-yellow-400" />}
             </div>
-            <span className="text-gray-500 text-sm ml-1">(4.7 Stars)</span>
+            <span className="text-gray-500 text-sm ml-1">
+              {`( ${HeroSectionData?.our_rating_outof5} + )`}
+            </span>
           </div>
         </div>
 
@@ -163,7 +157,7 @@ const Hero = () => {
             <FaStar className="text-Primary-Blue-700 text-base  " />{" "}
           </div>
           <div className=" font-manrope font-bold text-base">
-            Easy Appointment Booking
+            {HeroSectionData?.on_image_text_1}
           </div>
         </div>
 
@@ -173,11 +167,10 @@ const Hero = () => {
         </span>
         <div className=" relative hidden lg:flex justify-center items-center gap-2 w-[300px] h-[88px] rounded-[10px] bg-white border-2 border-[#95DDFF] lg:shadow-md left-24 xl:left-28 lg:bottom-36 bottom-60 ">
           <div className=" text-center  text-base ">
-            Lorem ipsum dolor sit amet, ligula ego. consectetuer adipiscing elit
-            doloras.{" "}
+            {HeroSectionData?.on_image_text_2}
           </div>
         </div>
-      </div>  
+      </div>
     </div>
   );
 };

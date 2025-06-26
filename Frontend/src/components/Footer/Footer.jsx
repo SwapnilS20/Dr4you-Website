@@ -8,8 +8,6 @@ const Footer = () => {
 
   const footerData = useSelector((state) => state.headerFooter.footer);
 
-
-  console.log(footerData);
   const navigate = useNavigate();
 
   return (
@@ -89,7 +87,7 @@ const Footer = () => {
       {/* Social Media Links and Copyright */}
       <div className=" flex flex-col md:flex-row gap-4  justify-between items-center py-4 px-4">
         <div className=" flex gap-6 text-4xl">
-          <SocialMediaIcons />
+          <SocialMediaIcons data={footerData?.social_icons} />
         </div>
         <p className=" font-manrope text-base text-Neutral-900">
           {footerData?.copyright}

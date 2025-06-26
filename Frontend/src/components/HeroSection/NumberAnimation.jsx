@@ -4,22 +4,23 @@ const NumberAnimation = ({ number, text ,span }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    let start = 0;
-    const end = number;
-    const duration = 2000; // milliseconds
-    const stepTime = Math.max(Math.floor(duration / (end - start)), 20); // fallback to minimum delay
+  const duration = 2000; // Total duration in ms
+  const steps = number;
+  const stepTime = Math.max(Math.floor(duration / steps), 20);
 
-    const timer = setInterval(() => {
-      start += 1;
-      setCount(start);
-      if (start === end) {
+  const timer = setInterval(() => {
+    setCount(prev => {
+      if (prev >= number) {
         clearInterval(timer);
+        return number;
       }
-    }, stepTime);
+      return prev + 1;
+    });
+  }, stepTime);
 
-    // cleanup on unmount
-    return () => clearInterval(timer);
-  }, [number]); // Run only when `number` changes
+  return () => clearInterval(timer);
+}, [number]);
+// Run only when `number` changes
 
   return (
     <div className={`"flex flex-col items-center justify-center text-Neutral-900" ${span?"col-span-2":""}`}>

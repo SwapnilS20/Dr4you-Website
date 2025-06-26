@@ -3,8 +3,13 @@ import img from "../../assets/Images/WelcomeBannerImg.png";
 import { BsTelephone } from "react-icons/bs";
 import { FaWhatsappSquare } from "react-icons/fa";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 function WelcomeBanner() {
+  const welcomeData = useSelector((state) => state.home.WelcomeBanner);
+  console.log(welcomeData);
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -47,7 +52,12 @@ function WelcomeBanner() {
         <div className="lg:w-[50%] flex justify-start 2xl:justify-center sm:ml-5 items-center">
           <div className="sm:bg-Primary-Blue-400 rounded-[3%]">
             <div className="sm:relative top-7 right-7">
-              <img src={img} alt="Doctor consultation" />
+              <img
+                src={`${import.meta.env.VITE_STRAPI_URL}${
+                  welcomeData?.patient_image?.url
+                }`}
+                alt="Doctor consultation"
+              />
             </div>
           </div>
         </div>
@@ -55,16 +65,17 @@ function WelcomeBanner() {
         {/* Right */}
         <div className="lg:w-[50%] flex justify-center items-start flex-col gap-8 md:p-8 font-general-sans">
           <h2 className="text-[36px] sm:text-[42px] xs:text-[30px] font-semibold text-[#011632]">
-            Start Your Health Journey with Drs-4you.com
+            {welcomeData?.title}
           </h2>
           <p className="text-[18px] leading-8 text-justify">
-            Whether it’s your first visit or a follow-up, we’re here to help.
-            Drs-4You makes scheduling your consultation quick and easy. Let’s
-            guide you on the path to better health.
+            {welcomeData?.description}
           </p>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className=" flex md:justify-center lg:justify-start items-center w-[100%]">
+          <form
+            onSubmit={handleSubmit}
+            className=" flex md:justify-center lg:justify-start items-center w-[100%]"
+          >
             <div className="flex flex-row justify-center items-center">
               <div className="flex items-center xs:w-[210px] h-[55px] border border-[#cecece] bg-white rounded-l-md px-3 xs:px-1">
                 <BsTelephone className="text-gray-500 mr-3 text-xl" />
@@ -75,7 +86,7 @@ function WelcomeBanner() {
                   pattern="[0-9]{10}"
                   title="Enter a 10-digit phone number"
                   className="flex-1 bg-transparent text-sm outline-none"
-                  placeholder="Enter Your Phone Number"
+                  placeholder={welcomeData?.placeholder}
                 />
               </div>
 
@@ -83,11 +94,19 @@ function WelcomeBanner() {
                 type="submit"
                 className="flex justify-center items-center xs:w-[75px] w-[117px] h-[55px] bg-[#1376F8] rounded-r-md font-semibold text-white text-base hover:bg-[#0e60d3] transition-all"
               >
-                Submit
+                {welcomeData?.button_text}
               </button>
 
-              <FaWhatsappSquare  className="text-6xl xss:hidden sm:ml-2 " color="green" onClick={()=> window.open("https://wa.me/+918928473062", "_blank")}/>
-
+              <FaWhatsappSquare
+                className="text-6xl xss:hidden sm:ml-2 "
+                color="green"
+                onClick={() =>
+                  window.open(
+                    `https://wa.me/+91${welcomeData?.whatsapp_number}`,
+                    "_blank"
+                  )
+                }
+              />
             </div>
           </form>
         </div>

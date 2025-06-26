@@ -11,20 +11,22 @@ import Button from "../Button";
 import SocialMediaIcons from "../SocialMediaIcons";
 import logo from "../../assets/Images/Logo.png";
 import "../../index.css";
-import 'remixicon/fonts/remixicon.css';
+import "remixicon/fonts/remixicon.css";
 import useFetch from "../../Hooks/useFetch";
 import { useDispatch } from "react-redux";
-import { setHeader , setFooter } from "../../App/features/headerFooterSlics";
+import { setHeader, setFooter } from "../../App/features/headerFooterSlics";
 
 const Header = () => {
   const [DrawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate();
-  const [HeaderData, setHeaderData] = useState();   
+  const [HeaderData, setHeaderData] = useState();
   const [logoUrl, setLogoUrl] = useState();
   const dispatch = useDispatch();
+  
   const { loading, data, error } = useFetch(
     "http://localhost:1337/api/header-and-footer?populate[Header][populate]=*&populate[Footer][populate][logo]=true&populate[Footer][populate][policy_links]=true&populate[Footer][populate][services_links]=true&populate[Footer][populate][support]=true&populate[Footer][populate][social_icons][populate]=link"
   );
+
 
   useEffect(() => {
     if (!loading && data?.data) {
@@ -39,8 +41,6 @@ const Header = () => {
     }
   }, [loading, data, error]);
 
-
-
   useLayoutEffect(() => {
     const timeout = setTimeout(() => {
       const elements = gsap.utils.toArray(".header-anim");
@@ -52,7 +52,7 @@ const Header = () => {
       });
 
       tl.from(".header-container", {
-        opacity: 0,   
+        opacity: 0,
 
         y: -20,
         duration: 0.5,
@@ -74,9 +74,22 @@ const Header = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const navSlugs = [ '/', '/services', '/specialists', '/about','/blogs', '/contact-us'];
+  const navSlugs = [
+    "/",
+    "/services",
+    "/specialists",
+    "/about",
+    "/blogs",
+    "/contact-us",
+  ];
 
-
+  // Combine slugs into Navbar_Items based on order
+  const mergedNavItems = HeaderData?.Navbar_Items?.slice() // clone array
+    .sort((a, b) => a.sequence - b.sequence) // sort by sequence
+    .map((item, index) => ({
+      ...item,
+      slug: navSlugs[index] || "/", // fallback to "/" if slugs run out
+    }));
 
   if (loading) {
     return (
@@ -95,7 +108,7 @@ const Header = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex gap-6 text-Neutral-900 font-manrope font-semibold text-[16px]">
-          {HeaderData?.Navbar_Items?.map((data) => (
+          {mergedNavItems?.map((data) => (
             <NavLink
               key={data.id}
               to={data.slug}
@@ -132,10 +145,7 @@ const Header = () => {
           }
           children={HeaderData?.patient_redirection.text}
           onClick={() =>
-            window.open(
-              `headerData?.patient_redirection.url`,
-              "_blank"
-            )
+            window.open(`headerData?.patient_redirection.url`, "_blank")
           }
         />
       </div>
@@ -162,8 +172,7 @@ const Header = () => {
             >
               <div className="flex justify-between items-center px-4 py-4 border-b">
                 <h1 className="flex items-center gap-2 text-xl font-general-sans font-bold text-Primary-Blue-400">
-                  <img src={logoUrl} alt="logo" />
-                
+                  <img src={logoUrl} alt="logo" width={150} />
                 </h1>
                 <IoClose
                   className="text-3xl text-Primary-Blue-700 cursor-pointer"
@@ -173,7 +182,7 @@ const Header = () => {
 
               <div className="flex-1 overflow-y-auto px-4 py-6">
                 <nav className="flex flex-col gap-6 text-Neutral-900 font-manrope font-semibold text-lg">
-                  {HeaderData?.Navbar_Items?.map((data) => (
+                  {mergedNavItems?.map((data) => (
                     <NavLink
                       key={data.id}
                       to={data.slug}
@@ -194,7 +203,7 @@ const Header = () => {
               </div>
 
               <div className="px-4 py-4 border-t">
-                <SocialMediaIcons setgap={true} />
+                <SocialMediaIcons setgap={true} data={data?.data?.Footer?.social_icons} />
               </div>
             </motion.div>
           </>
