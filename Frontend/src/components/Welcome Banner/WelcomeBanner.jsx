@@ -7,8 +7,6 @@ import { useSelector } from "react-redux";
 
 function WelcomeBanner() {
   const welcomeData = useSelector((state) => state.home.WelcomeBanner);
-  console.log(welcomeData);
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();

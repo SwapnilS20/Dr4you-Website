@@ -4,7 +4,7 @@ import "./index.css";
 import Header from "./components/Header/Header.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import { useDispatch } from "react-redux";
-import { setHeroSection , setWelcomeBanner , setOurStory} from "./App/features/homeSlice.js";
+import { setHeroSection , setWelcomeBanner , setOurStory , setPromiseSection } from "./App/features/homeSlice.js";
 import useFetch from "./Hooks/useFetch.js";
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
   const homePageData = useFetch(
     'http://localhost:1337/api/pages?populate[dynamic_zone][populate]=*'
   );
+  console.log("Home Page Data:", homePageData);
   
   
   useEffect(() => {
@@ -38,11 +39,16 @@ function App() {
     const ourStory = homePage?.dynamic_zone.find(
       (item) => item.__component === "dynamic-zone.drs4you-story"
     );
+    const promiseSection = homePage?.dynamic_zone.find(
+      (item) => item.__component === "dynamic-zone.promise-section"
+    );  
+    console.log('promise from app', promiseSection);
     
 
     if (heroSection) dispatch(setHeroSection(heroSection));
     if (welcomeBanner) dispatch(setWelcomeBanner(welcomeBanner));
     if (ourStory) dispatch(setOurStory(ourStory));
+    if (promiseSection) dispatch(setPromiseSection(promiseSection));
   }
 }, [homePageData.loading, homePageData?.data]);
 

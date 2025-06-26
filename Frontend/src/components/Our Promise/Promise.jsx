@@ -6,9 +6,12 @@ import promise3 from "../../assets/Images/promise3.png";
 import promise4 from "../../assets/Images/Promise4.png";
 import promise5 from "../../assets/Images/promise5.png";
 import promise6 from "../../assets/Images/promise6.png";
+import { useSelector } from "react-redux";
 
 
 const Promise = () => {
+  const ourPromiseData = useSelector((state)=>state.home.PromiseSection)
+  
   const promiseData = [
     {
       img: promise1,
@@ -45,13 +48,14 @@ const Promise = () => {
     <section>
       <div className=" flex flex-col justify-center  items-center gap-4 mt-8 ">
         <h2 className=" font-manrope font-bold text-center text-6xl">
-          Our <span className="text-gradient-btn  ">Promise</span> to You
+          {/* Our <span className="text-gradient-btn  ">Promise</span> to You */}
+          {ourPromiseData?.heading}
         </h2>
-        <h3 className=" font-manrope font-bold text-[28px] text-gradient-btn text-center">What Makes us unique </h3>
+        <h3 className=" font-manrope font-bold text-[28px] text-gradient-btn text-center">{ourPromiseData?.sub_heading} </h3>
 
         <div className=" grid md:grid-cols-2 lg:grid-cols-3 md:gap-16 gap-12 lg:gap-12 xl:gap-28 p-6">
           {/* Map through the promiseData array and render a PromiseCard for each item */}
-          {promiseData.map((item, index) => (
+          {ourPromiseData?.promise_items?.map((item, index) => (
             <PromiseCard
               key={index}
               img={item.img}

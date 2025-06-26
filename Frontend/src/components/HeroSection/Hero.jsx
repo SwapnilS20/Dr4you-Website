@@ -20,10 +20,6 @@ const Hero = () => {
     HeroSectionData?.our_rating_outof5 -
     Math.floor(HeroSectionData?.our_rating_outof5);
 
-  console.log(decimalPart);
-
-  console.log(" hero section ", HeroSectionData);
-
   return (
     // Main Container
     <div className=" flex flex-col lg:flex-row  h-full p-4 sm:p-10 md:p-5 lg:p-0 4xl:px-64 ">
