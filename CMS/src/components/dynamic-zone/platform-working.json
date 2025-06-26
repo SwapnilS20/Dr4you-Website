@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_dynamic_zone_platform_workings",
+  "info": {
+    "displayName": "Platform-Working"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "working_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "platform_steps": {
+      "type": "component",
+      "component": "items.platform-items",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

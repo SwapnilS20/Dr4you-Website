@@ -10,6 +10,9 @@
     },
     "value": {
       "type": "biginteger"
+    },
+    "span": {
+      "type": "boolean"
     }
   },
   "config": {}

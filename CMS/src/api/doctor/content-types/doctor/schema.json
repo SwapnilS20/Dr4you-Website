@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "doctors",
+  "info": {
+    "singularName": "doctor",
+    "pluralName": "doctors",
+    "displayName": "Doctor"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "service": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::service.service",
+      "inversedBy": "doctors"
+    },
+    "description": {
+      "type": "text"
+    },
+    "message": {
+      "type": "text"
+    },
+    "doctor_information": {
+      "type": "component",
+      "component": "items.doctor-details",
+      "repeatable": true
+    }
+  }
+}
