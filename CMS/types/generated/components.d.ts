@@ -3,12 +3,23 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface CardPromiseCard extends Struct.ComponentSchema {
   collectionName: 'components_card_promise_cards';
   info: {
-    displayName: 'promise_card';
+    displayName: '3-item-card';
   };
   attributes: {
     description: Schema.Attribute.String;
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface DynamicZoneDoctorsCardSection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_doctors_card_sections';
+  info: {
+    displayName: 'doctors_card_section';
+  };
+  attributes: {
+    doctors: Schema.Attribute.Relation<'oneToMany', 'api::doctor.doctor'>;
+    sectionhead: Schema.Attribute.Component<'shared.page-head', false>;
   };
 }
 
@@ -65,6 +76,18 @@ export interface DynamicZoneHeroSection extends Struct.ComponentSchema {
   };
 }
 
+export interface DynamicZonePlatformWorking extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_platform_workings';
+  info: {
+    displayName: 'Platform-Working';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    platform_steps: Schema.Attribute.Component<'items.platform-items', true>;
+    working_image: Schema.Attribute.Media<'images' | 'files'>;
+  };
+}
+
 export interface DynamicZonePromiseSection extends Struct.ComponentSchema {
   collectionName: 'components_dynamic_zone_promise_sections';
   info: {
@@ -83,7 +106,7 @@ export interface DynamicZoneServicesCardSection extends Struct.ComponentSchema {
     displayName: 'Services_card_section';
   };
   attributes: {
-    pagehead: Schema.Attribute.Component<'shared.page-head', false>;
+    sectionhead: Schema.Attribute.Component<'shared.page-head', false>;
     services: Schema.Attribute.Relation<'oneToMany', 'api::service.service'>;
   };
 }
@@ -105,6 +128,27 @@ export interface DynamicZoneWelcomeBanner extends Struct.ComponentSchema {
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 10;
       }>;
+  };
+}
+
+export interface DynamicZoneWhyChooseUs extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_why_choose_uses';
+  info: {
+    displayName: 'Why-Choose-Us';
+  };
+  attributes: {
+    doctor_image: Schema.Attribute.Media<'images' | 'files'>;
+    on_image_percentage: Schema.Attribute.String;
+    section_name: Schema.Attribute.String;
+    title_line1: Schema.Attribute.String;
+    title_line2: Schema.Attribute.String;
+    Why_Choose_Items: Schema.Attribute.Component<'card.promise-card', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 4;
+        },
+        number
+      >;
   };
 }
 
@@ -163,6 +207,7 @@ export interface ItemsHeroItemsStats extends Struct.ComponentSchema {
     displayName: 'Hero_items_stats';
   };
   attributes: {
+    span: Schema.Attribute.Boolean;
     text: Schema.Attribute.String;
     value: Schema.Attribute.BigInteger;
   };
@@ -176,6 +221,17 @@ export interface ItemsNavbarItems extends Struct.ComponentSchema {
   attributes: {
     name: Schema.Attribute.String & Schema.Attribute.Required;
     remixicon_classname: Schema.Attribute.String;
+  };
+}
+
+export interface ItemsPlatformItems extends Struct.ComponentSchema {
+  collectionName: 'components_items_platform_items';
+  info: {
+    displayName: 'platform_items';
+  };
+  attributes: {
+    step_description: Schema.Attribute.String;
+    step_head: Schema.Attribute.String;
   };
 }
 
@@ -221,7 +277,7 @@ export interface SharedLink extends Struct.ComponentSchema {
 export interface SharedPageHead extends Struct.ComponentSchema {
   collectionName: 'components_shared_page_heads';
   info: {
-    displayName: 'Page_Head';
+    displayName: '2-items-head';
   };
   attributes: {
     short_description: Schema.Attribute.String;
@@ -244,16 +300,20 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'card.promise-card': CardPromiseCard;
+      'dynamic-zone.doctors-card-section': DynamicZoneDoctorsCardSection;
       'dynamic-zone.drs4you-story': DynamicZoneDrs4YouStory;
       'dynamic-zone.hero-section': DynamicZoneHeroSection;
+      'dynamic-zone.platform-working': DynamicZonePlatformWorking;
       'dynamic-zone.promise-section': DynamicZonePromiseSection;
       'dynamic-zone.services-card-section': DynamicZoneServicesCardSection;
       'dynamic-zone.welcome-banner': DynamicZoneWelcomeBanner;
+      'dynamic-zone.why-choose-us': DynamicZoneWhyChooseUs;
       'global.footer': GlobalFooter;
       'global.navbar': GlobalNavbar;
       'items.doctor-details': ItemsDoctorDetails;
       'items.hero-items-stats': ItemsHeroItemsStats;
       'items.navbar-items': ItemsNavbarItems;
+      'items.platform-items': ItemsPlatformItems;
       'shared.button': SharedButton;
       'shared.doctor-qualification': SharedDoctorQualification;
       'shared.link': SharedLink;

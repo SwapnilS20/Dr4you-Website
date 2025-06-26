@@ -523,12 +523,17 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'dynamic-zone.welcome-banner',
         'dynamic-zone.drs4you-story',
         'dynamic-zone.services-card-section',
+        'dynamic-zone.promise-section',
+        'dynamic-zone.platform-working',
+        'dynamic-zone.why-choose-us',
+        'dynamic-zone.doctors-card-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
+    pagehead: Schema.Attribute.Component<'shared.page-head', false>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

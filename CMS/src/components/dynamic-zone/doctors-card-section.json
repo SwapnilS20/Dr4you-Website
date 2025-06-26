@@ -1,14 +1,14 @@
 {
-  "collectionName": "components_dynamic_zone_services_card_sections",
+  "collectionName": "components_dynamic_zone_doctors_card_sections",
   "info": {
-    "displayName": "Services_card_section"
+    "displayName": "doctors_card_section"
   },
   "options": {},
   "attributes": {
-    "services": {
+    "doctors": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::service.service"
+      "target": "api::doctor.doctor"
     },
     "sectionhead": {
       "type": "component",

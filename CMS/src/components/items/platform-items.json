@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_items_platform_items",
+  "info": {
+    "displayName": "platform_items"
+  },
+  "options": {},
+  "attributes": {
+    "step_head": {
+      "type": "string"
+    },
+    "step_description": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

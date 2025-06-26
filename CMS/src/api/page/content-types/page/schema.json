@@ -20,8 +20,17 @@
         "dynamic-zone.hero-section",
         "dynamic-zone.welcome-banner",
         "dynamic-zone.drs4you-story",
-        "dynamic-zone.services-card-section"
+        "dynamic-zone.services-card-section",
+        "dynamic-zone.promise-section",
+        "dynamic-zone.platform-working",
+        "dynamic-zone.why-choose-us",
+        "dynamic-zone.doctors-card-section"
       ]
+    },
+    "pagehead": {
+      "type": "component",
+      "component": "shared.page-head",
+      "repeatable": false
     }
   }
 }
