@@ -4,7 +4,13 @@ import "./index.css";
 import Header from "./components/Header/Header.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import { useDispatch } from "react-redux";
-import { setHeroSection , setWelcomeBanner , setOurStory , setPromiseSection } from "./App/features/homeSlice.js";
+import {
+  setHeroSection,
+  setWelcomeBanner,
+  setOurStory,
+  setPromiseSection,
+  setWhyChooseUs,
+} from "./App/features/homeSlice.js";
 import useFetch from "./Hooks/useFetch.js";
 
 function App() {
@@ -13,46 +19,44 @@ function App() {
   const dispatch = useDispatch();
 
   const homePageData = useFetch(
-    'http://localhost:1337/api/pages?populate[dynamic_zone][populate]=*'
+    "http://localhost:1337/api/pages?populate[0]=dynamic_zone&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][doctor_image]=true&populate[dynamic_zone][on][dynamic-zone.welcome-banner][populate][patient_image]=true&populate[dynamic_zone][on][dynamic-zone.drs4you-story][populate][story_image]=true&populate[dynamic_zone][on][dynamic-zone.promise-section][populate][promise_items][populate]=icon&populate[dynamic_zone][on][dynamic-zone.why-choose-us][populate][Why_Choose_Items][populate]=icon"
   );
   console.log("Home Page Data:", homePageData);
-  
-  
+
   useEffect(() => {
     const segments = location.pathname.split("/").filter(Boolean);
     const lastSegment = segments[segments.length - 1]?.toLowerCase() || "";
     setPath(lastSegment);
-
   }, [location]);
 
   useEffect(() => {
-  if (homePageData.loading === false ) {
-    const homePage = homePageData?.data?.data[0];
+    if (homePageData.loading === false) {
+      const homePage = homePageData?.data?.data[0];
 
-    const heroSection = homePage?.dynamic_zone.find(
-      (item) => item.__component === "dynamic-zone.hero-section"
-    );
-    const welcomeBanner = homePage?.dynamic_zone.find(
-      (item) => item.__component === "dynamic-zone.welcome-banner"
-    );
+      const heroSection = homePage?.dynamic_zone.find(
+        (item) => item.__component === "dynamic-zone.hero-section"
+      );
+      const welcomeBanner = homePage?.dynamic_zone.find(
+        (item) => item.__component === "dynamic-zone.welcome-banner"
+      );
 
-    const ourStory = homePage?.dynamic_zone.find(
-      (item) => item.__component === "dynamic-zone.drs4you-story"
-    );
-    const promiseSection = homePage?.dynamic_zone.find(
-      (item) => item.__component === "dynamic-zone.promise-section"
-    );  
-    console.log('promise from app', promiseSection);
-    
+      const ourStory = homePage?.dynamic_zone.find(
+        (item) => item.__component === "dynamic-zone.drs4you-story"
+      );
+      const promiseSection = homePage?.dynamic_zone.find(
+        (item) => item.__component === "dynamic-zone.promise-section"
+      );
+      const whyChooseUs = homePage?.dynamic_zone.find(
+        (item) => item.__component === "dynamic-zone.why-choose-us"
+      );
 
-    if (heroSection) dispatch(setHeroSection(heroSection));
-    if (welcomeBanner) dispatch(setWelcomeBanner(welcomeBanner));
-    if (ourStory) dispatch(setOurStory(ourStory));
-    if (promiseSection) dispatch(setPromiseSection(promiseSection));
-  }
-}, [homePageData.loading, homePageData?.data]);
-
-
+      if (heroSection) dispatch(setHeroSection(heroSection));
+      if (welcomeBanner) dispatch(setWelcomeBanner(welcomeBanner));
+      if (ourStory) dispatch(setOurStory(ourStory));
+      if (promiseSection) dispatch(setPromiseSection(promiseSection));
+      if (whyChooseUs) dispatch(setWhyChooseUs(whyChooseUs));
+    }
+  }, [homePageData.loading, homePageData?.data]);
 
   return (
     <>

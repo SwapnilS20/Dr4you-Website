@@ -1,8 +1,11 @@
 import React from "react";
 import WhyChooseUsCard from "./WhyChooseUsCard";
 import HeroImg from "../../assets/Images/HeroSectionMainImg.png";
+import { useSelector } from "react-redux";
 
 function WhyChooseUs() {
+  const chooseUsData = useSelector((state)=> state.home.WhyChooseUs);
+  
   const ChooseUsDataArr = [
     {
       id: 1,

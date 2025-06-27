@@ -8,7 +8,7 @@ const PromiseCard = ({img , title , description}) => {
       <div className=" w-[80px] h-[78px]">
        <img src={img} alt="" />
       </div>
-      <h3 className=" font-medium text-2xl">{title}</h3>
+      <h3 className=" font-medium text-2xl text-center">{title}</h3>
       <p className=" text-justify text-lg">
        {description}
       </p>
