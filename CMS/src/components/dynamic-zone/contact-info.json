@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_dynamic_zone_contact_infos",
+  "info": {
+    "displayName": "Contact-Info"
+  },
+  "options": {},
+  "attributes": {
+    "google_map_embed_src": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

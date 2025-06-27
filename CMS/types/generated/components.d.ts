@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface CardContactCard extends Struct.ComponentSchema {
+  collectionName: 'components_card_contact_cards';
+  info: {
+    displayName: 'Contact-Card';
+  };
+  attributes: {
+    details: Schema.Attribute.String;
+    remixicon_classname: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface CardPromiseCard extends Struct.ComponentSchema {
   collectionName: 'components_card_promise_cards';
   info: {
@@ -21,6 +33,16 @@ export interface CardWhyChooseUsCard extends Struct.ComponentSchema {
     description: Schema.Attribute.String;
     remixicon_classname: Schema.Attribute.String;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface DynamicZoneContactInfo extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_contact_infos';
+  info: {
+    displayName: 'Contact-Info';
+  };
+  attributes: {
+    google_map_embed_src: Schema.Attribute.String;
   };
 }
 
@@ -88,6 +110,29 @@ export interface DynamicZoneHeroSection extends Struct.ComponentSchema {
   };
 }
 
+export interface DynamicZoneOurMission extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_our_missions';
+  info: {
+    displayName: 'Our-Mission';
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+  };
+}
+
+export interface DynamicZoneOurVision extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_our_visions';
+  info: {
+    displayName: 'Our-Vision';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    vision: Schema.Attribute.Blocks;
+  };
+}
+
 export interface DynamicZonePlatformWorking extends Struct.ComponentSchema {
   collectionName: 'components_dynamic_zone_platform_workings';
   info: {
@@ -109,6 +154,21 @@ export interface DynamicZonePromiseSection extends Struct.ComponentSchema {
     heading: Schema.Attribute.String;
     promise_items: Schema.Attribute.Component<'card.promise-card', true>;
     sub_heading: Schema.Attribute.String;
+  };
+}
+
+export interface DynamicZoneRequestAppointmentForm
+  extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_request_appointment_forms';
+  info: {
+    displayName: 'Request-Appointment-Form';
+  };
+  attributes: {
+    CTA: Schema.Attribute.Component<'shared.button', false>;
+    description: Schema.Attribute.Text;
+    form_button_text: Schema.Attribute.String;
+    form_head: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -308,13 +368,18 @@ export interface SharedSocialMediaIconLinks extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'card.contact-card': CardContactCard;
       'card.promise-card': CardPromiseCard;
       'card.why-choose-us-card': CardWhyChooseUsCard;
+      'dynamic-zone.contact-info': DynamicZoneContactInfo;
       'dynamic-zone.doctors-card-section': DynamicZoneDoctorsCardSection;
       'dynamic-zone.drs4you-story': DynamicZoneDrs4YouStory;
       'dynamic-zone.hero-section': DynamicZoneHeroSection;
+      'dynamic-zone.our-mission': DynamicZoneOurMission;
+      'dynamic-zone.our-vision': DynamicZoneOurVision;
       'dynamic-zone.platform-working': DynamicZonePlatformWorking;
       'dynamic-zone.promise-section': DynamicZonePromiseSection;
+      'dynamic-zone.request-appointment-form': DynamicZoneRequestAppointmentForm;
       'dynamic-zone.services-card-section': DynamicZoneServicesCardSection;
       'dynamic-zone.welcome-banner': DynamicZoneWelcomeBanner;
       'dynamic-zone.why-choose-us': DynamicZoneWhyChooseUs;
