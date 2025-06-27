@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_dynamic_zone_request_appointment_forms",
+  "info": {
+    "displayName": "Request-Appointment-Form"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "CTA": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": false
+    },
+    "form_head": {
+      "type": "string"
+    },
+    "form_button_text": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_dynamic_zone_our_missions",
+  "info": {
+    "displayName": "Our-Mission"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  },
+  "config": {}
+}

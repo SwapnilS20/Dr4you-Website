@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_dynamic_zone_our_visions",
+  "info": {
+    "displayName": "Our-Vision"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "vision": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}
