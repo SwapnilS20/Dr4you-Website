@@ -10,18 +10,23 @@ import {
   setOurStory,
   setPromiseSection,
   setWhyChooseUs,
+  setPlatformWork,
 } from "./App/features/homeSlice.js";
+import { setHeader, setFooter } from "./App/features/headerFooterSlics";
 import useFetch from "./Hooks/useFetch.js";
 
 function App() {
   const [path, setPath] = useState("");
   const location = useLocation();
   const dispatch = useDispatch();
+  const headerFooterData = useFetch(
+    "http://localhost:1337/api/header-and-footer?populate[Header][populate]=*&populate[Footer][populate][logo]=true&populate[Footer][populate][policy_links]=true&populate[Footer][populate][services_links]=true&populate[Footer][populate][support]=true&populate[Footer][populate][social_icons][populate]=link"
+  );
 
   const homePageData = useFetch(
-    "http://localhost:1337/api/pages?populate[0]=dynamic_zone&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][doctor_image]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][CTAs]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][our_stats]=true&populate[dynamic_zone][on][dynamic-zone.welcome-banner][populate][patient_image]=true&populate[dynamic_zone][on][dynamic-zone.drs4you-story][populate][story_image]=true&populate[dynamic_zone][on][dynamic-zone.promise-section][populate][promise_items][populate]=icon&populate[dynamic_zone][on][dynamic-zone.why-choose-us][populate][Why_Choose_Items][populate]=true&populate[dynamic_zone][on][dynamic-zone.why-choose-us][populate][doctor_image][populate]=true"
+    "http://localhost:1337/api/pages?populate[0]=dynamic_zone&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][doctor_image]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][CTAs]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][our_stats]=true&populate[dynamic_zone][on][dynamic-zone.welcome-banner][populate][patient_image]=true&populate[dynamic_zone][on][dynamic-zone.drs4you-story][populate][story_image]=true&populate[dynamic_zone][on][dynamic-zone.promise-section][populate][promise_items][populate]=icon&populate[dynamic_zone][on][dynamic-zone.why-choose-us][populate][Why_Choose_Items][populate]=true&populate[dynamic_zone][on][dynamic-zone.why-choose-us][populate][doctor_image][populate]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][platform_steps][populate]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][working_image][populate]=true"
   );
-  console.log("Home Page Data:", homePageData);
+  console.log("Home Page Data:", headerFooterData?.data?.data?.Header);
 
   useEffect(() => {
     const segments = location.pathname.split("/").filter(Boolean);
@@ -30,6 +35,11 @@ function App() {
   }, [location]);
 
   useEffect(() => {
+    if (headerFooterData.loading === false) {
+      dispatch(setHeader(headerFooterData?.data?.data?.Header));
+      dispatch(setFooter(headerFooterData?.data?.data?.Footer));
+    }
+
     if (homePageData.loading === false) {
       const homePage = homePageData?.data?.data?.[0];
 
@@ -49,12 +59,16 @@ function App() {
       const whyChooseUs = homePage?.dynamic_zone.find(
         (item) => item.__component === "dynamic-zone.why-choose-us"
       );
+      const platformWork = homePage?.dynamic_zone.find(
+        (item) => item.__component === "dynamic-zone.platform-working"
+      );
 
       if (heroSection) dispatch(setHeroSection(heroSection));
       if (welcomeBanner) dispatch(setWelcomeBanner(welcomeBanner));
       if (ourStory) dispatch(setOurStory(ourStory));
       if (promiseSection) dispatch(setPromiseSection(promiseSection));
       if (whyChooseUs) dispatch(setWhyChooseUs(whyChooseUs));
+      if (platformWork) dispatch(setPlatformWork(platformWork));
     }
   }, [homePageData.loading, homePageData?.data]);
 

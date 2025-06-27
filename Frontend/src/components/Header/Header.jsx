@@ -13,33 +13,15 @@ import logo from "../../assets/Images/Logo.png";
 import "../../index.css";
 import "remixicon/fonts/remixicon.css";
 import useFetch from "../../Hooks/useFetch";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setHeader, setFooter } from "../../App/features/headerFooterSlics";
 
 const Header = () => {
   const [DrawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate();
-  const [HeaderData, setHeaderData] = useState();
-  const [logoUrl, setLogoUrl] = useState();
-  const dispatch = useDispatch();
-  
-  const { loading, data, error } = useFetch(
-    "http://localhost:1337/api/header-and-footer?populate[Header][populate]=*&populate[Footer][populate][logo]=true&populate[Footer][populate][policy_links]=true&populate[Footer][populate][services_links]=true&populate[Footer][populate][support]=true&populate[Footer][populate][social_icons][populate]=link"
-  );
+  const HeaderData = useSelector((state) => state.headerFooter.header);
 
-
-  useEffect(() => {
-    if (!loading && data?.data) {
-      setHeaderData(data.data.Header);
-      dispatch(setHeader(data.data.Header));
-      dispatch(setFooter(data.data.Footer));
-      setLogoUrl(`http://localhost:1337${data.data.Header.Logo.url}`);
-    }
-
-    if (error) {
-      console.error("Error fetching header data:", error);
-    }
-  }, [loading, data, error]);
+  console.log(HeaderData);
 
   useLayoutEffect(() => {
     const timeout = setTimeout(() => {
@@ -91,20 +73,12 @@ const Header = () => {
       slug: navSlugs[index] || "/", // fallback to "/" if slugs run out
     }));
 
-  if (loading) {
-    return (
-      <div className="header-container flex justify-between items-center pl-6 pr-6 pt-6 sm:pl-12 sm:pr-12">
-        <p className="text-xl font-bold text-gray-500 animate-pulse">
-          Loading header...
-        </p>
-      </div>
-    );
-  }
-
   return (
     <div className="bg-transparent">
       <div className="header-container flex justify-between items-center pl-6 pr-6 pt-6 sm:pl-12 sm:pr-12">
-        <img src={logoUrl} alt="logo" width={200} className="header-anim" />
+        <img  src={`${import.meta.env.VITE_STRAPI_URL}${
+                      HeaderData?.Logo?.url
+                    }`} alt="logo" width={200} className="header-anim" />
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex gap-6 text-Neutral-900 font-manrope font-semibold text-[16px]">
@@ -143,7 +117,7 @@ const Header = () => {
           styles={
             "header-anim h-[56px] w-[174px] text-[20px] hidden lg:flex justify-center items-center bg-btn-gradient btn-hover-effect"
           }
-          children={HeaderData?.patient_redirection.text}
+          children={HeaderData?.patient_redirection?.text}
           onClick={() =>
             window.open(`headerData?.patient_redirection.url`, "_blank")
           }
@@ -172,7 +146,13 @@ const Header = () => {
             >
               <div className="flex justify-between items-center px-4 py-4 border-b">
                 <h1 className="flex items-center gap-2 text-xl font-general-sans font-bold text-Primary-Blue-400">
-                  <img src={logoUrl} alt="logo" width={150} />
+                  <img
+                    src={`${import.meta.env.VITE_STRAPI_URL}${
+                      HeaderData?.Logo?.url
+                    }`}
+                    alt="logo"
+                    width={150}
+                  />
                 </h1>
                 <IoClose
                   className="text-3xl text-Primary-Blue-700 cursor-pointer"
@@ -203,7 +183,10 @@ const Header = () => {
               </div>
 
               <div className="px-4 py-4 border-t">
-                <SocialMediaIcons setgap={true} data={data?.data?.Footer?.social_icons} />
+                <SocialMediaIcons
+                  setgap={true}
+                  data={data?.data?.Footer?.social_icons}
+                />
               </div>
             </motion.div>
           </>
