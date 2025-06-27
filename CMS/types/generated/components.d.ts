@@ -12,6 +12,18 @@ export interface CardPromiseCard extends Struct.ComponentSchema {
   };
 }
 
+export interface CardWhyChooseUsCard extends Struct.ComponentSchema {
+  collectionName: 'components_card_why_choose_us_cards';
+  info: {
+    displayName: 'Why-Choose-Us-Card';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    remixicon_classname: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface DynamicZoneDoctorsCardSection extends Struct.ComponentSchema {
   collectionName: 'components_dynamic_zone_doctors_card_sections';
   info: {
@@ -142,13 +154,10 @@ export interface DynamicZoneWhyChooseUs extends Struct.ComponentSchema {
     section_name: Schema.Attribute.String;
     title_line1: Schema.Attribute.String;
     title_line2: Schema.Attribute.String;
-    Why_Choose_Items: Schema.Attribute.Component<'card.promise-card', true> &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 4;
-        },
-        number
-      >;
+    Why_Choose_Items: Schema.Attribute.Component<
+      'card.why-choose-us-card',
+      true
+    >;
   };
 }
 
@@ -300,6 +309,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'card.promise-card': CardPromiseCard;
+      'card.why-choose-us-card': CardWhyChooseUsCard;
       'dynamic-zone.doctors-card-section': DynamicZoneDoctorsCardSection;
       'dynamic-zone.drs4you-story': DynamicZoneDrs4YouStory;
       'dynamic-zone.hero-section': DynamicZoneHeroSection;

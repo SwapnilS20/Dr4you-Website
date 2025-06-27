@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_card_why_choose_us_cards",
+  "info": {
+    "displayName": "Why-Choose-Us-Card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "remixicon_classname": {
+      "type": "string",
+      "regex": "^ri-[a-z0-9-]+$"
+    }
+  },
+  "config": {}
+}

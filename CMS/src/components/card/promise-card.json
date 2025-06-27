@@ -5,6 +5,12 @@
   },
   "options": {},
   "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
     "icon": {
       "type": "media",
       "multiple": false,
@@ -14,12 +20,6 @@
         "videos",
         "audios"
       ]
-    },
-    "title": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
     }
   },
   "config": {}
