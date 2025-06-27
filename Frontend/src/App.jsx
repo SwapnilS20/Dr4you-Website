@@ -19,7 +19,7 @@ function App() {
   const dispatch = useDispatch();
 
   const homePageData = useFetch(
-    "http://localhost:1337/api/pages?populate[0]=dynamic_zone&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][doctor_image]=true&populate[dynamic_zone][on][dynamic-zone.welcome-banner][populate][patient_image]=true&populate[dynamic_zone][on][dynamic-zone.drs4you-story][populate][story_image]=true&populate[dynamic_zone][on][dynamic-zone.promise-section][populate][promise_items][populate]=icon&populate[dynamic_zone][on][dynamic-zone.why-choose-us][populate][Why_Choose_Items][populate]=icon"
+    "http://localhost:1337/api/pages?populate[0]=dynamic_zone&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][doctor_image]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][CTAs]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][our_stats]=true&populate[dynamic_zone][on][dynamic-zone.welcome-banner][populate][patient_image]=true&populate[dynamic_zone][on][dynamic-zone.drs4you-story][populate][story_image]=true&populate[dynamic_zone][on][dynamic-zone.promise-section][populate][promise_items][populate]=icon&populate[dynamic_zone][on][dynamic-zone.why-choose-us][populate][Why_Choose_Items][populate]=true&populate[dynamic_zone][on][dynamic-zone.why-choose-us][populate][doctor_image][populate]=true"
   );
   console.log("Home Page Data:", homePageData);
 
@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
     if (homePageData.loading === false) {
-      const homePage = homePageData?.data?.data[0];
+      const homePage = homePageData?.data?.data?.[0];
 
       const heroSection = homePage?.dynamic_zone.find(
         (item) => item.__component === "dynamic-zone.hero-section"
