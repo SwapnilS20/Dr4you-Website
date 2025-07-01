@@ -6,7 +6,12 @@
   "options": {},
   "attributes": {
     "google_map_embed_src": {
-      "type": "string"
+      "type": "text"
+    },
+    "contact_items": {
+      "type": "component",
+      "component": "card.contact-card",
+      "repeatable": true
     }
   },
   "config": {}

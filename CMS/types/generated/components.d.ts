@@ -42,7 +42,8 @@ export interface DynamicZoneContactInfo extends Struct.ComponentSchema {
     displayName: 'Contact-Info';
   };
   attributes: {
-    google_map_embed_src: Schema.Attribute.String;
+    contact_items: Schema.Attribute.Component<'card.contact-card', true>;
+    google_map_embed_src: Schema.Attribute.Text;
   };
 }
 
