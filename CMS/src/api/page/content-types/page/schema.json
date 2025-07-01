@@ -24,7 +24,11 @@
         "dynamic-zone.promise-section",
         "dynamic-zone.platform-working",
         "dynamic-zone.why-choose-us",
-        "dynamic-zone.doctors-card-section"
+        "dynamic-zone.doctors-card-section",
+        "dynamic-zone.request-appointment-form",
+        "dynamic-zone.our-vision",
+        "dynamic-zone.our-mission",
+        "dynamic-zone.contact-info"
       ]
     },
     "pagehead": {
