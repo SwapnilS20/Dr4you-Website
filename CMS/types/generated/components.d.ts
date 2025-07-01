@@ -71,6 +71,16 @@ export interface DynamicZoneDrs4YouStory extends Struct.ComponentSchema {
   };
 }
 
+export interface DynamicZoneFaqHead extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_faq_heads';
+  info: {
+    displayName: 'FAQ-Head';
+  };
+  attributes: {
+    sectionhead: Schema.Attribute.Component<'shared.page-head', false>;
+  };
+}
+
 export interface DynamicZoneHeroSection extends Struct.ComponentSchema {
   collectionName: 'components_dynamic_zone_hero_sections';
   info: {
@@ -374,6 +384,7 @@ declare module '@strapi/strapi' {
       'dynamic-zone.contact-info': DynamicZoneContactInfo;
       'dynamic-zone.doctors-card-section': DynamicZoneDoctorsCardSection;
       'dynamic-zone.drs4you-story': DynamicZoneDrs4YouStory;
+      'dynamic-zone.faq-head': DynamicZoneFaqHead;
       'dynamic-zone.hero-section': DynamicZoneHeroSection;
       'dynamic-zone.our-mission': DynamicZoneOurMission;
       'dynamic-zone.our-vision': DynamicZoneOurVision;

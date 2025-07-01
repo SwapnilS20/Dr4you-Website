@@ -560,6 +560,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'dynamic-zone.our-vision',
         'dynamic-zone.our-mission',
         'dynamic-zone.contact-info',
+        'dynamic-zone.faq-head',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

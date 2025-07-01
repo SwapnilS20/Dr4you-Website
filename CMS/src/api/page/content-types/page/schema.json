@@ -28,7 +28,8 @@
         "dynamic-zone.request-appointment-form",
         "dynamic-zone.our-vision",
         "dynamic-zone.our-mission",
-        "dynamic-zone.contact-info"
+        "dynamic-zone.contact-info",
+        "dynamic-zone.faq-head"
       ]
     },
     "pagehead": {

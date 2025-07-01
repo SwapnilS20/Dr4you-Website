@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_dynamic_zone_faq_heads",
+  "info": {
+    "displayName": "FAQ-Head"
+  },
+  "options": {},
+  "attributes": {
+    "sectionhead": {
+      "type": "component",
+      "component": "shared.page-head",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
