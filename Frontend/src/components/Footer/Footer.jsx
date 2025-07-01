@@ -1,5 +1,4 @@
-import { useState } from "react";
-import logo from "../../assets/Images/Logo.png";
+
 import SocialMediaIcons from "../SocialMediaIcons";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
