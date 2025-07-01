@@ -2,19 +2,12 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaHome, FaPhoneSquareAlt } from "react-icons/fa";
-import { FaBriefcaseMedical } from "react-icons/fa6";
-import { TbInfoOctagonFilled } from "react-icons/tb";
-import { PiVideoBold } from "react-icons/pi";
 import gsap from "gsap";
 import Button from "../Button";
 import SocialMediaIcons from "../SocialMediaIcons";
-import logo from "../../assets/Images/Logo.png";
 import "../../index.css";
 import "remixicon/fonts/remixicon.css";
-import useFetch from "../../Hooks/useFetch";
-import { useDispatch, useSelector } from "react-redux";
-import { setHeader, setFooter } from "../../App/features/headerFooterSlics";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [DrawerOpen, setDrawerOpen] = useState(false);
@@ -76,9 +69,12 @@ const Header = () => {
   return (
     <div className="bg-transparent">
       <div className="header-container flex justify-between items-center pl-6 pr-6 pt-6 sm:pl-12 sm:pr-12">
-        <img  src={`${import.meta.env.VITE_STRAPI_URL}${
-                      HeaderData?.Logo?.url
-                    }`} alt="logo" width={200} className="header-anim" />
+        <img
+          src={`${import.meta.env.VITE_STRAPI_URL}${HeaderData?.Logo?.url}`}
+          alt="logo"
+          width={200}
+          className="header-anim"
+        />
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex gap-6 text-Neutral-900 font-manrope font-semibold text-[16px]">
