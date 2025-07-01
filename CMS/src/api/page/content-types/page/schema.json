@@ -19,13 +19,9 @@
       "components": [
         "dynamic-zone.hero-section",
         "dynamic-zone.welcome-banner",
-        "dynamic-zone.drs4you-story",
         "dynamic-zone.services-card-section",
-        "dynamic-zone.promise-section",
         "dynamic-zone.platform-working",
-        "dynamic-zone.why-choose-us",
-        "dynamic-zone.doctors-card-section",
-        "dynamic-zone.request-appointment-form",
+        "dynamic-zone.testimonial-section-head",
         "dynamic-zone.our-vision",
         "dynamic-zone.our-mission",
         "dynamic-zone.contact-info"

@@ -49,10 +49,9 @@ export interface DynamicZoneContactInfo extends Struct.ComponentSchema {
 export interface DynamicZoneDoctorsCardSection extends Struct.ComponentSchema {
   collectionName: 'components_dynamic_zone_doctors_card_sections';
   info: {
-    displayName: 'doctors_card_section';
+    displayName: 'Doctor-Section-Head';
   };
   attributes: {
-    doctors: Schema.Attribute.Relation<'oneToMany', 'api::doctor.doctor'>;
     sectionhead: Schema.Attribute.Component<'shared.page-head', false>;
   };
 }
@@ -68,6 +67,16 @@ export interface DynamicZoneDrs4YouStory extends Struct.ComponentSchema {
     normal_head: Schema.Attribute.String;
     story_description: Schema.Attribute.Text;
     story_image: Schema.Attribute.Media<'images' | 'files'>;
+  };
+}
+
+export interface DynamicZoneFaqHead extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_faq_heads';
+  info: {
+    displayName: 'FAQ-Section-Head';
+  };
+  attributes: {
+    sectionhead: Schema.Attribute.Component<'shared.page-head', false>;
   };
 }
 
@@ -175,11 +184,21 @@ export interface DynamicZoneRequestAppointmentForm
 export interface DynamicZoneServicesCardSection extends Struct.ComponentSchema {
   collectionName: 'components_dynamic_zone_services_card_sections';
   info: {
-    displayName: 'Services_card_section';
+    displayName: 'Services-Section-Head';
   };
   attributes: {
     sectionhead: Schema.Attribute.Component<'shared.page-head', false>;
-    services: Schema.Attribute.Relation<'oneToMany', 'api::service.service'>;
+  };
+}
+
+export interface DynamicZoneTestimonialSectionHead
+  extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_testimonial_section_heads';
+  info: {
+    displayName: 'Testimonial-Section-Head';
+  };
+  attributes: {
+    sectionhead: Schema.Attribute.Component<'shared.page-head', false>;
   };
 }
 
@@ -374,6 +393,7 @@ declare module '@strapi/strapi' {
       'dynamic-zone.contact-info': DynamicZoneContactInfo;
       'dynamic-zone.doctors-card-section': DynamicZoneDoctorsCardSection;
       'dynamic-zone.drs4you-story': DynamicZoneDrs4YouStory;
+      'dynamic-zone.faq-head': DynamicZoneFaqHead;
       'dynamic-zone.hero-section': DynamicZoneHeroSection;
       'dynamic-zone.our-mission': DynamicZoneOurMission;
       'dynamic-zone.our-vision': DynamicZoneOurVision;
@@ -381,6 +401,7 @@ declare module '@strapi/strapi' {
       'dynamic-zone.promise-section': DynamicZonePromiseSection;
       'dynamic-zone.request-appointment-form': DynamicZoneRequestAppointmentForm;
       'dynamic-zone.services-card-section': DynamicZoneServicesCardSection;
+      'dynamic-zone.testimonial-section-head': DynamicZoneTestimonialSectionHead;
       'dynamic-zone.welcome-banner': DynamicZoneWelcomeBanner;
       'dynamic-zone.why-choose-us': DynamicZoneWhyChooseUs;
       'global.footer': GlobalFooter;
