@@ -12,6 +12,13 @@ import {
   setWhyChooseUs,
   setPlatformWork,
 } from "./App/features/homeSlice.js";
+
+import {
+  setDoctorComponentInfo,
+  setDoctorPageInfo,
+  setDoctors,
+} from "./App/features/doctorsSlice.js";
+
 import { setHeader, setFooter } from "./App/features/headerFooterSlics";
 import useFetch from "./Hooks/useFetch.js";
 
@@ -24,9 +31,10 @@ function App() {
   );
 
   const homePageData = useFetch(
-    "http://localhost:1337/api/pages?populate[0]=dynamic_zone&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][doctor_image]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][CTAs]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][our_stats]=true&populate[dynamic_zone][on][dynamic-zone.welcome-banner][populate][patient_image]=true&populate[dynamic_zone][on][dynamic-zone.drs4you-story][populate][story_image]=true&populate[dynamic_zone][on][dynamic-zone.promise-section][populate][promise_items][populate]=icon&populate[dynamic_zone][on][dynamic-zone.why-choose-us][populate][Why_Choose_Items][populate]=true&populate[dynamic_zone][on][dynamic-zone.why-choose-us][populate][doctor_image][populate]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][platform_steps][populate]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][working_image][populate]=true"
+    "http://localhost:1337/api/pages?populate[0]=dynamic_zone&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][doctor_image]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][CTAs]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][our_stats]=true&populate[dynamic_zone][on][dynamic-zone.welcome-banner][populate][patient_image]=true&populate[dynamic_zone][on][dynamic-zone.drs4you-story][populate][story_image]=true&populate[dynamic_zone][on][dynamic-zone.promise-section][populate][promise_items][populate]=icon&populate[dynamic_zone][on][dynamic-zone.why-choose-us][populate][Why_Choose_Items][populate]=true&populate[dynamic_zone][on][dynamic-zone.why-choose-us][populate][doctor_image][populate]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][platform_steps][populate]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][working_image][populate]=true&populate[dynamic_zone][on][dynamic-zone.doctors-card-section][populate]=*"
   );
-  console.log("Home Page Data:", headerFooterData?.data?.data?.Header);
+
+  console.log(homePageData?.data?.data);
 
   useEffect(() => {
     const segments = location.pathname.split("/").filter(Boolean);
@@ -42,6 +50,7 @@ function App() {
 
     if (homePageData.loading === false) {
       const homePage = homePageData?.data?.data?.[0];
+      const homePageRepeatedSection = homePageData?.data?.data?.[1];
 
       const heroSection = homePage?.dynamic_zone.find(
         (item) => item.__component === "dynamic-zone.hero-section"
@@ -62,6 +71,15 @@ function App() {
       const platformWork = homePage?.dynamic_zone.find(
         (item) => item.__component === "dynamic-zone.platform-working"
       );
+      const doctorHomeSection = homePageRepeatedSection?.dynamic_zone.find(
+        (item) => item.__component === "dynamic-zone.doctors-card-section"
+      );
+      const requestAppointment = homePageRepeatedSection?.dynamic_zone.find(
+        (item) => item.__component === "dynamic-zone.request-appointment"
+      );
+      const faqHomeSection = homePageRepeatedSection?.dynamic_zone.find(
+        (item) => item.__component === "dynamic-zone.faq-section"
+      );
 
       if (heroSection) dispatch(setHeroSection(heroSection));
       if (welcomeBanner) dispatch(setWelcomeBanner(welcomeBanner));
@@ -69,6 +87,7 @@ function App() {
       if (promiseSection) dispatch(setPromiseSection(promiseSection));
       if (whyChooseUs) dispatch(setWhyChooseUs(whyChooseUs));
       if (platformWork) dispatch(setPlatformWork(platformWork));
+      // if (doctorHomeSection) dispatch( setComponentInfo(doctorHomeSection));
     }
   }, [homePageData.loading, homePageData?.data]);
 
