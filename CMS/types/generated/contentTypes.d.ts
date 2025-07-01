@@ -556,6 +556,10 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'dynamic-zone.platform-working',
         'dynamic-zone.why-choose-us',
         'dynamic-zone.doctors-card-section',
+        'dynamic-zone.request-appointment-form',
+        'dynamic-zone.our-vision',
+        'dynamic-zone.our-mission',
+        'dynamic-zone.contact-info',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
