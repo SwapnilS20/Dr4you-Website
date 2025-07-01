@@ -1,15 +1,10 @@
 {
   "collectionName": "components_dynamic_zone_services_card_sections",
   "info": {
-    "displayName": "Services_card_section"
+    "displayName": "Services-Section-Head"
   },
   "options": {},
   "attributes": {
-    "services": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::service.service"
-    },
     "sectionhead": {
       "type": "component",
       "component": "shared.page-head",

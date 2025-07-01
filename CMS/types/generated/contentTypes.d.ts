@@ -107,6 +107,43 @@ export interface AdminApiTokenPermission extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface AdminAuditLog extends Struct.CollectionTypeSchema {
+  collectionName: 'strapi_audit_logs';
+  info: {
+    displayName: 'Audit Log';
+    pluralName: 'audit-logs';
+    singularName: 'audit-log';
+  };
+  options: {
+    draftAndPublish: false;
+    timestamps: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    action: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'admin::audit-log'> &
+      Schema.Attribute.Private;
+    payload: Schema.Attribute.JSON;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    user: Schema.Attribute.Relation<'oneToOne', 'admin::user'>;
+  };
+}
+
 export interface AdminPermission extends Struct.CollectionTypeSchema {
   collectionName: 'admin_permissions';
   info: {
@@ -513,17 +550,12 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       [
         'dynamic-zone.hero-section',
         'dynamic-zone.welcome-banner',
-        'dynamic-zone.drs4you-story',
         'dynamic-zone.services-card-section',
-        'dynamic-zone.promise-section',
         'dynamic-zone.platform-working',
-        'dynamic-zone.why-choose-us',
-        'dynamic-zone.doctors-card-section',
-        'dynamic-zone.request-appointment-form',
+        'dynamic-zone.testimonial-section-head',
         'dynamic-zone.our-vision',
         'dynamic-zone.our-mission',
         'dynamic-zone.contact-info',
-        'dynamic-zone.faq-head',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -535,6 +567,58 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRepeatedComponentRepeatedComponent
+  extends Struct.SingleTypeSchema {
+  collectionName: 'repeated_components';
+  info: {
+    displayName: 'Repeated-Component';
+    pluralName: 'repeated-components';
+    singularName: 'repeated-component';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Doctor_Section_Head: Schema.Attribute.Component<
+      'dynamic-zone.doctors-card-section',
+      false
+    >;
+    Drs4you_Story: Schema.Attribute.Component<
+      'dynamic-zone.drs4you-story',
+      false
+    >;
+    FAQ_Section_Head: Schema.Attribute.Component<
+      'dynamic-zone.faq-head',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::repeated-component.repeated-component'
+    > &
+      Schema.Attribute.Private;
+    Promise_Section: Schema.Attribute.Component<
+      'dynamic-zone.promise-section',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    Request_Appointment_Form: Schema.Attribute.Component<
+      'dynamic-zone.request-appointment-form',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Why_Choose_Us: Schema.Attribute.Component<
+      'dynamic-zone.why-choose-us',
+      false
+    >;
   };
 }
 
@@ -1145,6 +1229,7 @@ declare module '@strapi/strapi' {
     export interface ContentTypeSchemas {
       'admin::api-token': AdminApiToken;
       'admin::api-token-permission': AdminApiTokenPermission;
+      'admin::audit-log': AdminAuditLog;
       'admin::permission': AdminPermission;
       'admin::role': AdminRole;
       'admin::transfer-token': AdminTransferToken;
@@ -1155,6 +1240,7 @@ declare module '@strapi/strapi' {
       'api::faq.faq': ApiFaqFaq;
       'api::header-and-footer.header-and-footer': ApiHeaderAndFooterHeaderAndFooter;
       'api::page.page': ApiPagePage;
+      'api::repeated-component.repeated-component': ApiRepeatedComponentRepeatedComponent;
       'api::service.service': ApiServiceService;
       'api::team.team': ApiTeamTeam;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;

@@ -1,15 +1,10 @@
 {
   "collectionName": "components_dynamic_zone_doctors_card_sections",
   "info": {
-    "displayName": "doctors_card_section"
+    "displayName": "Doctor-Section-Head"
   },
   "options": {},
   "attributes": {
-    "doctors": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::doctor.doctor"
-    },
     "sectionhead": {
       "type": "component",
       "component": "shared.page-head",

@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "repeated_components",
+  "info": {
+    "singularName": "repeated-component",
+    "pluralName": "repeated-components",
+    "displayName": "Repeated-Component"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Drs4you_Story": {
+      "type": "component",
+      "component": "dynamic-zone.drs4you-story",
+      "repeatable": false
+    },
+    "Promise_Section": {
+      "type": "component",
+      "component": "dynamic-zone.promise-section",
+      "repeatable": false
+    },
+    "Why_Choose_Us": {
+      "type": "component",
+      "component": "dynamic-zone.why-choose-us",
+      "repeatable": false
+    },
+    "Doctor_Section_Head": {
+      "type": "component",
+      "component": "dynamic-zone.doctors-card-section",
+      "repeatable": false
+    },
+    "FAQ_Section_Head": {
+      "type": "component",
+      "component": "dynamic-zone.faq-head",
+      "repeatable": false
+    },
+    "Request_Appointment_Form": {
+      "type": "component",
+      "component": "dynamic-zone.request-appointment-form",
+      "repeatable": false
+    }
+  }
+}
