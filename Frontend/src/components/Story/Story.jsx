@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 export default function Story() {
 
-  const storyData = useSelector((state)=>state.home.OurStory)
+  const storyData = useSelector((state)=>state.repeatable.OurStory)
   const navigate = useNavigate()
   
   

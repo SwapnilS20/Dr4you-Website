@@ -1,46 +1,36 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   heroSection: [],
   WelcomeBanner: [],
-  OurStory: [],
-  PromiseSection:[],
-  PlatformWork :[],
-  WhyChooseUs: [],
-  
+  testimonialComponentInfo: [],
+  PlatformWork: [],
 };
 
 export const homeSlice = createSlice({
-  name: 'home',
+  name: "home",
   initialState,
   reducers: {
     setHeroSection: (state, action) => {
       state.heroSection = action.payload;
     },
-    
+
     setWelcomeBanner: (state, action) => {
       state.WelcomeBanner = action.payload;
-    },
-
-    setOurStory: (state, action) => {
-      state.OurStory = action.payload;
-    },
-    setPromiseSection: (state, action) => {
-      state.PromiseSection = action.payload;
     },
 
     setPlatformWork: (state, action) => {
       state.PlatformWork = action.payload;
     },
-
-    setWhyChooseUs: (state, action) => {
-      state.WhyChooseUs = action.payload;
-    },
+    setTestimonialComponentInfo : (state , action) =>{
+      state.testimonialComponentInfo = action.payload;
+    }
   },
 });
 
 // Export actions
-export const { setHeroSection , setWelcomeBanner , setOurStory , setPromiseSection , setPlatformWork , setWhyChooseUs } = homeSlice.actions;
+export const { setHeroSection, setWelcomeBanner, setPlatformWork , setTestimonialComponentInfo } =
+  homeSlice.actions;
 
 // Export reducer
 export default homeSlice.reducer;

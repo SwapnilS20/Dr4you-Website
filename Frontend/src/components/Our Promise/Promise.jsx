@@ -9,7 +9,7 @@ import promise6 from "../../assets/Images/promise6.png";
 import { useSelector } from "react-redux";
 
 const Promise = () => {
-  const ourPromiseData = useSelector((state) => state.home.PromiseSection);
+  const ourPromiseData = useSelector((state) => state.repeatable.PromiseSection);
 
   const promiseData = [
     {

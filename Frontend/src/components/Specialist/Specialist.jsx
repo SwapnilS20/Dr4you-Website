@@ -4,8 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { LuMoveLeft } from "react-icons/lu";
 import HeroImg from "../../assets/Images/HeroSectionMainImg.png";
 import SpecialistCard from "./SpecialistCard";
+import { useSelector } from "react-redux";
 
 const Specialist = ({ category, show }) => {
+  const headingData = useSelector(
+    (state) => state.repeatable.DoctorComponentInfo
+  );
+
   const FeedbackData = [
     {
       id: 1,
@@ -140,13 +145,12 @@ const Specialist = ({ category, show }) => {
       <div className="flex flex-col pt-10 pb-4 items-center gap-4 lg:mt-8 bg-Primary-Blue-50 lg:min-h-[750px] ">
         <h2 className="font-manrope font-bold text-[42px] text-center text-[#011632]">
           {show
-            ? "Meet our specialists"
+            ? headingData?.sectionhead?.title
             : `Our well-known ${category} Specialists`}
         </h2>
         {show ? (
           <p className="font-manrope text-base max-w-[470px] text-center text-[#3C4959]">
-            Meet our trusted medical experts, dedicated to delivering
-            compassionate care and advanced treatment tailored to your needs.
+            {headingData?.sectionhead?.short_description}
           </p>
         ) : null}
 
@@ -163,16 +167,12 @@ const Specialist = ({ category, show }) => {
             {show
               ? currentItems.map((data) => (
                   <motion.div key={data.id} variants={card}>
-                    <SpecialistCard
-                     data={data}
-                    />
+                    <SpecialistCard data={data} />
                   </motion.div>
                 ))
               : filteredData.map((data) => (
                   <motion.div key={data.id} variants={card}>
-                    <SpecialistCard
-                     data={data}
-                    />
+                    <SpecialistCard data={data} />
                   </motion.div>
                 ))}
           </motion.div>

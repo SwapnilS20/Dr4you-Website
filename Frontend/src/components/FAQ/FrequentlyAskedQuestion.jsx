@@ -1,7 +1,10 @@
 import React from "react";
 import FrequentlyAskCard from "./FrequentlyAskCard";
+import { useSelector } from "react-redux";
 
 const FrequentlyAskedQuestion = () => {
+  const headingData = useSelector((state)=> state.repeatable.FaqComponentInfo);
+
   const FaqData = [
     {
       id: 1,
@@ -33,11 +36,10 @@ const FrequentlyAskedQuestion = () => {
     <section>
       <div className=" flex flex-col items-center gap-8 my-10 md:my-28 ">
         <h2 className="font-manrope font-bold text-[42px] text-center text-[#011632]">
-          Frequently Ask Question
+          {headingData?.sectionhead?.title}
         </h2>
         <p className="font-manrope text-base max-w-[470px] text-center text-[#3C4959]">
-          Get answers to your most common questions about our services,
-          appointments, and healthcare process.
+          {headingData?.sectionhead?.short_description}
         </p>
         <div className=" flex flex-col gap-4 p-2 max-w-[600px]">
           {FaqData.map((item) => {

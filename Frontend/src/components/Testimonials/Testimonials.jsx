@@ -6,8 +6,13 @@ import commentImg1 from "../../assets/Images/commentImg1.jpg";
 import commentImg2 from "../../assets/Images/commentImg2.jpg";
 import commentImg3 from "../../assets/Images/commentImg3.jpg";
 import commentImg4 from "../../assets/Images/commentImg4.jpg";
+import { useSelector } from "react-redux";
 
 const Testimonials = () => {
+  const headingData = useSelector(
+    (state) => state.home.testimonialComponentInfo
+  );
+
   const FeedbackData = [
     {
       id: 1,
@@ -73,11 +78,10 @@ const Testimonials = () => {
     <section className="p-8">
       <div className="flex flex-col justify-center items-center gap-8 md:mt-8">
         <h2 className="font-manrope font-bold text-[42px] text-center text-Neutral-900">
-          Our Happy Clients
+          {headingData?.sectionhead?.title}
         </h2>
         <p className="font-manrope text-base max-w-[470px] text-center text-Neutral-500">
-          See what our patients have to say about their journey to better health
-          with Drs-4You...
+          {headingData?.sectionhead?.short_description}
         </p>
 
         {/* Testimonials Grid */}

@@ -5,7 +5,7 @@ import HeroImg from "../../assets/Images/HeroSectionMainImg.png";
 import { useSelector } from "react-redux";
 
 function WhyChooseUs() {
-  const chooseUsData = useSelector((state) => state.home.WhyChooseUs);
+  const chooseUsData = useSelector((state) => state.repeatable.WhyChooseUs);
 
   const input = chooseUsData?.on_image_percentage;
   const index = input?.indexOf("%");

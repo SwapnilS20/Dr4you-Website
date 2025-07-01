@@ -7,17 +7,18 @@ import { useDispatch } from "react-redux";
 import {
   setHeroSection,
   setWelcomeBanner,
-  setOurStory,
-  setPromiseSection,
-  setWhyChooseUs,
   setPlatformWork,
+  setTestimonialComponentInfo,
 } from "./App/features/homeSlice.js";
 
 import {
+  setOurStory,
+  setPromiseSection,
+  setWhyChooseUs,
   setDoctorComponentInfo,
-  setDoctorPageInfo,
-  setDoctors,
-} from "./App/features/doctorsSlice.js";
+  setFaqComponentInfo,
+  setRequestAppointmentForm,
+} from "./App/features/repeatableSlice";
 
 import { setHeader, setFooter } from "./App/features/headerFooterSlics";
 import useFetch from "./Hooks/useFetch.js";
@@ -31,10 +32,12 @@ function App() {
   );
 
   const homePageData = useFetch(
-    "http://localhost:1337/api/pages?populate[0]=dynamic_zone&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][doctor_image]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][CTAs]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][our_stats]=true&populate[dynamic_zone][on][dynamic-zone.welcome-banner][populate][patient_image]=true&populate[dynamic_zone][on][dynamic-zone.drs4you-story][populate][story_image]=true&populate[dynamic_zone][on][dynamic-zone.promise-section][populate][promise_items][populate]=icon&populate[dynamic_zone][on][dynamic-zone.why-choose-us][populate][Why_Choose_Items][populate]=true&populate[dynamic_zone][on][dynamic-zone.why-choose-us][populate][doctor_image][populate]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][platform_steps][populate]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][working_image][populate]=true&populate[dynamic_zone][on][dynamic-zone.doctors-card-section][populate]=*"
+    "http://localhost:1337/api/pages?populate[0]=dynamic_zone&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][doctor_image]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][CTAs]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][our_stats]=true&populate[dynamic_zone][on][dynamic-zone.welcome-banner][populate][patient_image]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][platform_steps][populate]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][working_image][populate]=true&populate[dynamic_zone][on][dynamic-zone.testimonial-section-head][populate]=*"
   );
 
-  console.log(homePageData?.data?.data);
+  const repeatedComponents = useFetch(
+    "http://localhost:1337/api/repeated-component?populate[Drs4you_Story][populate]=story_image&populate[Why_Choose_Us][populate]=doctor_image&populate[Why_Choose_Us][populate]=Why_Choose_Items&populate[Promise_Section][populate]=true&populate[Promise_Section][populate]=promise_items.icon&populate[Doctor_Section_Head][populate]=sectionhead&populate[FAQ_Section_Head][populate]=sectionhead&populate[Request_Appointment_Form][populate]=CTA"
+  );
 
   useEffect(() => {
     const segments = location.pathname.split("/").filter(Boolean);
@@ -43,14 +46,30 @@ function App() {
   }, [location]);
 
   useEffect(() => {
+    // HEADER AND FOOTER REDUX HANDLING
     if (headerFooterData.loading === false) {
       dispatch(setHeader(headerFooterData?.data?.data?.Header));
       dispatch(setFooter(headerFooterData?.data?.data?.Footer));
     }
 
+    // REPEATED COMPONENTS REDUX HANDLING
+    if (repeatedComponents.loading === false) {
+      const repeatedData = repeatedComponents?.data?.data;
+
+
+      if (repeatedData) dispatch(setOurStory(repeatedData.Drs4you_Story));
+      if (repeatedData) dispatch(setPromiseSection(repeatedData.Promise_Section));
+      if (repeatedData) dispatch(setWhyChooseUs(repeatedData.Why_Choose_Us));
+      if (repeatedData) dispatch(setRequestAppointmentForm(repeatedData.Request_Appointment_Form));
+      if (repeatedData) dispatch(setFaqComponentInfo(repeatedData.FAQ_Section_Head));
+      if (repeatedData) dispatch(setDoctorComponentInfo(repeatedData.Doctor_Section_Head));
+    }
+
+    // HOMEPAGE DATA REDUX HANDLING
     if (homePageData.loading === false) {
-      const homePage = homePageData?.data?.data?.[0];
-      const homePageRepeatedSection = homePageData?.data?.data?.[1];
+      const homePage = homePageData?.data?.data?.filter(
+        (item) => item.name === "Home"
+      )[0];
 
       const heroSection = homePage?.dynamic_zone.find(
         (item) => item.__component === "dynamic-zone.hero-section"
@@ -58,38 +77,20 @@ function App() {
       const welcomeBanner = homePage?.dynamic_zone.find(
         (item) => item.__component === "dynamic-zone.welcome-banner"
       );
-
-      const ourStory = homePage?.dynamic_zone.find(
-        (item) => item.__component === "dynamic-zone.drs4you-story"
-      );
-      const promiseSection = homePage?.dynamic_zone.find(
-        (item) => item.__component === "dynamic-zone.promise-section"
-      );
-      const whyChooseUs = homePage?.dynamic_zone.find(
-        (item) => item.__component === "dynamic-zone.why-choose-us"
-      );
       const platformWork = homePage?.dynamic_zone.find(
         (item) => item.__component === "dynamic-zone.platform-working"
       );
-      const doctorHomeSection = homePageRepeatedSection?.dynamic_zone.find(
-        (item) => item.__component === "dynamic-zone.doctors-card-section"
-      );
-      const requestAppointment = homePageRepeatedSection?.dynamic_zone.find(
-        (item) => item.__component === "dynamic-zone.request-appointment"
-      );
-      const faqHomeSection = homePageRepeatedSection?.dynamic_zone.find(
-        (item) => item.__component === "dynamic-zone.faq-section"
+      const testimonialComponentInfo = homePage?.dynamic_zone.find(
+        (item) => item.__component === "dynamic-zone.testimonial-section-head"
       );
 
       if (heroSection) dispatch(setHeroSection(heroSection));
       if (welcomeBanner) dispatch(setWelcomeBanner(welcomeBanner));
-      if (ourStory) dispatch(setOurStory(ourStory));
-      if (promiseSection) dispatch(setPromiseSection(promiseSection));
-      if (whyChooseUs) dispatch(setWhyChooseUs(whyChooseUs));
       if (platformWork) dispatch(setPlatformWork(platformWork));
-      // if (doctorHomeSection) dispatch( setComponentInfo(doctorHomeSection));
+      if (testimonialComponentInfo)
+        dispatch(setTestimonialComponentInfo(testimonialComponentInfo));
     }
-  }, [homePageData.loading, homePageData?.data]);
+  }, [homePageData.loading, homePageData?.data , repeatedComponents?.loading, repeatedComponents?.data ]);
 
   return (
     <>

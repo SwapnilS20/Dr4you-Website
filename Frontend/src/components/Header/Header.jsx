@@ -14,8 +14,6 @@ const Header = () => {
   const navigate = useNavigate();
   const HeaderData = useSelector((state) => state.headerFooter.header);
 
-  console.log(HeaderData);
-
   useLayoutEffect(() => {
     const timeout = setTimeout(() => {
       const elements = gsap.utils.toArray(".header-anim");
@@ -115,7 +113,7 @@ const Header = () => {
           }
           children={HeaderData?.patient_redirection?.text}
           onClick={() =>
-            window.open(`headerData?.patient_redirection.url`, "_blank")
+            window.open(`${HeaderData?.patient_redirection?.url}`, "_blank")
           }
         />
       </div>
