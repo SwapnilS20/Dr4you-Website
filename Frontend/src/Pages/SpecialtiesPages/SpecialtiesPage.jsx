@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../components/Header/Header.jsx";
+
 import SpecialitiesCard from "../../components/Specialities/SpecialitiesCard.jsx";
 import { BsArrowLeft } from "react-icons/bs";
 import ReactPaginate from "react-paginate";
@@ -7,125 +7,129 @@ import { motion, AnimatePresence } from "framer-motion";
 import AppointmentForm from "../../components/AppointmentForm/AppointmentForm.jsx";
 import Specialist from "../../components/Specialist/Specialist.jsx";
 import FrequentlyAskedQuestion from "../../components/FAQ/FrequentlyAskedQuestion.jsx";
-import Footer from "../../components/Footer/Footer.jsx";
-import MyEditor from "../../components/MyEditor.jsx";
+
+import { useSelector } from "react-redux";
 
 
 const SpecialtiesPage = () => {
-  const specialtiesData = [
-    {
-      id: 1,
-      category: "Cardiology",
-      description:
-        "Expert cardiologists for heart health, offering consultations and second opinions.",
-      doctors: 20,
-    },
-    {
-      id: 2,
-      category: "Dermatology",
-      description:
-        "Skincare specialists providing virtual consultations for all skin concerns.",
-      doctors: 15,
-    },
-    {
-      id: 3,
-      category: "Pediatrics",
-      description:
-        "Child health experts available for online consultations and advice.",
-      doctors: 25,
-    },
-    {
-      id: 4,
-      category: "Neurology",
-      description:
-        "Neurologists specializing in brain and nervous system disorders.",
-      doctors: 18,
-    },
-    {
-      id: 5,
-      category: "Orthopedics",
-      description:
-        "Bone and joint specialists offering consultations for musculoskeletal issues.",
-      doctors: 22,
-    },
-    {
-      id: 6,
-      category: "Gastroenterology",
-      description:
-        "Digestive health experts providing virtual consultations and second opinions.",
-      doctors: 12,
-    },
-    {
-      id: 7,
-      category: "Psychiatry",
-      description:
-        "Mental health professionals available for online therapy and consultations.",
-      doctors: 30,
-    },
-    {
-      id: 8,
-      category: "Endocrinology",
-      description:
-        "Hormonal health specialists offering consultations for endocrine disorders.",
-      doctors: 10,
-    },
-    {
-      id: 9,
-      category: "Oncology",
-      description:
-        "Cancer specialists providing virtual consultations and treatment plans.",
-      doctors: 8,
-    },
-    {
-      id: 10,
-      category: "Ophthalmology",
-      description:
-        "Eye care specialists offering consultations for vision problems.",
-      doctors: 14,
-    },
-    {
-      id: 11,
-      category: "Urology",
-      description:
-        "Urological health experts available for online consultations.",
-      doctors: 16,
-    },
-    {
-      id: 12,
-      category: "Gynecology",
-      description:
-        "Women's health specialists offering consultations for reproductive health issues.",
-      doctors: 12,
-    },
-    {
-      id: 13,
-      category: "Allergy",
-      description:
-        "Allergy specialists offering consultations for various allergies and asthma.",
-      doctors: 10,
-    },
-    {
-      id: 14,
-      category: "Cardiology",
-      description:
-        "Expert cardiologists for heart health, offering consultations and second opinions.",
-      doctors: 20,
-    },
-    {
-      id: 15,
-      category: "Dermatology",
-      description:
-        "Skincare specialists providing virtual consultations for all skin concerns.",
-      doctors: 15,
-    },
-    {
-      id: 16,
-      category: "Pediatrics",
-      description:
-        "Child health experts available for online consultations and advice.",
-      doctors: 25,
-    },
-  ];
+ const headingData = useSelector((state)=> state.category.categoryPageInfo)
+ const specialtiesData = useSelector((state)=> state.category.category)
+
+
+  // const specialtiesData = [
+  //   {
+  //     id: 1,
+  //     category: "Cardiology",
+  //     description:
+  //       "Expert cardiologists for heart health, offering consultations and second opinions.",
+  //     doctors: 20,
+  //   },
+  //   {
+  //     id: 2,
+  //     category: "Dermatology",
+  //     description:
+  //       "Skincare specialists providing virtual consultations for all skin concerns.",
+  //     doctors: 15,
+  //   },
+  //   {
+  //     id: 3,
+  //     category: "Pediatrics",
+  //     description:
+  //       "Child health experts available for online consultations and advice.",
+  //     doctors: 25,
+  //   },
+  //   {
+  //     id: 4,
+  //     category: "Neurology",
+  //     description:
+  //       "Neurologists specializing in brain and nervous system disorders.",
+  //     doctors: 18,
+  //   },
+  //   {
+  //     id: 5,
+  //     category: "Orthopedics",
+  //     description:
+  //       "Bone and joint specialists offering consultations for musculoskeletal issues.",
+  //     doctors: 22,
+  //   },
+  //   {
+  //     id: 6,
+  //     category: "Gastroenterology",
+  //     description:
+  //       "Digestive health experts providing virtual consultations and second opinions.",
+  //     doctors: 12,
+  //   },
+  //   {
+  //     id: 7,
+  //     category: "Psychiatry",
+  //     description:
+  //       "Mental health professionals available for online therapy and consultations.",
+  //     doctors: 30,
+  //   },
+  //   {
+  //     id: 8,
+  //     category: "Endocrinology",
+  //     description:
+  //       "Hormonal health specialists offering consultations for endocrine disorders.",
+  //     doctors: 10,
+  //   },
+  //   {
+  //     id: 9,
+  //     category: "Oncology",
+  //     description:
+  //       "Cancer specialists providing virtual consultations and treatment plans.",
+  //     doctors: 8,
+  //   },
+  //   {
+  //     id: 10,
+  //     category: "Ophthalmology",
+  //     description:
+  //       "Eye care specialists offering consultations for vision problems.",
+  //     doctors: 14,
+  //   },
+  //   {
+  //     id: 11,
+  //     category: "Urology",
+  //     description:
+  //       "Urological health experts available for online consultations.",
+  //     doctors: 16,
+  //   },
+  //   {
+  //     id: 12,
+  //     category: "Gynecology",
+  //     description:
+  //       "Women's health specialists offering consultations for reproductive health issues.",
+  //     doctors: 12,
+  //   },
+  //   {
+  //     id: 13,
+  //     category: "Allergy",
+  //     description:
+  //       "Allergy specialists offering consultations for various allergies and asthma.",
+  //     doctors: 10,
+  //   },
+  //   {
+  //     id: 14,
+  //     category: "Cardiology",
+  //     description:
+  //       "Expert cardiologists for heart health, offering consultations and second opinions.",
+  //     doctors: 20,
+  //   },
+  //   {
+  //     id: 15,
+  //     category: "Dermatology",
+  //     description:
+  //       "Skincare specialists providing virtual consultations for all skin concerns.",
+  //     doctors: 15,
+  //   },
+  //   {
+  //     id: 16,
+  //     category: "Pediatrics",
+  //     description:
+  //       "Child health experts available for online consultations and advice.",
+  //     doctors: 25,
+  //   },
+  // ];
   const [itemsPerPage, setItemsPerPage] = useState(4);
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -199,11 +203,11 @@ const SpecialtiesPage = () => {
             {/* Name and Description */}
             <div className=" flex flex-col justify-center items-center gap-4 mt-8 ">
               <h1 className=" text-gradient-btn font-general-sans font-semibold text-6xl ">
-                Services{" "}
+                {headingData?.title}
               </h1>
               <p className=" max-w-[550px] text-center">
-                We connect you with trusted healthcare specialists to help you
-                make informed decisions for your well-being.
+                {headingData?.short_description}
+
               </p>
             </div>
             {/* Services Cards */}
