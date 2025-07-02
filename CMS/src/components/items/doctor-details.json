@@ -12,6 +12,14 @@
       "type": "component",
       "component": "shared.doctor-qualification",
       "repeatable": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Expertise",
+        "Education",
+        "Experience"
+      ]
     }
   },
   "config": {}
