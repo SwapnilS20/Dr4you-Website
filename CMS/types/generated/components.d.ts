@@ -286,7 +286,6 @@ export interface ItemsDoctorDetails extends Struct.ComponentSchema {
       true
     >;
     heading: Schema.Attribute.String;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 

@@ -8,16 +8,6 @@
     "heading": {
       "type": "string"
     },
-    "icon": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "doctor_qualification": {
       "type": "component",
       "component": "shared.doctor-qualification",
