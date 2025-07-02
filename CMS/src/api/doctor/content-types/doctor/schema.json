@@ -30,6 +30,16 @@
       "type": "component",
       "component": "items.doctor-details",
       "repeatable": true
+    },
+    "doctor_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
