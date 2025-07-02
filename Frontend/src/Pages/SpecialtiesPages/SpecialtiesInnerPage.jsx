@@ -35,7 +35,7 @@ const SpecialtiesInnerPage = () => {
           <div className="max-w-5xl mx-auto py-12 px-6 ">
             {selectedCategory ? (
               <>
-                <h1 className="text-3xl md:text-6xl text-center font-bold text-gradient-btn p-4">
+                <h1 className="text-3xl md:text-6xl text-center font-bold text-gradient-btn p-4 mb-8">
                   {selectedCategory.name}
                 </h1>
                 <RichTextRenderer

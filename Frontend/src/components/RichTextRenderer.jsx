@@ -1,27 +1,41 @@
 import React from "react";
 
 const RichTextRenderer = ({ content }) => {
-  const HeadingRenderer = ({ level = 2, children }) => {
-    const Tag = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(`h${level}`) ? `h${level}` : 'p';
-    return <Tag>{children}</Tag>;
+  const getHeadingClass = (level) => {
+    switch (level) {
+      case 1:
+        return "text-4xl font-bold mb-4  text-Primary-Blue-900";
+      case 2:
+        return "text-3xl font-semibold mb-3  text-Primary-Blue-900";
+      case 3:
+        return "text-2xl font-semibold mb-2  text-Primary-Blue-900";
+      case 4:
+        return "text-xl font-semibold mb-2  text-Primary-Blue-900";
+      case 5:
+        return "text-lg font-semibold mb-1  text-Primary-Blue-900";
+      case 6:
+        return "text-base font-semibold mb-1  text-Primary-Blue-900";
+      default:
+        return "text-base";
+    }
   };
 
   return (
-    <div className="prose max-w-none text-justify">
+    <div className="max-w-none text-justify">
       {content?.map((block, index) => {
         if (block.type === "heading") {
           return (
-            <HeadingRenderer key={index} level={block.level} >
+            <div key={index} className={getHeadingClass(block.level)}>
               {block.children.map((child, i) => (
                 <React.Fragment key={i}>{child.text}</React.Fragment>
               ))}
-            </HeadingRenderer>
+            </div>
           );
         }
 
         if (block.type === "paragraph") {
           return (
-            <p key={index}>
+            <p key={index} className="mb-4 text-base leading-relaxed">
               {block.children.map((child, i) => (
                 <React.Fragment key={i}>{child.text}</React.Fragment>
               ))}
@@ -32,7 +46,7 @@ const RichTextRenderer = ({ content }) => {
         if (block.type === "list") {
           const ListTag = block.format === "unordered" ? "ul" : "ol";
           return (
-            <ListTag key={index} className="list-disc pl-5">
+            <ListTag key={index} className="list-disc pl-5 mb-4">
               {block.children.map((li, liIndex) => (
                 <li key={liIndex}>
                   {li.children.map((child, ci) => (
@@ -49,6 +63,5 @@ const RichTextRenderer = ({ content }) => {
     </div>
   );
 };
-
 
 export default RichTextRenderer;
