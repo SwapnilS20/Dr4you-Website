@@ -101,7 +101,7 @@ const SpecialistInnerPage = () => {
                 Specialities & Expertise
               </h3>
               <div className="flex flex-col gap-4 my-6">
-                {currentDoctor.expertise.map((item, i) => (
+                {currentDoctor?.doctor_qualification?.Expertise?.map((item, i) => (
                   <div key={i} className="flex items-start xl:items-center gap-2">
                     <div className="flex justify-center items-center text-white p-1 xl:w-7 xl:h-7 rounded-full bg-rounded-gradient mt-[4px] lg:mt-0">
                       <FaCheck className="text-[10px] lg:text-[16px]" />
@@ -124,7 +124,7 @@ const SpecialistInnerPage = () => {
                 Education & Training
               </h3>
               <div className="flex flex-col gap-4 my-6">
-                {currentDoctor.education.map((item, i) => (
+                {currentDoctor?.doctor_qualification?.Education?.map((item, i) => (
                   <div key={i} className="flex items-start xl:items-center gap-2">
                     <div className="flex justify-center items-center text-white p-1 xl:w-7 xl:h-7 rounded-full bg-rounded-gradient mt-[4px] lg:mt-0">
                       <FaGraduationCap className="text-[10px] lg:text-[16px]" />
@@ -147,7 +147,7 @@ const SpecialistInnerPage = () => {
                 Experience
               </h3>
               <div className="flex flex-col gap-4 my-6">
-                {currentDoctor.experience.map((item, i) => (
+                {currentDoctor?.doctor_qualification?.Experience?.map((item, i) => (
                   <div key={i} className="flex items-start xl:items-center gap-2">
                     <div className="flex justify-center items-center text-white p-1 xl:w-7 xl:h-7 rounded-full bg-rounded-gradient mt-[4px] lg:mt-0">
                       <MdWorkHistory className="text-[10px] lg:text-[16px]" />

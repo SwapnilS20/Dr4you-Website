@@ -15,7 +15,6 @@ const Specialist = ({ category, show }) => {
     (state) => state.doctors.doctors
   );  
 
-console.log(doctorsData);
 
 
   const [currentPage, setCurrentPage] = useState(0);
