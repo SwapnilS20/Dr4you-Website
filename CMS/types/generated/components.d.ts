@@ -286,6 +286,9 @@ export interface ItemsDoctorDetails extends Struct.ComponentSchema {
       true
     >;
     heading: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<
+      ['Expertise', 'Education', 'Experience']
+    >;
   };
 }
 
