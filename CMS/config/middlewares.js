@@ -1,20 +1,13 @@
 module.exports = [
-  'strapi::logger',
   'strapi::errors',
   'strapi::security',
-  {
-    name: 'strapi::cors',
-    config: {
-      origin: ['http://localhost:5173'], // React frontend
-      methods: ['*'],
-      headers: ['*'],
-      credentials: true,
-    },
-  },
+  'strapi::cors',
   'strapi::poweredBy',
+  'strapi::logger',
   'strapi::query',
   'strapi::body',
   'strapi::session',
   'strapi::favicon',
-  'strapi::public',
+  'strapi::public', // This serves the admin panel frontend
 ];
+// 
