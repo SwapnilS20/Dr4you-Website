@@ -20,6 +20,10 @@ import {
   setRequestAppointmentForm,
 } from "./App/features/repeatableSlice";
 
+import {
+  setDoctorPageInfo, setDoctors
+} from './App/features/doctorsSlice.js'
+
 import { setCategoryPageInfo, setCategory } from './App/features/categorySlice.js'
 
 import { setHeader, setFooter } from "./App/features/headerFooterSlics";
@@ -46,6 +50,11 @@ function App() {
   const categories = useFetch(
     "http://localhost:1337/api/services?populate=icon"
   )
+
+   const doctors = useFetch(
+    "http://localhost:1337/api/doctors?populate[doctor_information][populate]=doctor_qualification&populate[doctor_image][populate]=true&populate[service][fields][0]=name"
+  )
+  
 
   useEffect(() => {
     const segments = location.pathname.split("/").filter(Boolean);
@@ -100,7 +109,7 @@ function App() {
         dispatch(setTestimonialComponentInfo(testimonialComponentInfo));
     }
 
-    // SERVICE PAGE REDUX DATA HANDLING
+    // ALL PAGE Heading DATA REDUX DATA HANDLING
     if (homePageData.loading === false) {
       const servicesPage = homePageData?.data?.data?.filter(
         (item) => item.name === "Services"
@@ -108,12 +117,25 @@ function App() {
       
       if(servicesPage) dispatch(setCategoryPageInfo(servicesPage.pagehead));
 
+      const doctorsPage = homePageData?.data?.data?.filter(
+        (item) => item.name === "Find Doctors"
+      )[0];
+      
+      if(servicesPage) dispatch(setDoctorPageInfo(doctorsPage.pagehead));
+
+
     }
 
     // ALL CATEGORIES REDUX DATA HANDLING
     if(categories.loading === false){
 
       if(categories) dispatch(setCategory(categories?.data?.data))
+      
+    }
+    // ALL DOCTORS REDUX DATA HANDLING 
+    if(doctors.loading === false){
+
+      if(categories) dispatch(setDoctors(doctors?.data?.data))
       
     }
 

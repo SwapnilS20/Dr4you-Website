@@ -8,140 +8,27 @@ import { MdWorkHistory } from "react-icons/md";
 import "../../index.css";
 import Footer from "../../components/Footer/Footer.jsx";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const SpecialistInnerPage = () => {
   const { id } = useParams(); // ✅ FIXED: Extract id from param
   const [currentDoctor, setCurrentDoctor] = useState(null);
 
-  const doctor = [
-  {
-    id: 1,
-    name: "Thomas Daniel",
-    category: "Cardiology",
-    image: img,
-    description:
-      "Dr. Thomas Daniel is a highly experienced and compassionate cardiologist dedicated to improving cardiovascular health through early detection, cutting-edge procedures, and lifestyle-based interventions. With a focus on preventive care, he works closely with patients to develop individualized treatment plans. His deep knowledge and empathetic nature have earned him recognition as one of the most trusted heart specialists in his field.",
-    message:
-      "Heart care requires more than just medication and procedures—it demands a holistic approach that incorporates education, empathy, and long-term support. I take pride in guiding my patients through their health journeys with personalized attention, helping them understand their conditions and empowering them to make the right lifestyle and medical decisions. Every heartbeat matters, and I'm here to ensure yours stays strong and steady.",
-    expertise: [
-      "Cardiac stress testing",
-      "Echocardiography",
-      "Heart disease prevention",
-      "Cardiac catheterization"
-    ],
-    education: [
-      "MBBS – Johns Hopkins University",
-      "MD (Internal Medicine) – Stanford University",
-      "DM Cardiology – Mayo Clinic"
-    ],
-    experience: [
-      "Senior Cardiologist – HeartCare Institute (Present)",
-      "Cardiology Consultant – MedCity Hospital (2014–2020)",
-      "Resident Cardiologist – Stanford Medical Center (2011–2014)"
-    ]
-  },
-  {
-    id: 2,
-    name: "Alena Alex",
-    category: "Dermatology",
-    image: img,
-    description:
-      "Dr. Alena Alex is a board-certified dermatologist renowned for her ability to treat both common and complex skin disorders with precision and care. She blends medical science with a personalized approach to skincare, ensuring that patients receive effective treatments tailored to their unique needs. Her expertise spans cosmetic dermatology, chronic conditions, and skin cancer detection, making her a versatile and respected expert in the field.",
-    message:
-      "Skin health is about more than just appearance—it reflects your overall well-being. I strive to create a welcoming environment where patients feel heard and confident about their skin concerns. Whether it's treating chronic conditions or providing cosmetic solutions, I work closely with each individual to develop tailored care plans that not only heal but also empower. Together, we’ll help your skin thrive.",
-    expertise: [
-      "Acne and pigmentation treatment",
-      "Skin allergy management",
-      "Skin biopsy & mole evaluation",
-      "Anti-aging and cosmetic dermatology"
-    ],
-    education: [
-      "MBBS – University of California, San Diego",
-      "MD Dermatology – University of Chicago"
-    ],
-    experience: [
-      "Consultant Dermatologist – GlowCare Skin Clinic (Present)",
-      "Senior Resident – UCSD Medical Center (2015–2020)"
-    ]
-  },
-  {
-    id: 3,
-    name: "Thomas Edison",
-    category: "Pediatrics",
-    image: img,
-    description:
-      "Dr. Thomas Edison is a pediatrician with a warm, approachable manner and a passion for child health. He brings a holistic philosophy to pediatrics, focusing on growth, development, and preventive care. From newborns to teens, he ensures each child receives age-appropriate medical attention while fostering a nurturing and safe healthcare experience. His emphasis on communication makes him a favorite among parents and children alike.",
-    message:
-      "Pediatrics is not just about treating illnesses—it's about fostering lifelong wellness. I work alongside families to build strong foundations for health through education, prevention, and trust. From your baby’s first checkup to adolescent milestones, my mission is to provide compassionate and thorough care that promotes physical, emotional, and developmental well-being. Every child deserves a healthy start, and I’m honored to be a part of that journey.",
-    expertise: [
-      "Childhood immunizations",
-      "Nutritional guidance",
-      "Developmental assessment",
-      "Acute illness and injury management"
-    ],
-    education: [
-      "MBBS – University of Toronto",
-      "MD Pediatrics – Harvard Medical School"
-    ],
-    experience: [
-      "Lead Pediatrician – Little Steps Clinic (Present)",
-      "Pediatric Consultant – HealthBridge Hospital (2016–2021)"
-    ]
-  },
-  {
-    id: 4,
-    name: "Jane Doe",
-    category: "Neurology",
-    image: img,
-    description:
-      "Dr. Jane Doe is a neurologist with a deep commitment to treating disorders of the nervous system with accuracy and compassion. With years of specialized experience, she handles complex conditions such as epilepsy, migraines, stroke recovery, and neurodegenerative diseases. She is known for her thorough diagnostic skills and her ability to simplify intricate medical conditions for patients and caregivers alike, promoting better understanding and outcomes.",
-    message:
-      "The brain is the command center of our lives, and neurological challenges can deeply impact both patients and their families. My role is to offer not just treatment but also clarity, comfort, and partnership throughout your care journey. I emphasize clear communication, collaborative decision-making, and evidence-based treatments to support every individual in navigating their neurological health with confidence and hope.",
-    expertise: [
-      "Migraine & chronic headache treatment",
-      "Stroke prevention & recovery",
-      "Epilepsy & seizure management",
-      "Neuromuscular disorders"
-    ],
-    education: [
-      "MBBS – King's College London",
-      "MD Neurology – University of Pennsylvania"
-    ],
-    experience: [
-      "Senior Neurologist – NeuroPlus Institute (Present)",
-      "Consultant Neurologist – BrainCare Hospital (2013–2020)"
-    ]
-  },
-  {
-    id: 5,
-    name: "John Smith",
-    category: "Orthopedics",
-    image: img,
-    description:
-      "Dr. John Smith is a leading orthopedic surgeon with extensive experience in treating musculoskeletal conditions ranging from joint pain to complex fractures. His approach combines surgical excellence with advanced rehabilitative strategies, aiming to restore patients’ mobility and improve their quality of life. With a reputation for successful outcomes and empathetic care, he is trusted by athletes and seniors alike.",
-    message:
-      "Movement is central to life, and when it’s restricted by injury or chronic conditions, the impact is profound. My goal is to not only heal but to fully restore strength, mobility, and confidence through personalized orthopedic care. From diagnosis to surgery and rehabilitation, I ensure each step of the process is patient-centered and focused on long-term wellness. Let’s get you moving better and living stronger.",
-    expertise: [
-      "Knee and hip replacement",
-      "Arthroscopy and joint repair",
-      "Fracture care",
-      "Sports injuries and rehab"
-    ],
-    education: [
-      "MBBS – University of Michigan",
-      "MS Orthopedics – Duke University School of Medicine"
-    ],
-    experience: [
-      "Lead Orthopedic Surgeon – OrthoLife Hospital (Present)",
-      "Senior Consultant – MotionMed Clinic (2014–2020)"
-    ]
-  }
-];
+    const doctor = useSelector(
+    (state) => state.doctors.doctors
+  );
+
+  console.log(doctor);
+  
+  
 
   useEffect(() => {
-    const filteredDoctor = doctor.find((item) => item.id === parseInt(id));
-    setCurrentDoctor(filteredDoctor);
+    const filteredDoctor = doctor?.find((item) => item.id === Number(id));
+    setCurrentDoctor(filteredDoctor); 
+    
   }, [id]);
+
+
 
   if (!currentDoctor) {
     return (

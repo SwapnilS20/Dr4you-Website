@@ -11,50 +11,12 @@ const Specialist = ({ category, show }) => {
     (state) => state.repeatable.DoctorComponentInfo
   );
 
-  const FeedbackData = [
-    {
-      id: 1,
-      name: "Thomas daniel",
-      img: HeroImg,
-      category: "Cardiology",
-      linkedinUrl: "https://www.linkedin.com/in/thomasdaniel",
-    },
-    {
-      id: 2,
-      name: "Alena Alex",
-      img: HeroImg,
-      category: "Dermatology",
-      linkedinUrl: "https://www.linkedin.com/in/alenaalex",
-    },
-    {
-      id: 3,
-      name: "Thomas Edison",
-      img: HeroImg,
-      category: "Pediatrics",
-      linkedinUrl: "https://www.linkedin.com/in/thomasedison",
-    },
-    {
-      id: 4,
-      name: "Jane Doe",
-      img: HeroImg,
-      category: "Neurology",
-      linkedinUrl: "https://www.linkedin.com/in/janedoe",
-    },
-    {
-      id: 5,
-      name: "John Smith",
-      img: HeroImg,
-      category: "Orthopedics",
-      linkedinUrl: "https://www.linkedin.com/in/johnsmith",
-    },
-    {
-      id: 6,
-      name: "Alice Johnson",
-      img: HeroImg,
-      category: "Gastroenterology",
-      linkedinUrl: "https://www.linkedin.com/in/alicejohnson",
-    },
-  ];
+  const doctorsData = useSelector(
+    (state) => state.doctors.doctors
+  );  
+
+console.log(doctorsData);
+
 
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
@@ -90,8 +52,8 @@ const Specialist = ({ category, show }) => {
   useEffect(() => {
     if (show || category) {
       const newData = show
-        ? FeedbackData
-        : FeedbackData.filter((data) => data.category === category);
+        ? doctorsData
+        : doctorsData.filter((data) => data.category === category);
       setFilteredData(newData);
       setCurrentPage(0); // reset to first page on category/show change
     }
@@ -99,12 +61,12 @@ const Specialist = ({ category, show }) => {
 
   // Logic for pagination
   const offset = currentPage * itemsPerPage;
-  const currentItems = (show ? FeedbackData : filteredData).slice(
+  const currentItems = (show ? doctorsData : filteredData).slice(
     offset,
     offset + itemsPerPage
   );
   const pageCount = Math.ceil(
-    (show ? FeedbackData : filteredData).length / itemsPerPage
+    (show ? doctorsData : filteredData).length / itemsPerPage
   );
 
   const handlePageClick = ({ selected }) => {
