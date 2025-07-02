@@ -4,123 +4,17 @@ import { LuUserSearch } from "react-icons/lu";
 import { IoIosArrowDown } from "react-icons/io";
 import ReactPaginate from "react-paginate";
 import { motion, AnimatePresence } from "framer-motion";
-import HeroImg from "../../assets/Images/HeroSectionMainImg.png";
-import Header from "../../components/Header/Header.jsx";
-import Footer from "../../components/Footer/Footer.jsx";
 import SpecialistCard from "../../components/Specialist/SpecialistCard.jsx";
 import AppointmentForm from "../../components/AppointmentForm/AppointmentForm.jsx";
 import FrequentlyAskedQuestion from "../../components/FAQ/FrequentlyAskedQuestion.jsx";
+import { useSelector } from "react-redux";
 
 
 const SpecialistPage = () => {
   const [FilteredData, setFilteredData] = useState([]);
-  const DoctorData = [
-    {
-      id: 1,
-      name: "Thomas Daniel",
-      img: HeroImg,
-      category: "Cardiology",
-      linkedinUrl: "https://www.linkedin.com/in/thomasdaniel",
-    },
-    {
-      id: 2,
-      name: "Alena Alex",
-      img: HeroImg,
-      category: "Dermatology",
-      linkedinUrl: "https://www.linkedin.com/in/alenaalex",
-    },
-    {
-      id: 3,
-      name: "Thomas Edison",
-      img: HeroImg,
-      category: "Pediatrics",
-      linkedinUrl: "https://www.linkedin.com/in/thomasedison",
-    },
-    {
-      id: 4,
-      name: "Jane Doe",
-      img: HeroImg,
-      category: "Neurology",
-      linkedinUrl: "https://www.linkedin.com/in/janedoe",
-    },
-    {
-      id: 5,
-      name: "John Smith",
-      img: HeroImg,
-      category: "Orthopedics",
-      linkedinUrl: "https://www.linkedin.com/in/johnsmith",
-    },
-    {
-      id: 6,
-      name: "Alice Johnson",
-      img: HeroImg,
-      category: "Gastroenterology",
-      linkedinUrl: "https://www.linkedin.com/in/alicejohnson",
-    },
-    {
-      id: 7,
-      name: "Michael Brown",
-      img: HeroImg,
-      category: "Ophthalmology",
-      linkedinUrl: "https://www.linkedin.com/in/michaelbrown",
-    },
-    {
-      id: 8,
-      name: "Emily Clark",
-      img: HeroImg,
-      category: "Endocrinology",
-      linkedinUrl: "https://www.linkedin.com/in/emilyclark",
-    },
-    {
-      id: 9,
-      name: "David Lee",
-      img: HeroImg,
-      category: "Oncology",
-      linkedinUrl: "https://www.linkedin.com/in/davidlee",
-    },
-    {
-      id: 10,
-      name: "Sophia Turner",
-      img: HeroImg,
-      category: "Rheumatology",
-      linkedinUrl: "https://www.linkedin.com/in/sophiaturner",
-    },
-    {
-      id: 11,
-      name: "Chris Evans",
-      img: HeroImg,
-      category: "Pulmonology",
-      linkedinUrl: "https://www.linkedin.com/in/chrisevans",
-    },
-    {
-      id: 12,
-      name: "Olivia Harris",
-      img: HeroImg,
-      category: "Nephrology",
-      linkedinUrl: "https://www.linkedin.com/in/oliviaharris",
-    },
-    {
-      id: 13,
-      name: "William Scott",
-      img: HeroImg,
-      category: "Urology",
-      linkedinUrl: "https://www.linkedin.com/in/williamscott",
-    },
-    {
-      id: 14,
-      name: "Grace Miller",
-      img: HeroImg,
-      category: "Hematology",
-      linkedinUrl: "https://www.linkedin.com/in/gracemiller",
-    },
-    {
-      id: 15,
-      name: "Benjamin Carter",
-      img: HeroImg,
-      category: "Immunology",
-      linkedinUrl: "https://www.linkedin.com/in/benjamincarter",
-    },
-  ];
+  const DoctorData = useSelector(
+    (state) => state.doctors.doctors
+  );
 
   const [itemsPerPage, setItemsPerPage] = useState(4);
   const [currentPage, setCurrentPage] = useState(0);
@@ -231,10 +125,10 @@ const SpecialistPage = () => {
                 {DoctorData.map((data) => (
                   <option
                     key={data.id}
-                    value={data.category}
+                    value={data.service.name}
                     className="text-black "
                   >
-                    {data.category}
+                    {data.service.name}
                   
                   </option>
                 ))}
