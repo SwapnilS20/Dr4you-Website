@@ -1,5 +1,5 @@
 module.exports = ({ env }) => ({
-  url: '/cms/admin',
+  url: '/admin',
   auth: {
     secret: env('ADMIN_JWT_SECRET'),
   },
@@ -10,9 +10,5 @@ module.exports = ({ env }) => ({
     token: {
       salt: env('TRANSFER_TOKEN_SALT'),
     },
-  },
-  flags: {
-    nps: env.bool('FLAG_NPS', true),
-    promoteEE: env.bool('FLAG_PROMOTE_EE', true),
   },
 });
