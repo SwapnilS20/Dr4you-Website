@@ -34,6 +34,7 @@ function App() {
   const location = useLocation();
   const dispatch = useDispatch();
 
+  
 
   const headerFooterData = useFetch(
     "http://localhost:1337/api/header-and-footer?populate[Header][populate]=*&populate[Footer][populate][logo]=true&populate[Footer][populate][policy_links]=true&populate[Footer][populate][services_links]=true&populate[Footer][populate][support]=true&populate[Footer][populate][social_icons][populate]=link"
@@ -54,6 +55,7 @@ function App() {
    const doctors = useFetch(
     "http://localhost:1337/api/doctors?populate[doctor_information][populate]=doctor_qualification&populate[doctor_image][populate]=true&populate[service][fields][0]=name"
   )
+  console.log(headerFooterData);
   
 
   useEffect(() => {
