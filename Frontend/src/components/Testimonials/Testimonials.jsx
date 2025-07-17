@@ -13,32 +13,11 @@ const Testimonials = () => {
     (state) => state.home.testimonialComponentInfo
   );
 
-  const FeedbackData = [
-    {
-      id: 1,
-      name: "Thomas daniel",
-      img: commentImg1,
-      rating: 5,
-      feedback:
-        "I had been struggling with conflicting diagnoses until I found Drs-4You. The second opinion I received was clear, professional, and helped me move forward with confidence. Highly recommended!",
-    },
-    {
-      id: 2,
-      name: "Alena Alex",
-      img: commentImg2,
-      rating: 4,
-      feedback:
-        "Drs-4You made it so easy to consult with a specialist from home. The whole process—from booking to prescription—was seamless and stress-free. It truly redefines convenience in healthcare.",
-    },
-    {
-      id: 3,
-      name: "Thomas Edison",
-      img: commentImg3,
-      rating: 5,
-      feedback:
-        "Professional, caring, and efficient. I loved how personalized the treatment suggestions were. Drs-4You helped me find the right doctor without stepping out of my house!",
-    },
-  ];
+  const FeedbackData = useSelector(
+    (state) => state.testimonials.testimonials
+  );
+  
+ 
 
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
@@ -88,11 +67,8 @@ const Testimonials = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-4">
           {currentItems.map((data) => (
             <TestimonialCard
-              key={data.id}
-              img={data.img}
-              name={data.name}
-              rating={data.rating}
-              feedback={data.feedback}
+             data={data}
+             key={data?.id} // Ensure each card has a unique key
             />
           ))}
         </div>

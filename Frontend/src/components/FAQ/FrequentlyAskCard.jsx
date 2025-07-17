@@ -3,7 +3,7 @@ import { GoDotFill } from "react-icons/go";
 import { FiMinusCircle } from "react-icons/fi";
 import { FiPlusCircle } from "react-icons/fi";
 
-const FrequentlyAskCard = ({ question, answer }) => {
+const FrequentlyAskCard = ({ data }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <div
@@ -25,7 +25,7 @@ const FrequentlyAskCard = ({ question, answer }) => {
               isOpen ? " text-white" : " text-[#011632]"
             }`}
           >
-            {question}
+            {data?.question}
           </h3>
         </div>
         <span>
@@ -50,7 +50,7 @@ const FrequentlyAskCard = ({ question, answer }) => {
           }
         `}
       >
-        <p className="text-base text-justify text-white">{answer}</p>
+        <p className="text-base text-justify text-white">{data?.answer}</p>
       </div>
     </div>
   );

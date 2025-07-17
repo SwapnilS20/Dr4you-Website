@@ -51,7 +51,7 @@ const SpecialtiesInnerPage = () => {
       <Specialist category={selectedCategory?.name} show={false} />
       <HealthCarePath />
       <AppointmentForm />
-      <FrequentlyAskedQuestion />
+      <FrequentlyAskedQuestion currentPage={'service'} />
     </>
   );
 };

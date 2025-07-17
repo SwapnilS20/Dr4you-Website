@@ -146,7 +146,7 @@ const SpecialtiesPage = () => {
 
         <Specialist show={true} />
         {/* FAQ */}
-        <FrequentlyAskedQuestion />
+        <FrequentlyAskedQuestion currentPage={'service'}/>
  
 
       </section>

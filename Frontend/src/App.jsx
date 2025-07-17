@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Outlet, ScrollRestoration, useLocation } from "react-router-dom";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+
 import "./index.css";
 import Header from "./components/Header/Header.jsx";
 import Footer from "./components/Footer/Footer.jsx";
@@ -9,6 +11,7 @@ import {
   setWelcomeBanner,
   setPlatformWork,
   setTestimonialComponentInfo,
+  setAboutData,
 } from "./App/features/homeSlice.js";
 
 import {
@@ -20,21 +23,22 @@ import {
   setRequestAppointmentForm,
 } from "./App/features/repeatableSlice";
 
-import {
-  setDoctorPageInfo, setDoctors
-} from './App/features/doctorsSlice.js'
+import { setDoctorPageInfo, setDoctors } from "./App/features/doctorsSlice.js";
+import { setFaqs } from "./App/features/faqSlice.js";
 
-import { setCategoryPageInfo, setCategory } from './App/features/categorySlice.js'
+import {
+  setCategoryPageInfo,
+  setCategory,
+} from "./App/features/categorySlice.js";
+
+import { setTestimonials } from "./App/features/testimonialSlice.js";
 
 import { setHeader, setFooter } from "./App/features/headerFooterSlics";
 import useFetch from "./Hooks/useFetch.js";
 
 function App() {
   const [path, setPath] = useState("");
-  const location = useLocation();
   const dispatch = useDispatch();
-
-  
 
   const headerFooterData = useFetch(
     "http://localhost:1337/api/header-and-footer?populate[Header][populate]=*&populate[Footer][populate][logo]=true&populate[Footer][populate][policy_links]=true&populate[Footer][populate][services_links]=true&populate[Footer][populate][support]=true&populate[Footer][populate][social_icons][populate]=link"
@@ -50,19 +54,30 @@ function App() {
 
   const categories = useFetch(
     "http://localhost:1337/api/services?populate=icon"
+  );
+
+  const doctors = useFetch(
+    "http://localhost:1337/api/doctors?populate[doctor_information][populate]=doctor_qualification&populate[doctor_image][populate]=true&populate[service][fields][0]=name"
+  );
+
+  const testimonials = useFetch(
+    'http://localhost:1337/api/testimonials?populate=*'
+  );
+
+  const faqs = useFetch(
+    'http://localhost:1337/api/FAQs?populate=*'
   )
 
-   const doctors = useFetch(
-    "http://localhost:1337/api/doctors?populate[doctor_information][populate]=doctor_qualification&populate[doctor_image][populate]=true&populate[service][fields][0]=name"
+  const about = useFetch(
+    'http://localhost:1337/api/pages?populate[dynamic_zone][on][dynamic-zone.our-vision][populate]=true&populate[dynamic_zone][on][dynamic-zone.our-mission][populate]=true&populate[pagehead]=true'
   )
-  console.log(headerFooterData);
-  
+  const location = useLocation();
 
   useEffect(() => {
     const segments = location.pathname.split("/").filter(Boolean);
     const lastSegment = segments[segments.length - 1]?.toLowerCase() || "";
     setPath(lastSegment);
-  }, [location]);
+  }, [location.pathname]); // only depend on location.pathname
 
   useEffect(() => {
     // HEADER AND FOOTER REDUX HANDLING
@@ -75,15 +90,19 @@ function App() {
     if (repeatedComponents.loading === false) {
       const repeatedData = repeatedComponents?.data?.data;
 
-
       if (repeatedData) dispatch(setOurStory(repeatedData.Drs4you_Story));
-      if (repeatedData) dispatch(setPromiseSection(repeatedData.Promise_Section));
+      if (repeatedData)
+        dispatch(setPromiseSection(repeatedData.Promise_Section));
       if (repeatedData) dispatch(setWhyChooseUs(repeatedData.Why_Choose_Us));
-      if (repeatedData) dispatch(setRequestAppointmentForm(repeatedData.Request_Appointment_Form));
-      if (repeatedData) dispatch(setFaqComponentInfo(repeatedData.FAQ_Section_Head));
-      if (repeatedData) dispatch(setDoctorComponentInfo(repeatedData.Doctor_Section_Head));
+      if (repeatedData)
+        dispatch(
+          setRequestAppointmentForm(repeatedData.Request_Appointment_Form)
+        );
+      if (repeatedData)
+        dispatch(setFaqComponentInfo(repeatedData.FAQ_Section_Head));
+      if (repeatedData)
+        dispatch(setDoctorComponentInfo(repeatedData.Doctor_Section_Head));
     }
-
 
     // HOMEPAGE DATA REDUX HANDLING
     if (homePageData.loading === false) {
@@ -116,46 +135,81 @@ function App() {
       const servicesPage = homePageData?.data?.data?.filter(
         (item) => item.name === "Services"
       )[0];
-      
-      if(servicesPage) dispatch(setCategoryPageInfo(servicesPage?.pagehead));
+
+      if (servicesPage) dispatch(setCategoryPageInfo(servicesPage?.pagehead));
 
       const doctorsPage = homePageData?.data?.data?.filter(
         (item) => item.name === "Find Doctors"
       )[0];
-      
-      if(servicesPage) dispatch(setDoctorPageInfo(doctorsPage?.pagehead));
 
-
+      if (servicesPage) dispatch(setDoctorPageInfo(doctorsPage?.pagehead));
     }
 
     // ALL CATEGORIES REDUX DATA HANDLING
-    if(categories.loading === false){
-
-      if(categories) dispatch(setCategory(categories?.data?.data))
-      
+    if (categories.loading === false) {
+      if (categories) dispatch(setCategory(categories?.data?.data));
     }
-    // ALL DOCTORS REDUX DATA HANDLING 
-    if(doctors.loading === false){
-
-      if(categories) dispatch(setDoctors(doctors?.data?.data))
-      
+    // ALL DOCTORS REDUX DATA HANDLING
+    if (doctors.loading === false) {
+      if (categories) dispatch(setDoctors(doctors?.data?.data));
     }
 
-    
-  }, [homePageData.loading, homePageData?.data , repeatedComponents?.loading, repeatedComponents?.data ]);
+    // TESTIMONIALS DATA REDUX HANDLING
+
+    if (testimonials.loading === false) {
+      if (testimonials) dispatch(setTestimonials(testimonials?.data?.data));
+    }
+
+    // FAQS DATA REDUX HANDLING
+    if (faqs.loading === false) {
+      if (faqs) dispatch(setFaqs(faqs?.data?.data));
+    }
+
+    // About DATA REDUX HANDLING
+    if (about.loading === false) {
+      if (about) dispatch(setAboutData(about?.data?.data));
+    }
+  }, [
+    homePageData.loading,
+    homePageData?.data,
+    repeatedComponents?.loading,
+    repeatedComponents?.data,
+  ]);
+
+  const allLoading =
+    headerFooterData.loading ||
+    homePageData.loading ||
+    repeatedComponents.loading ||
+    categories.loading ||
+    doctors.loading;
 
   return (
     <>
-      <div
-        className={`${
-          path === "specialists" ? "bg-Primary-Blue-50" : "bg-custom-gradient"
-        } h-[500px]`}
-      >
-        <Header />
-        <Outlet />
-        <Footer />
-      </div>
-      <ScrollRestoration />
+      {allLoading ? (
+        <div className="flex items-center justify-center min-h-screen">
+          <DotLottieReact
+            src="https://lottie.host/0878716e-6441-4762-800f-d8b7fb80295c/LBpmbgEBmy.lottie"
+            loop
+            autoplay
+            style={{ width: "500px" }}
+          />
+        </div>
+      ) : (
+        <>
+          <div
+            className={`${
+              path === "specialists"
+                ? "bg-Primary-Blue-50"
+                : "bg-custom-gradient"
+            }`}
+          >
+            <Header />
+            <Outlet />
+            <Footer />
+          </div>
+          <ScrollRestoration />
+        </>
+      )}
     </>
   );
 }

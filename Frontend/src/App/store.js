@@ -4,6 +4,8 @@ import homeReducer from './features/homeSlice.js'
 import doctorsReducer from './features/doctorsSlice.js'
 import repeatableReducer from './features/repeatableSlice.js'
 import categoryReducer from './features/categorySlice.js'
+import testimonialsReducer from './features/testimonialSlice.js'
+import faqReducer from './features/faqSlice.js'
 
 const store = configureStore({
   reducer: {
@@ -12,6 +14,8 @@ const store = configureStore({
     repeatable: repeatableReducer,
     doctors: doctorsReducer,
     category: categoryReducer,
+    testimonials: testimonialsReducer,
+    faqs: faqReducer,
   },
 });
 

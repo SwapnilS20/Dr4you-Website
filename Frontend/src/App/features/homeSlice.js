@@ -5,6 +5,7 @@ const initialState = {
   WelcomeBanner: [],
   testimonialComponentInfo: [],
   PlatformWork: [],
+  about:[],
 };
 
 export const homeSlice = createSlice({
@@ -24,13 +25,15 @@ export const homeSlice = createSlice({
     },
     setTestimonialComponentInfo : (state , action) =>{
       state.testimonialComponentInfo = action.payload;
+    },
+    setAboutData:(state , action)=>{
+      state.about = action.payload;
     }
   },
 });
 
 // Export actions
-export const { setHeroSection, setWelcomeBanner, setPlatformWork , setTestimonialComponentInfo } =
-  homeSlice.actions;
+export const { setHeroSection, setWelcomeBanner, setPlatformWork , setTestimonialComponentInfo, setAboutData} = homeSlice.actions;
 
 // Export reducer
 export default homeSlice.reducer;

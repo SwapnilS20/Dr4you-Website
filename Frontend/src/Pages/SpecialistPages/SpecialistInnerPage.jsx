@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../components/Header/Header";
-import img from "../../assets/Images/HeroSectionMainImg.png";
 import AppointmentForm from "../../components/AppointmentForm/AppointmentForm.jsx";
 import FrequentlyAskedQuestion from "../../components/FAQ/FrequentlyAskedQuestion.jsx";
 import { FaCheck, FaGraduationCap } from "react-icons/fa";
 import { MdWorkHistory } from "react-icons/md";
 import "../../index.css";
-import Footer from "../../components/Footer/Footer.jsx";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -18,7 +15,6 @@ const SpecialistInnerPage = () => {
     (state) => state.doctors.doctors
   );
 
-  console.log(doctor);
   
   
 
@@ -38,6 +34,9 @@ const SpecialistInnerPage = () => {
     );
   }
 
+  console.log( currentDoctor);
+  
+
   return (
     <>
       <section className="bg-custom-gradient min-h-screen">
@@ -51,7 +50,7 @@ const SpecialistInnerPage = () => {
           <div className="flex flex-col lg:flex-row items-center lg:items-start gap-2">
             <div className="flex w-full lg:w-[50%] justify-center xs:p-2">
               <img
-                src={currentDoctor.image}
+                src={`${import.meta.env.VITE_STRAPI_URL}${currentDoctor.doctor_image.url}`}
                 alt={currentDoctor.name}
                 className="w-[320px] md:w-[400px] h-auto rounded-3xl shadow-xl object-cover bg-[#9c9c9c] bg-opacity-35"
               />
@@ -161,7 +160,7 @@ const SpecialistInnerPage = () => {
         </div>
       </section>
       <AppointmentForm />
-      <FrequentlyAskedQuestion />
+      <FrequentlyAskedQuestion currentPage={'doctor'} />
       
     </>
   );
