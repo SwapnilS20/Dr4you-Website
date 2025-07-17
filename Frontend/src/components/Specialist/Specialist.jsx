@@ -52,7 +52,7 @@ const Specialist = ({ category, show }) => {
     if (show || category) {
       const newData = show
         ? doctorsData
-        : doctorsData.filter((data) => data.category === category);
+        : doctorsData?.filter((data) => data.category === category);
       setFilteredData(newData);
       setCurrentPage(0); // reset to first page on category/show change
     }

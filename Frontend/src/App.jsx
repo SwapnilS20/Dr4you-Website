@@ -117,13 +117,13 @@ function App() {
         (item) => item.name === "Services"
       )[0];
       
-      if(servicesPage) dispatch(setCategoryPageInfo(servicesPage.pagehead));
+      if(servicesPage) dispatch(setCategoryPageInfo(servicesPage?.pagehead));
 
       const doctorsPage = homePageData?.data?.data?.filter(
         (item) => item.name === "Find Doctors"
       )[0];
       
-      if(servicesPage) dispatch(setDoctorPageInfo(doctorsPage.pagehead));
+      if(servicesPage) dispatch(setDoctorPageInfo(doctorsPage?.pagehead));
 
 
     }
