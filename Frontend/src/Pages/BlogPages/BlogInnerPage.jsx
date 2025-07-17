@@ -4,8 +4,6 @@ import { LuUserSearch } from "react-icons/lu";
 import { IoIosArrowDown } from "react-icons/io";
 import ReactPaginate from "react-paginate";
 import { motion, AnimatePresence } from "framer-motion";
-import Header from "../../components/Header/Header.jsx";
-import Footer from "../../components/Footer/Footer.jsx";
 import FrequentlyAskedQuestion from "../../components/FAQ/FrequentlyAskedQuestion.jsx";
 import blog1 from "../../assets/Images/dentalClinic.jpg";
 import blog2 from "../../assets/Images/image3.jpg";
