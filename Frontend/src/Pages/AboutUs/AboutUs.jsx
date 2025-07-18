@@ -9,8 +9,12 @@ import TeamCard from "../../components/AboutUs/TeamCard";
 import AppointmentFORM from "../../components/AppointmentForm/AppointmentForm";
 import FrequentlyAskedQuestion from "../../components/FAQ/FrequentlyAskedQuestion";
 import Footer from "../../components/Footer/Footer";
+import { useSelector } from "react-redux";
 
 const AboutUs = () => {
+  const Data = useSelector((state) => state.home.about);
+  console.log("About Us Data:", Data);
+  
   const aboutData = {
     mission:
       '<p>At Drs-4You, patients come first. We are committed to providing compassionate and accessible online medical consultation services that support each individual’s journey toward better health. Our approach goes beyond basic diagnosis — we focus on patient education, clarity in communication, and personalized follow-up care. By connecting patients with trusted specialists and offering a seamless digital experience, we ensure that every interaction promotes transparency, confidence, and overall well-being. Thoughtful design, expert guidance, and secure systems allow us to deliver care that is not only convenient but deeply human-centered.</p><p><br></p><p><span style="color: rgb(7, 55, 99); font-size: 24px;">More than anything, we love empowering healthier lives through clarity, care, and connection.</span></p><p><span style="color: rgb(7, 55, 99); font-size: 24px;"><br></span></p><p><span style="color: rgb(0, 0, 0); font-size: 18px;">We stay at the forefront of medical innovation to ensure our patients receive the highest standard of care. We continuously integrate the latest tools and technologies to provide precise diagnoses, seamless consultations, and personalized treatment insights. Our platform is built to support a digital-first approach—streamlining medical follow-ups, enabling data-driven decisions, and ensuring every consultation is guided by accuracy and empathy. Whether it’s through secure digital records, advanced imaging support, or specialist access, we are committed to delivering care that is not only effective but also reassuring and patient-focused.</span></p>',

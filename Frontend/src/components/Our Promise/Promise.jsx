@@ -65,7 +65,7 @@ const Promise = () => {
           {ourPromiseData?.promise_items?.map((item, index) => (
             <PromiseCard
               key={index}
-              img={`${import.meta.env.VITE_STRAPI_URL}${item.icon.url}`}
+              img={`${import.meta.env.VITE_STRAPI_URL}${item?.icon?.url}`}
               title={item.title}
               description={item.description}
             />

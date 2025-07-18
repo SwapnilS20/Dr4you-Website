@@ -165,9 +165,14 @@ function App() {
       if (faqs) dispatch(setFaqs(faqs?.data?.data));
     }
 
+    const aboutFiltered = about?.data?.data?.filter(
+        (item) => item.name === "About us"
+      )[0];      
+      
+
     // About DATA REDUX HANDLING
     if (about.loading === false) {
-      if (about) dispatch(setAboutData(about?.data?.data));
+      if (aboutFiltered) dispatch(setAboutData(aboutFiltered));
     }
   }, [
     homePageData.loading,
