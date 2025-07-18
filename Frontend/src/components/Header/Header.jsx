@@ -13,6 +13,7 @@ const Header = () => {
   const [DrawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate();
   const HeaderData = useSelector((state) => state.headerFooter.header);
+  const footerData = useSelector((state) => state.headerFooter.footer);
 
   useLayoutEffect(() => {
     const timeout = setTimeout(() => {
@@ -88,7 +89,7 @@ const Header = () => {
                 }`
               }
             >
-              <span className="header-anim">{data.name}</span>
+              <span className="header-anim">{data?.name}</span>
             </NavLink>
           ))}
         </nav>
@@ -177,10 +178,7 @@ const Header = () => {
               </div>
 
               <div className="px-4 py-4 border-t">
-                <SocialMediaIcons
-                  setgap={true}
-                  data={data?.data?.Footer?.social_icons}
-                />
+                <SocialMediaIcons data={footerData?.social_icons}  setgap={true}/>
               </div>
             </motion.div>
           </>

@@ -6,6 +6,7 @@ import repeatableReducer from './features/repeatableSlice.js'
 import categoryReducer from './features/categorySlice.js'
 import testimonialsReducer from './features/testimonialSlice.js'
 import faqReducer from './features/faqSlice.js'
+import blogReducer from './features/blogSlice.js'
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     category: categoryReducer,
     testimonials: testimonialsReducer,
     faqs: faqReducer,
+    blogs: blogReducer,
   },
 });
 

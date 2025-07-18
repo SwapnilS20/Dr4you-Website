@@ -12,6 +12,7 @@ import {
   setPlatformWork,
   setTestimonialComponentInfo,
   setAboutData,
+  setTeamData
 } from "./App/features/homeSlice.js";
 
 import {
@@ -34,6 +35,8 @@ import {
 import { setTestimonials } from "./App/features/testimonialSlice.js";
 
 import { setHeader, setFooter } from "./App/features/headerFooterSlics";
+
+import { setBlogPageInfo , setBlogs } from "./App/features/blogSlice.js";
 import useFetch from "./Hooks/useFetch.js";
 
 function App() {
@@ -69,7 +72,15 @@ function App() {
   )
 
   const about = useFetch(
-    'http://localhost:1337/api/pages?populate[dynamic_zone][on][dynamic-zone.our-vision][populate]=true&populate[dynamic_zone][on][dynamic-zone.our-mission][populate]=true&populate[pagehead]=true'
+    'http://localhost:1337/api/pages?populate[dynamic_zone][on][dynamic-zone.our-vision][populate]=true&populate[dynamic_zone][on][dynamic-zone.our-mission][populate]=image&populate[pagehead]=true'
+  )
+
+  const team = useFetch(
+    'http://localhost:1337/api/teams?populate=*'
+  )
+
+  const blog = useFetch(
+    'http://localhost:1337/api/blogs?populate=*'
   )
   const location = useLocation();
 
@@ -143,6 +154,12 @@ function App() {
       )[0];
 
       if (servicesPage) dispatch(setDoctorPageInfo(doctorsPage?.pagehead));
+
+      const blogpage = homePageData?.data?.data?.filter(
+        (item) => item.name === "Blogs"
+      )[0];
+
+      if (blogpage) dispatch(setBlogPageInfo(blogpage?.pagehead));
     }
 
     // ALL CATEGORIES REDUX DATA HANDLING
@@ -168,17 +185,35 @@ function App() {
     const aboutFiltered = about?.data?.data?.filter(
         (item) => item.name === "About us"
       )[0];      
-      
 
+    
     // About DATA REDUX HANDLING
     if (about.loading === false) {
       if (aboutFiltered) dispatch(setAboutData(aboutFiltered));
+    }
+    // Team DATA REDUX HANDLING
+    if (team.loading === false) {
+      if (team) dispatch(setTeamData(team?.data?.data));
+    }
+
+    console.log(blog);
+    
+
+    // Blog DATA REDUX HANDLING
+    if (blog.loading === false) {
+      
+      
+      if (blog) dispatch(setBlogs(blog?.data?.data));
     }
   }, [
     homePageData.loading,
     homePageData?.data,
     repeatedComponents?.loading,
     repeatedComponents?.data,
+    about.loading,
+    about?.data,
+    blog?.loading,
+    blog?.data,
   ]);
 
   const allLoading =

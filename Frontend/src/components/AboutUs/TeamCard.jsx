@@ -4,7 +4,7 @@ const TeamCard = ({ img, position, name }) => {
   return (
     <div className="bg-white rounded-2xl rounded-b-md shadow-md overflow-hidden transition-transform duration-300 hover:scale-105 w-full max-w-[280px]">
       <img
-        src={img}
+        src={`${import.meta.env.VITE_STRAPI_URL}${img}`}
         alt={name}
         className="h-[250px] w-full object-cover object-top"
       />
