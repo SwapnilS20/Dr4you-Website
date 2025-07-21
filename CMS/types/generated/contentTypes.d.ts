@@ -601,6 +601,10 @@ export interface ApiRepeatedComponentRepeatedComponent
       'dynamic-zone.faq-head',
       false
     >;
+    Healthcare_Pathway: Schema.Attribute.Component<
+      'dynamic-zone.healthcare-pathway',
+      false
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

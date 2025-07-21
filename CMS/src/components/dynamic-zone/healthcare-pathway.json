@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_dynamic_zone_healthcare_pathways",
+  "info": {
+    "displayName": "Healthcare-Pathway"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "pathway_card": {
+      "type": "component",
+      "component": "card.promise-card",
+      "repeatable": true,
+      "max": 3
+    }
+  },
+  "config": {}
+}

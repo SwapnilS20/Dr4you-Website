@@ -40,6 +40,11 @@
       "type": "component",
       "component": "dynamic-zone.request-appointment-form",
       "repeatable": false
+    },
+    "Healthcare_Pathway": {
+      "type": "component",
+      "component": "dynamic-zone.healthcare-pathway",
+      "repeatable": false
     }
   }
 }

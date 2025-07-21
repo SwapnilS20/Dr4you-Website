@@ -81,6 +81,23 @@ export interface DynamicZoneFaqHead extends Struct.ComponentSchema {
   };
 }
 
+export interface DynamicZoneHealthcarePathway extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_healthcare_pathways';
+  info: {
+    displayName: 'Healthcare-Pathway';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    pathway_card: Schema.Attribute.Component<'card.promise-card', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+        },
+        number
+      >;
+  };
+}
+
 export interface DynamicZoneHeroSection extends Struct.ComponentSchema {
   collectionName: 'components_dynamic_zone_hero_sections';
   info: {
@@ -397,6 +414,7 @@ declare module '@strapi/strapi' {
       'dynamic-zone.doctors-card-section': DynamicZoneDoctorsCardSection;
       'dynamic-zone.drs4you-story': DynamicZoneDrs4YouStory;
       'dynamic-zone.faq-head': DynamicZoneFaqHead;
+      'dynamic-zone.healthcare-pathway': DynamicZoneHealthcarePathway;
       'dynamic-zone.hero-section': DynamicZoneHeroSection;
       'dynamic-zone.our-mission': DynamicZoneOurMission;
       'dynamic-zone.our-vision': DynamicZoneOurVision;
