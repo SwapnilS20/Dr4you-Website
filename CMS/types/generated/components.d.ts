@@ -6,6 +6,9 @@ export interface CardContactCard extends Struct.ComponentSchema {
     displayName: 'Contact-Card';
   };
   attributes: {
+    call_to_function: Schema.Attribute.Enumeration<
+      ['call', 'whatsapp', 'mail']
+    >;
     details: Schema.Attribute.String;
     remixicon_classname: Schema.Attribute.String;
     title: Schema.Attribute.String;
