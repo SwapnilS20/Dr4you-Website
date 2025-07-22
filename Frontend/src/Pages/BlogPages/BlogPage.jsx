@@ -196,7 +196,7 @@ const BlogPage = () => {
       </section>
 
       <AppointmentFORM />
-      <FrequentlyAskedQuestion currentPage="blog" />
+      <FrequentlyAskedQuestion  />
     </>
   );
 };

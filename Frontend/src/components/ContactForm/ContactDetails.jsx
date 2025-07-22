@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 import ContactCard from "./ContactCard";
 
-const ContactDetails = () => {
+const ContactDetails = ({data}) => {
 
   const placeCall =()=>{
     window.location.href = "tel:022 6901 2250";
@@ -53,7 +53,7 @@ const ContactDetails = () => {
       {/* Map and Address Card */}
       <div className="relative border-2 border-Primary-Blue-400 border-opacity-50 max-h-[310px] lg:w-[450px] border-P rounded-md overflow-hidden shadow-sm">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60313.027123131826!2d72.88366365449679!3d19.126765371195706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c90069cf10d1%3A0x91780a7c1c15c83a!2sInmed%20Bharat%20Healthcare%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1751025231470!5m2!1sen!2sin"
+          src={data[0]?.google_map_embed_src}
          
           referrerPolicy="no-referrer-when-downgrade"
           allowFullScreen="-1" // disables fullscreen button
@@ -77,13 +77,12 @@ const ContactDetails = () => {
 
       <div className=" flex flex-col gap-4 ">
           {
-            contactDetails.map((detail, index) => (
+            data[0]?.contact_items?.map((detail, index) => (
               <ContactCard
                 key={index}
-                icon={detail.icon}
-                heading={detail.heading}
-                content={detail.content}
-                func={detail.func}  
+                icon={detail.remixicon_classname}
+                heading={detail.title}
+                content={detail.details} 
               />
             ))}
       </div>

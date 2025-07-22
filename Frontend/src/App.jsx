@@ -12,7 +12,7 @@ import {
   setPlatformWork,
   setTestimonialComponentInfo,
   setAboutData,
-  setTeamData
+  setTeamData,
 } from "./App/features/homeSlice.js";
 
 import {
@@ -36,7 +36,8 @@ import { setTestimonials } from "./App/features/testimonialSlice.js";
 
 import { setHeader, setFooter } from "./App/features/headerFooterSlics";
 
-import { setBlogPageInfo , setBlogs } from "./App/features/blogSlice.js";
+import { setBlogPageInfo, setBlogs } from "./App/features/blogSlice.js";
+import { setContactPageInfo, setData } from "./App/features/contactSlice.js";
 import useFetch from "./Hooks/useFetch.js";
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
   );
 
   const homePageData = useFetch(
-    "http://localhost:1337/api/pages?populate[0]=dynamic_zone&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][doctor_image]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][CTAs]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][our_stats]=true&populate[dynamic_zone][on][dynamic-zone.welcome-banner][populate][patient_image]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][platform_steps][populate]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][working_image][populate]=true&populate[dynamic_zone][on][dynamic-zone.testimonial-section-head][populate]=*&populate[pagehead]=true"
+    "http://localhost:1337/api/pages?populate[0]=dynamic_zone&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][doctor_image]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][CTAs]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][our_stats]=true&populate[dynamic_zone][on][dynamic-zone.welcome-banner][populate][patient_image]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][platform_steps][populate]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][working_image][populate]=true&populate[dynamic_zone][on][dynamic-zone.testimonial-section-head][populate]=*&populate[pagehead]=true&populate[dynamic_zone][on][dynamic-zone.contact-info][populate]=*"
   );
 
   const repeatedComponents = useFetch(
@@ -64,24 +65,22 @@ function App() {
   );
 
   const testimonials = useFetch(
-    'http://localhost:1337/api/testimonials?populate=*'
+    "http://localhost:1337/api/testimonials?populate=*"
   );
 
-  const faqs = useFetch(
-    'http://localhost:1337/api/FAQs?populate=*'
-  )
+  const faqs = useFetch("http://localhost:1337/api/FAQs?populate=*");
 
   const about = useFetch(
-    'http://localhost:1337/api/pages?populate[dynamic_zone][on][dynamic-zone.our-vision][populate]=true&populate[dynamic_zone][on][dynamic-zone.our-mission][populate]=image&populate[pagehead]=true'
-  )
+    "http://localhost:1337/api/pages?populate[dynamic_zone][on][dynamic-zone.our-vision][populate]=true&populate[dynamic_zone][on][dynamic-zone.our-mission][populate]=image&populate[pagehead]=true"
+  );
 
-  const team = useFetch(
-    'http://localhost:1337/api/teams?populate=*'
-  )
+  const team = useFetch("http://localhost:1337/api/teams?populate=*");
 
-  const blog = useFetch(
-    'http://localhost:1337/api/blogs?populate=*'
-  )
+  const blog = useFetch("http://localhost:1337/api/blogs?populate=*");
+
+  // const contactUs = useFetch(
+  //   "http://localhost:1337/api/pages?populate[dynamic_zone][on][dynamic-zone.contact-info][populate]=*&populate[pagehead]=true"
+  // );
   const location = useLocation();
 
   useEffect(() => {
@@ -160,6 +159,13 @@ function App() {
       )[0];
 
       if (blogpage) dispatch(setBlogPageInfo(blogpage?.pagehead));
+
+      const contactPage = homePageData?.data?.data?.filter(
+        (item) => item.name === "Contact us"
+      )[0];
+      if (contactPage) dispatch(setContactPageInfo(contactPage?.pagehead));
+      if (contactPage) dispatch(setData(contactPage?.dynamic_zone));
+      
     }
 
     // ALL CATEGORIES REDUX DATA HANDLING
@@ -183,10 +189,9 @@ function App() {
     }
 
     const aboutFiltered = about?.data?.data?.filter(
-        (item) => item.name === "About us"
-      )[0];      
+      (item) => item.name === "About us"
+    )[0];
 
-    
     // About DATA REDUX HANDLING
     if (about.loading === false) {
       if (aboutFiltered) dispatch(setAboutData(aboutFiltered));
@@ -196,15 +201,12 @@ function App() {
       if (team) dispatch(setTeamData(team?.data?.data));
     }
 
-    console.log(blog);
-    
-
     // Blog DATA REDUX HANDLING
     if (blog.loading === false) {
-      
-      
       if (blog) dispatch(setBlogs(blog?.data?.data));
+      
     }
+
   }, [
     homePageData.loading,
     homePageData?.data,

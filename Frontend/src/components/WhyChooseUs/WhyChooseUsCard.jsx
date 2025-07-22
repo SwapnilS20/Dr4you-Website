@@ -1,5 +1,6 @@
-import React from 'react'
-import { FaUserDoctor } from "react-icons/fa6";
+
+import "remixicon/fonts/remixicon.css";
+
 function WhyChooseUsCard({ChooseUsData}) {
   return (
     <div className='group flex flex-col bg-white p-4 min-h-[155px] justify-start rounded-2xl gap-1 hover:bg-Primary-Blue-700 hover:cursor-pointer  hover:drop-shadow-lg hover:blur-xs'>

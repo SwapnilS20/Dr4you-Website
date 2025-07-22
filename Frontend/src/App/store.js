@@ -7,6 +7,7 @@ import categoryReducer from './features/categorySlice.js'
 import testimonialsReducer from './features/testimonialSlice.js'
 import faqReducer from './features/faqSlice.js'
 import blogReducer from './features/blogSlice.js'
+import contactReducer from './features/contactSlice.js'
 
 const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ const store = configureStore({
     testimonials: testimonialsReducer,
     faqs: faqReducer,
     blogs: blogReducer,
+    contact: contactReducer,
   },
 });
 
