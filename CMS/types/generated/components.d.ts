@@ -45,6 +45,10 @@ export interface DynamicZoneContactInfo extends Struct.ComponentSchema {
     contact_items: Schema.Attribute.Component<'card.contact-card', true>;
     google_map_embed_src: Schema.Attribute.Text;
     on_map_data: Schema.Attribute.Component<'card.contact-card', false>;
+    whatsapp_number: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 10;
+      }>;
   };
 }
 
