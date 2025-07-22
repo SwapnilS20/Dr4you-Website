@@ -44,6 +44,7 @@ export interface DynamicZoneContactInfo extends Struct.ComponentSchema {
   attributes: {
     contact_items: Schema.Attribute.Component<'card.contact-card', true>;
     google_map_embed_src: Schema.Attribute.Text;
+    on_map_data: Schema.Attribute.Component<'card.contact-card', false>;
   };
 }
 
@@ -78,6 +79,23 @@ export interface DynamicZoneFaqHead extends Struct.ComponentSchema {
   };
   attributes: {
     sectionhead: Schema.Attribute.Component<'shared.page-head', false>;
+  };
+}
+
+export interface DynamicZoneHealthcarePathway extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_zone_healthcare_pathways';
+  info: {
+    displayName: 'Healthcare-Pathway';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    pathway_card: Schema.Attribute.Component<'card.promise-card', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+        },
+        number
+      >;
   };
 }
 
@@ -397,6 +415,7 @@ declare module '@strapi/strapi' {
       'dynamic-zone.doctors-card-section': DynamicZoneDoctorsCardSection;
       'dynamic-zone.drs4you-story': DynamicZoneDrs4YouStory;
       'dynamic-zone.faq-head': DynamicZoneFaqHead;
+      'dynamic-zone.healthcare-pathway': DynamicZoneHealthcarePathway;
       'dynamic-zone.hero-section': DynamicZoneHeroSection;
       'dynamic-zone.our-mission': DynamicZoneOurMission;
       'dynamic-zone.our-vision': DynamicZoneOurVision;
