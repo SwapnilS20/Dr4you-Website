@@ -17,6 +17,10 @@
       "type": "component",
       "component": "card.contact-card",
       "repeatable": false
+    },
+    "whatsapp_number": {
+      "type": "string",
+      "maxLength": 10
     }
   },
   "config": {}
