@@ -27,7 +27,7 @@ const Contact = () => {
            </div>
         </div>
       </section>
-     <div className=" flex flex-col gap-24 mt-16">
+     <div className=" flex flex-col gap-24 mt-16 mb-24">
        <AppointmentFORM />
       
      </div>
