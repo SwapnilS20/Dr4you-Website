@@ -12,6 +12,11 @@
       "type": "component",
       "component": "card.contact-card",
       "repeatable": true
+    },
+    "on_map_data": {
+      "type": "component",
+      "component": "card.contact-card",
+      "repeatable": false
     }
   },
   "config": {}
