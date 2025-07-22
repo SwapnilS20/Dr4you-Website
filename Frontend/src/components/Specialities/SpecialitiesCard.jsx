@@ -2,8 +2,21 @@ import React from "react";
 import { GoDotFill } from "react-icons/go";
 import { GiHeartOrgan } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const SpecialitiesCard = ({ data }) => {
+
+  const doctors = useSelector((state) => state.doctors.doctors);
+  
+  console.log( doctors );
+  
+  // Count how many doctors have a service with name equal to data.name
+  const doctorCount = doctors
+    ? doctors.filter((doctor) =>
+        doctor?.service?.name?.toLowerCase() === data.name.toLowerCase()
+    ).length
+    : 0;
+
   return (
     // main container
     <Link to={`/Category/${data.id}`}>
@@ -19,7 +32,7 @@ const SpecialitiesCard = ({ data }) => {
           <span>
             <GoDotFill className=" text-Primary-Blue-400" />
           </span>
-          <span className=" text-base">{data.doctors}+ Doctor </span>
+          <span className=" text-base">{doctorCount}+ Doctor </span>
         </div>
       </div>
     </Link>

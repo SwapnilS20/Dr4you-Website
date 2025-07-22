@@ -8,6 +8,7 @@ const initialState = {
   DoctorComponentInfo: [],
   FaqComponentInfo: [],
   RequestAppointmentForm: [],
+  HealthcarePathway: [],
 };
 
 export const repeatableSlice = createSlice({
@@ -32,11 +33,14 @@ export const repeatableSlice = createSlice({
     setRequestAppointmentForm: (state, action) => {
       state.RequestAppointmentForm = action.payload;
     },
+    setHealthcarePathway: (state, action) => {
+      state.HealthcarePathway = action.payload;
+    },
   },
 });
 
 // Export actions
-export const { setOurStory, setPromiseSection, setDoctorComponentInfo, setFaqComponentInfo, setRequestAppointmentForm ,setWhyChooseUs } =
+export const { setOurStory, setPromiseSection, setDoctorComponentInfo, setFaqComponentInfo, setRequestAppointmentForm ,setWhyChooseUs, setHealthcarePathway } =
   repeatableSlice.actions;
 
 // Export reducer

@@ -1,17 +1,10 @@
-import React from "react";
-import {
-  FaClock,
-  FaMapMarkerAlt,
-  FaEnvelope,
-  FaPhoneAlt,
-  FaComments,
-} from "react-icons/fa";
+
 import ContactCard from "./ContactCard";
 import "remixicon/fonts/remixicon.css";
 
 const ContactDetails = ({ data }) => {
   const placeCall = () => {
-    window.location.href = "tel:022 6901 2250";
+    window.location.href = `tel:${data[0]?.whatsapp_number}`;
   };
   const openMail = () => {
     window.location.href = "mailto:info@inmedbharat.com";

@@ -3,87 +3,11 @@ import SpecialitiesCard from "./SpecialitiesCard";
 import { BsArrowLeft } from "react-icons/bs";
 import ReactPaginate from "react-paginate";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSelector } from "react-redux";
 
 const Specialities = () => {
-  const specialitiesData = [
-    {
-      id: 1,
-      category: "Cardiology",
-      description:
-        "Expert cardiologists for heart health, offering consultations and second opinions.",
-      doctors: 20,
-    },
-    {
-      id: 2,
-      category: "Dermatology",
-      description:
-        "Skincare specialists providing virtual consultations for all skin concerns.",
-      doctors: 15,
-    },
-    {
-      id: 3,
-      category: "Pediatrics",
-      description:
-        "Child health experts available for online consultations and advice.",
-      doctors: 25,
-    },
-    {
-      id: 4,
-      category: "Neurology",
-      description:
-        "Neurologists specializing in brain and nervous system disorders.",
-      doctors: 18,
-    },
-    {
-      id: 5,
-      category: "Orthopedics",
-      description:
-        "Bone and joint specialists offering consultations for musculoskeletal issues.",
-      doctors: 22,
-    },
-    {
-      id: 6,
-      category: "Gastroenterology",
-      description:
-        "Digestive health experts providing virtual consultations and second opinions.",
-      doctors: 12,
-    },
-    {
-      id: 7,
-      category: "Psychiatry",
-      description:
-        "Mental health professionals available for online therapy and consultations.",
-      doctors: 30,
-    },
-    {
-      id: 8,
-      category: "Endocrinology",
-      description:
-        "Hormonal health specialists offering consultations for endocrine disorders.",
-      doctors: 10,
-    },
-    {
-      id: 9,
-      category: "Oncology",
-      description:
-        "Cancer specialists providing virtual consultations and treatment plans.",
-      doctors: 8,
-    },
-    {
-      id: 10,
-      category: "Ophthalmology",
-      description:
-        "Eye care specialists offering consultations for vision problems.",
-      doctors: 14,
-    },
-    {
-      id: 11,
-      category: "Urology",
-      description:
-        "Urological health experts available for online consultations.",
-      doctors: 16,
-    },
-  ];
+  const heading = useSelector((state) => state.home.servicesComponentInfo);
+  const specialitiesData = useSelector((state) => state.category.category);
 
   const [itemsPerPage, setItemsPerPage] = useState(4);
   const [currentPage, setCurrentPage] = useState(0);
@@ -146,11 +70,26 @@ const Specialities = () => {
     },
   };
 
+  // Split heading.title into two parts by first space
+  let part1 = "";
+  let part2 = "";
+  if (heading && heading.title) {
+    const splitIndex = heading.title.indexOf(" ");
+    if (splitIndex !== -1) {
+      part1 = heading.title.slice(0, splitIndex);
+      part2 = heading.title.slice(splitIndex + 1);
+    } else {
+      part1 = heading.title;
+      part2 = "";
+    }
+  }
+
   return (
     <section className="flex flex-col gap-4 mt-12 justify-center items-center">
       <div className="flex items-center  px-4 md:px-12 w-[80%] 4xl:w-[60%] ">
         <h2 className="text-4xl md:text-6xl font-manrope font-bold w-full text-center">
-          Our <span className="text-gradient-btn">Specialities</span>
+          {part1}{" "}
+          <span className="text-gradient-btn">{part2}</span>
         </h2>
         {/* Arrows for Desktop */}
         <div className="hidden  lg:flex   ">

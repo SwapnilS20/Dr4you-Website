@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   heroSection: [],
   WelcomeBanner: [],
+  servicesComponentInfo: [],
   testimonialComponentInfo: [],
   PlatformWork: [],
   about: [],
@@ -33,6 +34,9 @@ export const homeSlice = createSlice({
     setTeamData: (state, action) => {
       state.team = action.payload;
     },
+    setServicesComponentInfo: (state, action) => {
+      state.servicesComponentInfo = action.payload;
+    },
   },
 });
 
@@ -43,7 +47,8 @@ export const {
   setPlatformWork,
   setTestimonialComponentInfo,
   setAboutData,
-  setTeamData
+  setTeamData,
+  setServicesComponentInfo,
 } = homeSlice.actions;
 
 // Export reducer

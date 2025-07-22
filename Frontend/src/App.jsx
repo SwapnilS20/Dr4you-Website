@@ -13,6 +13,7 @@ import {
   setTestimonialComponentInfo,
   setAboutData,
   setTeamData,
+  setServicesComponentInfo,
 } from "./App/features/homeSlice.js";
 
 import {
@@ -22,6 +23,7 @@ import {
   setDoctorComponentInfo,
   setFaqComponentInfo,
   setRequestAppointmentForm,
+  setHealthcarePathway,
 } from "./App/features/repeatableSlice";
 
 import { setDoctorPageInfo, setDoctors } from "./App/features/doctorsSlice.js";
@@ -49,11 +51,11 @@ function App() {
   );
 
   const homePageData = useFetch(
-    "http://localhost:1337/api/pages?populate[0]=dynamic_zone&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][doctor_image]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][CTAs]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][our_stats]=true&populate[dynamic_zone][on][dynamic-zone.welcome-banner][populate][patient_image]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][platform_steps][populate]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][working_image][populate]=true&populate[dynamic_zone][on][dynamic-zone.testimonial-section-head][populate]=*&populate[pagehead]=true&populate[dynamic_zone][on][dynamic-zone.contact-info][populate]=*"
+    "http://localhost:1337/api/pages?populate[0]=dynamic_zone&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][doctor_image]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][CTAs]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][our_stats]=true&populate[dynamic_zone][on][dynamic-zone.welcome-banner][populate][patient_image]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][platform_steps][populate]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][working_image][populate]=true&populate[dynamic_zone][on][dynamic-zone.testimonial-section-head][populate]=*&populate[pagehead]=true&populate[dynamic_zone][on][dynamic-zone.contact-info][populate]=*&populate[dynamic_zone][on][dynamic-zone.services-card-section][populate]=*"
   );
 
   const repeatedComponents = useFetch(
-    "http://localhost:1337/api/repeated-component?populate[Drs4you_Story][populate]=story_image&populate[Why_Choose_Us][populate]=doctor_image&populate[Why_Choose_Us][populate]=Why_Choose_Items&populate[Promise_Section][populate]=true&populate[Promise_Section][populate]=promise_items.icon&populate[Doctor_Section_Head][populate]=sectionhead&populate[FAQ_Section_Head][populate]=sectionhead&populate[Request_Appointment_Form][populate]=CTA"
+    "http://localhost:1337/api/repeated-component?populate[Drs4you_Story][populate]=story_image&populate[Why_Choose_Us][populate]=doctor_image&populate[Why_Choose_Us][populate]=Why_Choose_Items&populate[Promise_Section][populate]=true&populate[Promise_Section][populate]=promise_items.icon&populate[Doctor_Section_Head][populate]=sectionhead&populate[FAQ_Section_Head][populate]=sectionhead&populate[Request_Appointment_Form][populate]=CTA&populate[Healthcare_Pathway][populate]=pathway_card.icon"
   );
 
   const categories = useFetch(
@@ -78,9 +80,6 @@ function App() {
 
   const blog = useFetch("http://localhost:1337/api/blogs?populate=*");
 
-  // const contactUs = useFetch(
-  //   "http://localhost:1337/api/pages?populate[dynamic_zone][on][dynamic-zone.contact-info][populate]=*&populate[pagehead]=true"
-  // );
   const location = useLocation();
 
   useEffect(() => {
@@ -112,6 +111,8 @@ function App() {
         dispatch(setFaqComponentInfo(repeatedData.FAQ_Section_Head));
       if (repeatedData)
         dispatch(setDoctorComponentInfo(repeatedData.Doctor_Section_Head));
+      if (repeatedData)
+        dispatch(setHealthcarePathway(repeatedData.Healthcare_Pathway));
     }
 
     // HOMEPAGE DATA REDUX HANDLING
@@ -132,12 +133,17 @@ function App() {
       const testimonialComponentInfo = homePage?.dynamic_zone.find(
         (item) => item.__component === "dynamic-zone.testimonial-section-head"
       );
+      const servicesComponentInfo = homePage?.dynamic_zone.find(
+        (item) => item.__component === "dynamic-zone.services-card-section"
+      );     
 
       if (heroSection) dispatch(setHeroSection(heroSection));
       if (welcomeBanner) dispatch(setWelcomeBanner(welcomeBanner));
       if (platformWork) dispatch(setPlatformWork(platformWork));
       if (testimonialComponentInfo)
         dispatch(setTestimonialComponentInfo(testimonialComponentInfo));
+      if (servicesComponentInfo)
+        dispatch(setServicesComponentInfo(servicesComponentInfo.sectionhead));
     }
 
     // ALL PAGE Heading DATA REDUX DATA HANDLING

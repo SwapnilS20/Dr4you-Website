@@ -11,11 +11,7 @@ const Specialist = ({ category, show }) => {
     (state) => state.repeatable.DoctorComponentInfo
   );
 
-  const doctorsData = useSelector(
-    (state) => state.doctors.doctors
-  );  
-
-
+  const doctorsData = useSelector((state) => state.doctors.doctors);
 
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
@@ -47,12 +43,14 @@ const Specialist = ({ category, show }) => {
 
   // Logic for filtering data based on category or show prop
   const [filteredData, setFilteredData] = useState([]);
-
   useEffect(() => {
     if (show || category) {
       const newData = show
         ? doctorsData
-        : doctorsData?.filter((data) => data.category === category);
+        : doctorsData?.filter(
+            (data) =>
+              data?.service?.name?.toLowerCase() === category?.toLowerCase()
+          );
       setFilteredData(newData);
       setCurrentPage(0); // reset to first page on category/show change
     }
