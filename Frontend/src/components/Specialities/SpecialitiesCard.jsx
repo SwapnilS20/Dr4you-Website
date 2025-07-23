@@ -8,8 +8,6 @@ const SpecialitiesCard = ({ data }) => {
 
   const doctors = useSelector((state) => state.doctors.doctors);
   
-  console.log( doctors );
-  
   // Count how many doctors have a service with name equal to data.name
   const doctorCount = doctors
     ? doctors.filter((doctor) =>

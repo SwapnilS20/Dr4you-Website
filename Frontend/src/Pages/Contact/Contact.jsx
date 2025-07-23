@@ -11,7 +11,7 @@ const Contact = () => {
 
   const pageHeadData = useSelector((state)=> state.contact.contactPageInfo);
   const contactData = useSelector((state)=> state.contact.data);
-  console.log("contactData", contactData);
+
   return (
     <>
       <section className=" bg-custom-gradient">

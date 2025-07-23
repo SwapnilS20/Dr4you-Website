@@ -8,23 +8,15 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const SpecialistInnerPage = () => {
-  const { id } = useParams(); // ✅ FIXED: Extract id from param
+  const { id } = useParams();
   const [currentDoctor, setCurrentDoctor] = useState(null);
 
-    const doctor = useSelector(
-    (state) => state.doctors.doctors
-  );
-
-  
-  
+  const doctor = useSelector((state) => state.doctors.doctors);
 
   useEffect(() => {
     const filteredDoctor = doctor?.find((item) => item.id === Number(id));
-    setCurrentDoctor(filteredDoctor); 
-    
+    setCurrentDoctor(filteredDoctor);
   }, [id]);
-
-
 
   if (!currentDoctor) {
     return (
@@ -34,13 +26,19 @@ const SpecialistInnerPage = () => {
     );
   }
 
-  console.log( currentDoctor);
-  
+  // 🔍 Extract each qualification type
+  const getQualificationByType = (type) => {
+    return currentDoctor?.doctor_information?.find((info) => info.type === type)
+      ?.doctor_qualification || [];
+  };
+
+  const expertiseList = getQualificationByType("Expertise");
+  const educationList = getQualificationByType("Education");
+  const experienceList = getQualificationByType("Experience");
 
   return (
     <>
       <section className="bg-custom-gradient min-h-screen">
-       
         <div className="max-w-7xl mx-auto px-2 lg:px-6 py-16 flex flex-col gap-16">
           <h1 className="text-5xl md:text-6xl font-manrope font-bold text-center">
             Our <span className="text-gradient-btn">Specialist</span>
@@ -100,12 +98,12 @@ const SpecialistInnerPage = () => {
                 Specialities & Expertise
               </h3>
               <div className="flex flex-col gap-4 my-6">
-                {currentDoctor?.doctor_qualification?.Expertise?.map((item, i) => (
+                {expertiseList.map((item, i) => (
                   <div key={i} className="flex items-start xl:items-center gap-2">
                     <div className="flex justify-center items-center text-white p-1 xl:w-7 xl:h-7 rounded-full bg-rounded-gradient mt-[4px] lg:mt-0">
                       <FaCheck className="text-[10px] lg:text-[16px]" />
                     </div>
-                    <p>{item}</p>
+                    <p>{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -123,12 +121,12 @@ const SpecialistInnerPage = () => {
                 Education & Training
               </h3>
               <div className="flex flex-col gap-4 my-6">
-                {currentDoctor?.doctor_qualification?.Education?.map((item, i) => (
+                {educationList.map((item, i) => (
                   <div key={i} className="flex items-start xl:items-center gap-2">
                     <div className="flex justify-center items-center text-white p-1 xl:w-7 xl:h-7 rounded-full bg-rounded-gradient mt-[4px] lg:mt-0">
                       <FaGraduationCap className="text-[10px] lg:text-[16px]" />
                     </div>
-                    <p>{item}</p>
+                    <p>{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -146,12 +144,12 @@ const SpecialistInnerPage = () => {
                 Experience
               </h3>
               <div className="flex flex-col gap-4 my-6">
-                {currentDoctor?.doctor_qualification?.Experience?.map((item, i) => (
+                {experienceList.map((item, i) => (
                   <div key={i} className="flex items-start xl:items-center gap-2">
                     <div className="flex justify-center items-center text-white p-1 xl:w-7 xl:h-7 rounded-full bg-rounded-gradient mt-[4px] lg:mt-0">
                       <MdWorkHistory className="text-[10px] lg:text-[16px]" />
                     </div>
-                    <p>{item}</p>
+                    <p>{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -159,9 +157,9 @@ const SpecialistInnerPage = () => {
           </div>
         </div>
       </section>
+
       <AppointmentForm />
-      <FrequentlyAskedQuestion currentPage={'doctor'} />
-      
+      <FrequentlyAskedQuestion currentPage={"doctor"} />
     </>
   );
 };

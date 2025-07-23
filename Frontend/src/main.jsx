@@ -15,8 +15,9 @@ import Contact from "./Pages/Contact/Contact.jsx";
 import LoginPage from "./Pages/Login/LoginPage.jsx";
 
 import { Provider } from "react-redux";
-import store from "./App/store.js"
+import {store , persistor} from "./App/store.js";
 import TestimonialPage from "./Pages/TestimonialsPage/TestimonialPage.jsx";
+import { PersistGate } from "redux-persist/integration/react";
 
 const router = createBrowserRouter([
   {
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <AboutUs/>,
+        element: <AboutUs />,
       },
       {
         path: "/blogs",
@@ -61,19 +62,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/testimonials",
-        element: <TestimonialPage/>
+        element: <TestimonialPage />,
       },
       {
         path: "/login",
         element: <LoginPage />,
       },
-
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <RouterProvider router={router} />
+    <PersistGate loading={<div>Loading...</div>} persistor={persistor}>
+      <RouterProvider router={router} />
+    </PersistGate>  
   </Provider>
 );
