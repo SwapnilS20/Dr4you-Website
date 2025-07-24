@@ -4,6 +4,9 @@ import "../../index.css";
 import { Link } from "react-router-dom";
 
 const BlogsCard = ({ data }) => {
+  // Extract date before 'T' from ISO string (e.g., "2024-06-10T12:34:56.789Z" => "2024-06-10")
+  const formattedDate = data?.createdAt ? data.createdAt.split("T")[0] : "";
+
   return (
     <>
       <Link to={`/blog/${data.id}`} className="no-underline">
@@ -32,7 +35,7 @@ const BlogsCard = ({ data }) => {
 
           {/* Bottom Section */}
           <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center text-white z-10">
-            <span className="text-sm">{data?.createdAt}</span>
+            <span className="text-sm">{formattedDate}</span>
             <button className="w-8 h-8 rounded-full bg-white bg-opacity-30 flex items-center justify-center">
               <HiArrowRight className="text-white w-5 h-5 -rotate-45" />
             </button>
