@@ -6,10 +6,12 @@
   "options": {},
   "attributes": {
     "heading": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 30
     },
     "sub_heading": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 30
     },
     "promise_items": {
       "type": "component",

@@ -16,16 +16,20 @@
       ]
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 100
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 400
     },
     "placeholder": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 30
     },
     "button_text": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 15
     },
     "whatsapp_number": {
       "type": "string",

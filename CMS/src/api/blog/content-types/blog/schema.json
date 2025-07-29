@@ -12,7 +12,8 @@
   "pluginOptions": {},
   "attributes": {
     "card_title": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 30
     },
     "service": {
       "type": "relation",
@@ -21,7 +22,8 @@
       "inversedBy": "blogs"
     },
     "heading": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 100
     },
     "blog": {
       "type": "blocks"

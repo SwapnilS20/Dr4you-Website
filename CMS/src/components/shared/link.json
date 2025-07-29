@@ -7,10 +7,12 @@
   "options": {},
   "attributes": {
     "text": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 30
     },
     "url": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 100
     },
     "target": {
       "type": "enumeration",

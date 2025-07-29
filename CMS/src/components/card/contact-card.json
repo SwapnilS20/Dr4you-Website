@@ -6,10 +6,12 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 20
     },
     "details": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 50
     },
     "remixicon_classname": {
       "type": "string",

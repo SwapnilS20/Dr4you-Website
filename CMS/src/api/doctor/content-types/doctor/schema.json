@@ -12,7 +12,8 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 20
     },
     "service": {
       "type": "relation",
@@ -21,10 +22,12 @@
       "inversedBy": "doctors"
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 550
     },
     "message": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 550
     },
     "doctor_information": {
       "type": "component",

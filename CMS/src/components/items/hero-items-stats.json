@@ -6,7 +6,8 @@
   "options": {},
   "attributes": {
     "text": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 100
     },
     "value": {
       "type": "biginteger"

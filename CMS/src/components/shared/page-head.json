@@ -6,10 +6,12 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 50
     },
     "short_description": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 200
     }
   },
   "config": {}

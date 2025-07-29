@@ -9,9 +9,15 @@ export interface CardContactCard extends Struct.ComponentSchema {
     call_to_function: Schema.Attribute.Enumeration<
       ['call', 'whatsapp', 'mail']
     >;
-    details: Schema.Attribute.String;
+    details: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
     remixicon_classname: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
   };
 }
 
@@ -21,9 +27,15 @@ export interface CardPromiseCard extends Struct.ComponentSchema {
     displayName: '3-item-card';
   };
   attributes: {
-    description: Schema.Attribute.String;
+    description: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 35;
+      }>;
   };
 }
 
@@ -33,9 +45,15 @@ export interface CardWhyChooseUsCard extends Struct.ComponentSchema {
     displayName: 'Why-Choose-Us-Card';
   };
   attributes: {
-    description: Schema.Attribute.String;
+    description: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
     remixicon_classname: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 25;
+      }>;
   };
 }
 
@@ -46,7 +64,10 @@ export interface DynamicZoneContactInfo extends Struct.ComponentSchema {
   };
   attributes: {
     contact_items: Schema.Attribute.Component<'card.contact-card', true>;
-    google_map_embed_src: Schema.Attribute.Text;
+    google_map_embed_src: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 400;
+      }>;
     on_map_data: Schema.Attribute.Component<'card.contact-card', false>;
     whatsapp_number: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
@@ -71,10 +92,22 @@ export interface DynamicZoneDrs4YouStory extends Struct.ComponentSchema {
     displayName: 'Drs4you Story';
   };
   attributes: {
-    button_text: Schema.Attribute.String;
-    highlighting_head: Schema.Attribute.String;
-    normal_head: Schema.Attribute.String;
-    story_description: Schema.Attribute.Text;
+    button_text: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 30;
+      }>;
+    highlighting_head: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 40;
+      }>;
+    normal_head: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    story_description: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 1200;
+      }>;
     story_image: Schema.Attribute.Media<'images' | 'files'>;
   };
 }
@@ -95,7 +128,10 @@ export interface DynamicZoneHealthcarePathway extends Struct.ComponentSchema {
     displayName: 'Healthcare-Pathway';
   };
   attributes: {
-    heading: Schema.Attribute.String;
+    heading: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 40;
+      }>;
     pathway_card: Schema.Attribute.Component<'card.promise-card', true> &
       Schema.Attribute.SetMinMax<
         {
@@ -112,7 +148,10 @@ export interface DynamicZoneHeroSection extends Struct.ComponentSchema {
     displayName: 'Hero-section';
   };
   attributes: {
-    contact_number: Schema.Attribute.String;
+    contact_number: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 13;
+      }>;
     CTAs: Schema.Attribute.Component<'shared.button', true> &
       Schema.Attribute.SetMinMax<
         {
@@ -120,13 +159,25 @@ export interface DynamicZoneHeroSection extends Struct.ComponentSchema {
         },
         number
       >;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 400;
+      }>;
     doctor_image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
-    highlighting_text: Schema.Attribute.String;
-    on_image_text_1: Schema.Attribute.String;
-    on_image_text_2: Schema.Attribute.String;
+    highlighting_text: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    on_image_text_1: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    on_image_text_2: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
     our_rating_outof5: Schema.Attribute.Decimal &
       Schema.Attribute.SetMinMax<
         {
@@ -141,7 +192,10 @@ export interface DynamicZoneHeroSection extends Struct.ComponentSchema {
         },
         number
       >;
-    tagline: Schema.Attribute.String;
+    tagline: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
   };
 }
 
@@ -152,7 +206,10 @@ export interface DynamicZoneOurMission extends Struct.ComponentSchema {
   };
   attributes: {
     content: Schema.Attribute.Blocks;
-    heading: Schema.Attribute.String;
+    heading: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
     image: Schema.Attribute.Media<'images' | 'files'>;
   };
 }
@@ -163,7 +220,10 @@ export interface DynamicZoneOurVision extends Struct.ComponentSchema {
     displayName: 'Our-Vision';
   };
   attributes: {
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
     vision: Schema.Attribute.Blocks;
   };
 }
@@ -174,7 +234,10 @@ export interface DynamicZonePlatformWorking extends Struct.ComponentSchema {
     displayName: 'Platform-Working';
   };
   attributes: {
-    description: Schema.Attribute.String;
+    description: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
     platform_steps: Schema.Attribute.Component<'items.platform-items', true>;
     working_image: Schema.Attribute.Media<'images' | 'files'>;
   };
@@ -186,9 +249,15 @@ export interface DynamicZonePromiseSection extends Struct.ComponentSchema {
     displayName: 'promise_section';
   };
   attributes: {
-    heading: Schema.Attribute.String;
+    heading: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 30;
+      }>;
     promise_items: Schema.Attribute.Component<'card.promise-card', true>;
-    sub_heading: Schema.Attribute.String;
+    sub_heading: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 30;
+      }>;
   };
 }
 
@@ -200,10 +269,22 @@ export interface DynamicZoneRequestAppointmentForm
   };
   attributes: {
     CTA: Schema.Attribute.Component<'shared.button', false>;
-    description: Schema.Attribute.Text;
-    form_button_text: Schema.Attribute.String;
-    form_head: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 250;
+      }>;
+    form_button_text: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
+    form_head: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 85;
+      }>;
   };
 }
 
@@ -234,13 +315,25 @@ export interface DynamicZoneWelcomeBanner extends Struct.ComponentSchema {
     displayName: 'Welcome-Banner';
   };
   attributes: {
-    button_text: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
+    button_text: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 15;
+      }>;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 400;
+      }>;
     patient_image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
-    placeholder: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    placeholder: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 30;
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
     whatsapp_number: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 10;
@@ -255,10 +348,22 @@ export interface DynamicZoneWhyChooseUs extends Struct.ComponentSchema {
   };
   attributes: {
     doctor_image: Schema.Attribute.Media<'images' | 'files'>;
-    on_image_percentage: Schema.Attribute.String;
-    section_name: Schema.Attribute.String;
-    title_line1: Schema.Attribute.String;
-    title_line2: Schema.Attribute.String;
+    on_image_percentage: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 40;
+      }>;
+    section_name: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
+    title_line1: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 30;
+      }>;
+    title_line2: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 30;
+      }>;
     Why_Choose_Items: Schema.Attribute.Component<
       'card.why-choose-us-card',
       true
@@ -272,11 +377,26 @@ export interface GlobalFooter extends Struct.ComponentSchema {
     displayName: 'Footer';
   };
   attributes: {
-    copyright: Schema.Attribute.String;
-    description: Schema.Attribute.String;
-    links_title_1: Schema.Attribute.String;
-    links_title_2: Schema.Attribute.String;
-    links_title_3: Schema.Attribute.String;
+    copyright: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    description: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 80;
+      }>;
+    links_title_1: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
+    links_title_2: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
+    links_title_3: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
     logo: Schema.Attribute.Media<'images' | 'files'>;
     policy_links: Schema.Attribute.Component<'shared.link', true>;
     services_links: Schema.Attribute.Component<'shared.link', true>;
@@ -310,7 +430,10 @@ export interface ItemsDoctorDetails extends Struct.ComponentSchema {
       'shared.doctor-qualification',
       true
     >;
-    heading: Schema.Attribute.String;
+    heading: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
     type: Schema.Attribute.Enumeration<
       ['Expertise', 'Education', 'Experience']
     >;
@@ -324,7 +447,10 @@ export interface ItemsHeroItemsStats extends Struct.ComponentSchema {
   };
   attributes: {
     span: Schema.Attribute.Boolean;
-    text: Schema.Attribute.String;
+    text: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
     value: Schema.Attribute.BigInteger;
   };
 }
@@ -335,7 +461,11 @@ export interface ItemsNavbarItems extends Struct.ComponentSchema {
     displayName: 'Navbar_items';
   };
   attributes: {
-    name: Schema.Attribute.String & Schema.Attribute.Required;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 15;
+      }>;
     remixicon_classname: Schema.Attribute.String;
   };
 }
@@ -346,8 +476,14 @@ export interface ItemsPlatformItems extends Struct.ComponentSchema {
     displayName: 'platform_items';
   };
   attributes: {
-    step_description: Schema.Attribute.String;
-    step_head: Schema.Attribute.String;
+    step_description: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 180;
+      }>;
+    step_head: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 30;
+      }>;
   };
 }
 
@@ -360,8 +496,14 @@ export interface SharedButton extends Struct.ComponentSchema {
     target: Schema.Attribute.Enumeration<
       ['_blank', '_self', '_parent', '_top']
     >;
-    text: Schema.Attribute.String;
-    url: Schema.Attribute.String;
+    text: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
+    url: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
   };
 }
 
@@ -371,7 +513,10 @@ export interface SharedDoctorQualification extends Struct.ComponentSchema {
     displayName: 'doctor_qualification';
   };
   attributes: {
-    text: Schema.Attribute.String;
+    text: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
   };
 }
 
@@ -385,8 +530,14 @@ export interface SharedLink extends Struct.ComponentSchema {
     target: Schema.Attribute.Enumeration<
       ['_blank', '_self', '_parent', '_top']
     >;
-    text: Schema.Attribute.String;
-    url: Schema.Attribute.String;
+    text: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 30;
+      }>;
+    url: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
   };
 }
 
@@ -396,8 +547,14 @@ export interface SharedPageHead extends Struct.ComponentSchema {
     displayName: '2-items-head';
   };
   attributes: {
-    short_description: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    short_description: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
   };
 }
 

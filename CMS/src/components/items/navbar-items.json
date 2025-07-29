@@ -7,6 +7,7 @@
   "attributes": {
     "name": {
       "type": "string",
+      "maxLength": 15,
       "required": true,
       "unique": false
     },

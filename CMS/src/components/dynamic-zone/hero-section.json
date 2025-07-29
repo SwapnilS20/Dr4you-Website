@@ -6,13 +6,16 @@
   "options": {},
   "attributes": {
     "tagline": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 100
     },
     "highlighting_text": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 100
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 400
     },
     "CTAs": {
       "type": "component",
@@ -21,7 +24,8 @@
       "max": 2
     },
     "contact_number": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 13
     },
     "our_stats": {
       "type": "component",
@@ -40,10 +44,12 @@
       ]
     },
     "on_image_text_1": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 100
     },
     "on_image_text_2": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 100
     },
     "our_rating_outof5": {
       "type": "decimal",

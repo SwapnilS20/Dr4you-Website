@@ -14,19 +14,24 @@
       ]
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 80
     },
     "copyright": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 50
     },
     "links_title_1": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 20
     },
     "links_title_2": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 20
     },
     "links_title_3": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 20
     },
     "support": {
       "type": "component",
