@@ -1,9 +1,6 @@
-import React from "react";
-import Header from "../../components/Header/Header";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import ContactDetails from "../../components/ContactForm/ContactDetails";
-import AppointmentFORM from "../../components/AppointmentForm/AppointmentForm.jsx";
-import Footer from "../../components/Footer/Footer.jsx";
+import AppointmentFORM from "../../components/AppointmentForm/AppointmentForm.jsx"; 
 import { useSelector } from "react-redux";
 
 

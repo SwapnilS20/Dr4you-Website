@@ -1,45 +1,50 @@
 import React from "react";
 import axios from "axios";
+import { useForm } from "react-hook-form";
 
 const ContactForm = () => {
-  const handleSubmit = (e) => {
-  e.preventDefault();
-  
-  const url = "https://script.google.com/macros/s/AKfycbzrCp1u7eYc8-KU31lX4pC7I4U1PTmeq43RVeuWu9Oqwu-VCTph1PVbMKLKPk878cND/exec";
-  const form = e.target;
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
-  const formData = new FormData(form);
-  const data = new URLSearchParams();
+  const url =
+    "https://script.google.com/macros/s/AKfycbzrCp1u7eYc8-KU31lX4pC7I4U1PTmeq43RVeuWu9Oqwu-VCTph1PVbMKLKPk878cND/exec";
 
-  for (const [key, value] of formData.entries()) {
-    data.append(key, value);
-  }
-  
-  data.append("sheetName", "ContactForm");
+  const onSubmit = async (data) => {
+    // Merge country code with phone for demonstration
+    const mergedData = {
+      ...data,
+      Phone: `${data.CountryCode} ${data.Phone}`,
+      sheetName: "ContactForm",
+    };
+    // Remove CountryCode as it's merged
+    delete mergedData.CountryCode;
 
-  console.log([...data.entries()]);  // Debug output
+    const urlParams = new URLSearchParams(mergedData);
 
-  axios.post(url, data, {
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  })
-  .then((response) => {
-    alert(response.data);
-    form.reset();  // Clear form on success
-  })
-  .catch((error) => {
-    console.error("Error submitting form:", error);
-    alert("Submission failed.");
-  });
-};
-
+    try {
+      const response = await axios.post(url, urlParams, {
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      });
+      alert(response.data);
+      reset();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Submission failed.");
+    }
+  };
 
   return (
     <div className="xl:w-[500px]  lg:w-[40vw] border border-blue-300 border-opacity-50 rounded-xl p-8 shadow-xl bg-white mx-auto mt-4">
       <form
         className="grid grid-cols-1 md:grid-cols-2 gap-6"
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit(onSubmit)}
+        autoComplete="off"
       >
-        {/* First and Last Name */}
+        {/* First Name */}
         <div className="flex flex-col">
           <label className="text-base font-medium mb-1 text-gray-700">
             First name
@@ -47,20 +52,46 @@ const ContactForm = () => {
           <input
             type="text"
             placeholder="John"
-            name="FirstName"
+            {...register("FirstName", {
+              required: "First name is required",
+              maxLength: 40,
+              pattern: {
+                value: /^[a-zA-Z\s'-]+$/,
+                message: "First name has invalid characters",
+              },
+            })}
             className="border border-gray-300 rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
           />
+          {errors.FirstName && (
+            <span className="text-red-500 text-sm">
+              {errors.FirstName.message}
+            </span>
+          )}
         </div>
+
+        {/* Last Name */}
         <div className="flex flex-col">
           <label className="text-base font-medium mb-1 text-gray-700">
             Last name
           </label>
           <input
             type="text"
-            name="LastName"
             placeholder="Doe"
+            {...register("LastName", {
+              required: "Last name is required",
+              maxLength: 40,
+              pattern: {
+                value: /^[a-zA-Z\s'-]+$/,
+                message: "Last name has invalid characters",
+              },
+            })}
             className="border border-gray-300 rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
           />
+          {errors.LastName && (
+            <span className="text-red-500 text-sm">
+              {errors.LastName.message}
+            </span>
+          )}
         </div>
 
         {/* Email */}
@@ -70,10 +101,19 @@ const ContactForm = () => {
           </label>
           <input
             type="email"
-            name="Email"
             placeholder="you@example.com"
+            {...register("Email", {
+              required: "Email is required",
+              pattern: {
+                value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+                message: "Invalid email",
+              },
+            })}
             className="border border-gray-300 rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
           />
+          {errors.Email && (
+            <span className="text-red-500 text-sm">{errors.Email.message}</span>
+          )}
         </div>
 
         {/* Phone Number */}
@@ -82,7 +122,11 @@ const ContactForm = () => {
             Phone number
           </label>
           <div className="flex items-center gap-3">
-            <select className="border border-gray-300 rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+            <select
+              {...register("CountryCode", { required: true })}
+              className="border border-gray-300 rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              defaultValue="IN"
+            >
               <option value="IN">IN</option>
               <option value="US">US</option>
               <option value="UK">UK</option>
@@ -90,10 +134,19 @@ const ContactForm = () => {
             <input
               type="tel"
               placeholder="+91 9876543210"
-              name="Phone"
+              {...register("Phone", {
+                required: "Phone number is required",
+                pattern: {
+                  value: /^\d{10}$/,
+                  message: "Phone number must be exactly 10 digits",
+                },
+              })}
               className="flex-1 border border-gray-300 rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
             />
           </div>
+          {errors.Phone && (
+            <span className="text-red-500 text-sm">{errors.Phone.message}</span>
+          )}
         </div>
 
         {/* Date Picker */}
@@ -103,9 +156,14 @@ const ContactForm = () => {
           </label>
           <input
             type="date"
-            name="Date"
+            {...register("Date", {
+              required: "Date is required",
+            })}
             className="border border-gray-300 rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
           />
+          {errors.Date && (
+            <span className="text-red-500 text-sm">{errors.Date.message}</span>
+          )}
         </div>
 
         {/* Message */}
@@ -116,9 +174,26 @@ const ContactForm = () => {
           <textarea
             rows="6"
             placeholder="Your message here..."
-            name="Message"
+            {...register("Message", {
+              required: "Message is required",
+              minLength: {
+                value: 10,
+                message: "Message must be at least 10 characters",
+              },
+              maxLength: {
+                value: 1000,
+                message: "Message too long",
+              },
+              validate: (value) =>
+                !/<\s*script/gi.test(value) || "No scripts allowed",
+            })}
             className="border border-gray-300 rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none transition"
           ></textarea>
+          {errors.Message && (
+            <span className="text-red-500 text-sm">
+              {errors.Message.message}
+            </span>
+          )}
         </div>
 
         {/* Submit Button */}
