@@ -14,16 +14,20 @@
       ]
     },
     "highlighting_head": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 40
     },
     "normal_head": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 50
     },
     "story_description": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 1200
     },
     "button_text": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 30
     }
   },
   "config": {}

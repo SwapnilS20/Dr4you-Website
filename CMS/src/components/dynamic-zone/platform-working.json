@@ -6,7 +6,8 @@
   "options": {},
   "attributes": {
     "description": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 300
     },
     "working_image": {
       "type": "media",

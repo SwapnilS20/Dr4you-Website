@@ -12,7 +12,8 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 15
     },
     "dynamic_zone": {
       "type": "dynamiczone",

@@ -6,16 +6,20 @@
   "options": {},
   "attributes": {
     "section_name": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 20
     },
     "title_line1": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 30
     },
     "title_line2": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 30
     },
     "on_image_percentage": {
       "type": "string",
+      "maxLength": 40,
       "regex": "(100|[1-9]?[0-9])%"
     },
     "doctor_image": {

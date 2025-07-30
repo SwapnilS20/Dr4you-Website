@@ -34,7 +34,7 @@ const Specialities = () => {
   }, []);
 
   const offset = currentPage * itemsPerPage;
-  const currentItems = specialitiesData.slice(offset, offset + itemsPerPage);
+  const currentItems = specialitiesData?.slice(offset, offset + itemsPerPage);
   const pageCount = Math.ceil(specialitiesData.length / itemsPerPage);
 
   const handlePageClick = ({ selected }) => {

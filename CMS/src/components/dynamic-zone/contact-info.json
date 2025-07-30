@@ -6,7 +6,8 @@
   "options": {},
   "attributes": {
     "google_map_embed_src": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 400
     },
     "contact_items": {
       "type": "component",

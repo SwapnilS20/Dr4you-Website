@@ -6,10 +6,12 @@
   "options": {},
   "attributes": {
     "step_head": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 30
     },
     "step_description": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 180
     }
   },
   "config": {}

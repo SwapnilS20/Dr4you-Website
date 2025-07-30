@@ -12,10 +12,12 @@
   "pluginOptions": {},
   "attributes": {
     "question": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 250
     },
     "answer": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 800
     },
     "type": {
       "type": "enumeration",

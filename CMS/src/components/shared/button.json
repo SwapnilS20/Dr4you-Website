@@ -6,10 +6,12 @@
   "options": {},
   "attributes": {
     "text": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 20
     },
     "url": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 500
     },
     "target": {
       "type": "enumeration",

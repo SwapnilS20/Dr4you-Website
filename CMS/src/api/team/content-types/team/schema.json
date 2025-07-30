@@ -12,10 +12,12 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 30
     },
     "position": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 50
     },
     "information": {
       "type": "blocks"

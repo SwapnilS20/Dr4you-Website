@@ -12,10 +12,12 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 30
     },
     "short_description": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 200
     },
     "icon": {
       "type": "media",

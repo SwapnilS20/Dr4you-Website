@@ -12,7 +12,8 @@
   "pluginOptions": {},
   "attributes": {
     "patient_name": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 30
     },
     "patient_image": {
       "type": "media",
@@ -25,7 +26,8 @@
       ]
     },
     "message": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 1000
     },
     "our_rating_outof5": {
       "type": "decimal",

@@ -6,10 +6,12 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 85
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 250
     },
     "CTA": {
       "type": "component",
@@ -17,10 +19,12 @@
       "repeatable": false
     },
     "form_head": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 20
     },
     "form_button_text": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 20
     }
   },
   "config": {}

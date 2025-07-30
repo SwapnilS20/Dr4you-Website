@@ -6,7 +6,8 @@
   "options": {},
   "attributes": {
     "heading": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 20
     },
     "content": {
       "type": "blocks"
