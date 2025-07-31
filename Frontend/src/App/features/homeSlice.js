@@ -8,6 +8,7 @@ const initialState = {
   PlatformWork: [],
   about: [],
   team: [],
+  policy: [],
 };
 
 export const homeSlice = createSlice({
@@ -37,6 +38,9 @@ export const homeSlice = createSlice({
     setServicesComponentInfo: (state, action) => {
       state.servicesComponentInfo = action.payload;
     },
+    setPolicyData: (state, action) => {
+      state.policy = action.payload;
+    },
   },
 });
 
@@ -49,6 +53,7 @@ export const {
   setAboutData,
   setTeamData,
   setServicesComponentInfo,
+  setPolicyData,
 } = homeSlice.actions;
 
 // Export reducer
