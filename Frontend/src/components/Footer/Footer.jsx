@@ -73,7 +73,7 @@ const Footer = () => {
                   <li
                     key={i}
                     className=" font-manrope text-base text-Neutral-900 hover:cursor-pointer"
-                    onClick={() => navigate(`category${data.url}`)}
+                    onClick={() => navigate(`policy${data.url}`)}
                   >
                     {data.text}
                   </li>

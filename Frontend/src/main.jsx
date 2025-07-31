@@ -18,6 +18,7 @@ import { Provider } from "react-redux";
 import {store , persistor} from "./App/store.js";
 import TestimonialPage from "./Pages/TestimonialsPage/TestimonialPage.jsx";
 import { PersistGate } from "redux-persist/integration/react";
+import PolicyPage from "./Pages/PoliciesPages/PolicyPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />,
+      },
+      {
+        path: "/policy/:type",
+        element: <PolicyPage />,
       },
     ],
   },

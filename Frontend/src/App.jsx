@@ -14,6 +14,7 @@ import {
   setAboutData,
   setTeamData,
   setServicesComponentInfo,
+  setPolicyData
 } from "./App/features/homeSlice.js";
 
 import {
@@ -79,6 +80,8 @@ function App() {
   const team = useFetch(`${baseUrl}/api/teams?populate=*`);
 
   const blog = useFetch(`${baseUrl}/api/blogs?populate=*`);
+
+  const policy = useFetch(`${baseUrl}/api/policies?populate=*`);
 
   const location = useLocation();
 
@@ -212,6 +215,11 @@ function App() {
       if (blog) dispatch(setBlogs(blog?.data?.data));
       
     }
+
+    if (policy.loading === false) {
+      if (policy) dispatch(setPolicyData(policy?.data?.data));
+    }
+
 
   }, [
     homePageData.loading,
