@@ -43,14 +43,14 @@
       "component": "shared.link",
       "repeatable": true
     },
-    "policy_links": {
-      "type": "component",
-      "component": "shared.link",
-      "repeatable": true
-    },
     "social_icons": {
       "type": "component",
       "component": "shared.social-media-icon-links",
+      "repeatable": true
+    },
+    "policy_links": {
+      "type": "component",
+      "component": "shared.policy-links",
       "repeatable": true
     }
   },

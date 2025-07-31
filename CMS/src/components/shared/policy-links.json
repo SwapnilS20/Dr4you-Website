@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_policy_links",
+  "info": {
+    "displayName": "policy links"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "cookie",
+        "refund",
+        "privacy",
+        "terms&conditions"
+      ]
+    }
+  },
+  "config": {}
+}

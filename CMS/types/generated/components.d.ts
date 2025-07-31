@@ -398,7 +398,7 @@ export interface GlobalFooter extends Struct.ComponentSchema {
         maxLength: 20;
       }>;
     logo: Schema.Attribute.Media<'images' | 'files'>;
-    policy_links: Schema.Attribute.Component<'shared.link', true>;
+    policy_links: Schema.Attribute.Component<'shared.policy-links', true>;
     services_links: Schema.Attribute.Component<'shared.link', true>;
     social_icons: Schema.Attribute.Component<
       'shared.social-media-icon-links',
@@ -558,6 +558,20 @@ export interface SharedPageHead extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedPolicyLinks extends Struct.ComponentSchema {
+  collectionName: 'components_shared_policy_links';
+  info: {
+    displayName: 'policy links';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<
+      ['cookie', 'refund', 'privacy', 'terms&conditions']
+    >;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface SharedSocialMediaIconLinks extends Struct.ComponentSchema {
   collectionName: 'components_shared_social_media_icon_links';
   info: {
@@ -600,6 +614,7 @@ declare module '@strapi/strapi' {
       'shared.doctor-qualification': SharedDoctorQualification;
       'shared.link': SharedLink;
       'shared.page-head': SharedPageHead;
+      'shared.policy-links': SharedPolicyLinks;
       'shared.social-media-icon-links': SharedSocialMediaIconLinks;
     }
   }

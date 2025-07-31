@@ -11,17 +11,17 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "content": {
-      "type": "richtext"
-    },
     "type": {
       "type": "enumeration",
       "enum": [
         "refund",
         "cookie",
-        "terms and condition",
+        "terms&condition",
         "privacy"
       ]
+    },
+    "content": {
+      "type": "blocks"
     }
   }
 }

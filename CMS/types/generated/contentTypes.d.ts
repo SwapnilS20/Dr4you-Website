@@ -609,7 +609,7 @@ export interface ApiPolicyPolicy extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    content: Schema.Attribute.RichText;
+    content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -621,7 +621,7 @@ export interface ApiPolicyPolicy extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     type: Schema.Attribute.Enumeration<
-      ['refund', 'cookie', 'terms and condition', 'privacy']
+      ['refund', 'cookie', 'terms&condition', 'privacy']
     >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
