@@ -45,40 +45,40 @@ import useFetch from "./Hooks/useFetch.js";
 function App() {
   const [path, setPath] = useState("");
   const dispatch = useDispatch();
-
+  const baseUrl = import.meta.env.VITE_STRAPI_URL;
   const headerFooterData = useFetch(
-    "http://localhost:1337/api/header-and-footer?populate[Header][populate]=*&populate[Footer][populate][logo]=true&populate[Footer][populate][policy_links]=true&populate[Footer][populate][services_links]=true&populate[Footer][populate][support]=true&populate[Footer][populate][social_icons][populate]=link"
+    `${baseUrl}/api/header-and-footer?populate[Header][populate]=*&populate[Footer][populate][logo]=true&populate[Footer][populate][policy_links]=true&populate[Footer][populate][services_links]=true&populate[Footer][populate][support]=true&populate[Footer][populate][social_icons][populate]=link`
   );
 
   const homePageData = useFetch(
-    "http://localhost:1337/api/pages?populate[0]=dynamic_zone&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][doctor_image]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][CTAs]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][our_stats]=true&populate[dynamic_zone][on][dynamic-zone.welcome-banner][populate][patient_image]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][platform_steps][populate]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][working_image][populate]=true&populate[dynamic_zone][on][dynamic-zone.testimonial-section-head][populate]=*&populate[pagehead]=true&populate[dynamic_zone][on][dynamic-zone.contact-info][populate]=*&populate[dynamic_zone][on][dynamic-zone.services-card-section][populate]=*"
+    `${baseUrl}/api/pages?populate[0]=dynamic_zone&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][doctor_image]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][CTAs]=true&populate[dynamic_zone][on][dynamic-zone.hero-section][populate][our_stats]=true&populate[dynamic_zone][on][dynamic-zone.welcome-banner][populate][patient_image]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][platform_steps][populate]=true&populate[dynamic_zone][on][dynamic-zone.platform-working][populate][working_image][populate]=true&populate[dynamic_zone][on][dynamic-zone.testimonial-section-head][populate]=*&populate[pagehead]=true&populate[dynamic_zone][on][dynamic-zone.contact-info][populate]=*&populate[dynamic_zone][on][dynamic-zone.services-card-section][populate]=*`
   );
 
   const repeatedComponents = useFetch(
-    "http://localhost:1337/api/repeated-component?populate[Drs4you_Story][populate]=story_image&populate[Why_Choose_Us][populate]=doctor_image&populate[Why_Choose_Us][populate]=Why_Choose_Items&populate[Promise_Section][populate]=true&populate[Promise_Section][populate]=promise_items.icon&populate[Doctor_Section_Head][populate]=sectionhead&populate[FAQ_Section_Head][populate]=sectionhead&populate[Request_Appointment_Form][populate]=CTA&populate[Healthcare_Pathway][populate]=pathway_card.icon"
+    `${baseUrl}/api/repeated-component?populate[Drs4you_Story][populate]=story_image&populate[Why_Choose_Us][populate]=doctor_image&populate[Why_Choose_Us][populate]=Why_Choose_Items&populate[Promise_Section][populate]=true&populate[Promise_Section][populate]=promise_items.icon&populate[Doctor_Section_Head][populate]=sectionhead&populate[FAQ_Section_Head][populate]=sectionhead&populate[Request_Appointment_Form][populate]=CTA&populate[Healthcare_Pathway][populate]=pathway_card.icon`
   );
 
   const categories = useFetch(
-    "http://localhost:1337/api/services?populate=icon"
+    `${baseUrl}/api/services?populate=icon`
   );
 
   const doctors = useFetch(
-    "http://localhost:1337/api/doctors?populate[doctor_information][populate]=doctor_qualification&populate[doctor_image][populate]=true&populate[service][fields][0]=name"
+    `${baseUrl}/api/doctors?populate[doctor_information][populate]=doctor_qualification&populate[doctor_image][populate]=true&populate[service][fields][0]=name`
   );
 
   const testimonials = useFetch(
-    "http://localhost:1337/api/testimonials?populate=*"
+    `${baseUrl}/api/testimonials?populate=*`
   );
 
-  const faqs = useFetch("http://localhost:1337/api/FAQs?populate=*");
+  const faqs = useFetch(`${baseUrl}/api/FAQs?populate=*`);
 
   const about = useFetch(
-    "http://localhost:1337/api/pages?populate[dynamic_zone][on][dynamic-zone.our-vision][populate]=true&populate[dynamic_zone][on][dynamic-zone.our-mission][populate]=image&populate[pagehead]=true"
+    `${baseUrl}/api/pages?populate[dynamic_zone][on][dynamic-zone.our-vision][populate]=true&populate[dynamic_zone][on][dynamic-zone.our-mission][populate]=image&populate[pagehead]=true`
   );
 
-  const team = useFetch("http://localhost:1337/api/teams?populate=*");
+  const team = useFetch(`${baseUrl}/api/teams?populate=*`);
 
-  const blog = useFetch("http://localhost:1337/api/blogs?populate=*");
+  const blog = useFetch(`${baseUrl}/api/blogs?populate=*`);
 
   const location = useLocation();
 
