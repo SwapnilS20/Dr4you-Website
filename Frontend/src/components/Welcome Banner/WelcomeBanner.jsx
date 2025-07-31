@@ -17,7 +17,7 @@ function WelcomeBanner() {
   } = useForm();
 
   const url =
-    "https://script.google.com/macros/s/AKfycbzrCp1u7eYc8-KU31lX4pC7I4U1PTmeq43RVeuWu9Oqwu-VCTph1PVbMKLKPk878cND/exec";
+    "https://script.google.com/macros/s/AKfycbxKrVpxtsQnLDKoAc9c92MsBW8AdpLe_51adHrXcN8uVv3NZd1juAGJHvoHsk26r70/exec";
 
   const onSubmit = async (data) => {
     const urlParams = new URLSearchParams({
